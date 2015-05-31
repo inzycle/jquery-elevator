@@ -8,4 +8,5 @@ A better "back to top" plugin for jQuery. Currently with support for top and bot
 
 
 Salvador Saldaña
+
 Pablo Rosales
