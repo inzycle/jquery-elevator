@@ -1,0 +1,97 @@
+/* -- Anchors --------------------------------------------------------------- */
+
+#top.elevator { width: 0 !important; height: 0 !important; padding: 0 !important; margin: 0 !important; }
+
+#bottom.elevator { width: 0 !important; height: 0 !important; padding: 0 !important; margin: 0 !important; }
+
+/* -- jElevator ------------------------------------------------------------- */
+
+.jelevator { position: fixed; width: 60px; }
+
+    .jelevator.align-top { top: 10px; }
+    .jelevator.align-bottom { bottom: 10px; }
+    .jelevator.align-left { left: 10px; }
+    .jelevator.align-right { right: 10px; }
+
+    .jelevator a { text-decoration: none; font-family: "Courier New", Courier, monospace;
+        opacity: 0.5;
+        -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=50)";
+        filter: alpha(opacity=50);
+        -moz-opacity: 0.5;
+        -khtml-opacity: 0.5;
+        transition: opacity 0.2s linear;
+        -webkit-transition: opacity 0.2s linear;
+        -moz-transition: opacity 0.2s linear;
+        -o-transition: opacity 0.2s linear;
+    }
+    
+    .jelevator:hover a {
+        opacity: 1;
+        -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        filter: alpha(opacity=100);
+        -moz-opacity: 1;
+        -khtml-opacity: 1;
+    }
+
+.jelevator-document-anchor-top,
+.jelevator-document-anchor-bottom {
+
+    float: left;
+    
+    text-align: center;
+    font-size: 16px;
+    line-height: 16px;
+    
+    padding: 20px 0;
+    width: 60px;
+    display: block;
+    
+    color: #000;
+    background: #c6c6c6;
+
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -khtml-border-radius: 30px;
+    border-radius: 30px;
+
+}
+
+    .jelevator-document-anchor-top.item {
+    
+        font-size: 10px;
+        line-height: 12px;
+        
+        padding: 4px 0;
+        width: 20px;
+        margin: 5px 20px;
+
+        -moz-border-radius: 18px;
+        -webkit-border-radius: 18px;
+        -khtml-border-radius: 18px;
+        border-radius: 18px;
+    
+    }
+
+    .jelevator-document-anchor-bottom.item {
+    
+        text-align: center;
+        font-size: 10px;
+        line-height: 12px;
+        
+        padding: 4px 0;
+        width: 20px;
+        margin: 5px 20px;
+        display: block;
+        
+        color: #000;
+        background: #c6c6c6;
+    
+        -moz-border-radius: 18px;
+        -webkit-border-radius: 18px;
+        -khtml-border-radius: 18px;
+        border-radius: 18px;
+    
+    }
+    
+    .jelevator a { margin-bottom: 5px; }
+
