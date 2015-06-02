@@ -1,28 +1,31 @@
 (function($) {
  
     $.elevator = function(sections, options) {
-        
+
         var defaults = {
                 align_left: false,
                 align_top: false,
                 top: true,
                 bottom: true,
                 nav: false,
-                margin: 100,
-                classes: {
-                    elevator: '.elevator',
-                    top: '.jelevator-document-anchor-top',
-                    bottom: '.jelevator-document-anchor-bottom',
-                    section: '.jelevator-section-list',
-                    anchor: '.jelevator-section-anchor',
-                    anchor_top: '#jelevator-top',
-                    anchor_bottom: '#jelevator-bottom'
-                },
+                margin: 100
             },
             asClass = function (c) { return c.replace('.', ''); },
             asId = function (c) { return c.replace('#', ''); },
             settings = $.extend({}, defaults, options),
-            classes = settings.classes;
+            selectors = {
+                elevator: '.elevator',
+                top: '.jelevator-document-anchor-top',
+                bottom: '.jelevator-document-anchor-bottom',
+                section: '.jelevator-section-list',
+                anchor: '.jelevator-section-anchor',
+                anchor_top: '#jelevator-top',
+                anchor_bottom: '#jelevator-bottom'
+            };
+
+        function createElement(elem, classes) {
+            return $(elem).addClass(asClass(classes));
+        }
 
         var align_horizontal = settings.align_left == true ? 'align-left' : 'align-right';
         var align_vertical = settings.align_top == true ? 'align-top' : 'align-bottom';
@@ -32,42 +35,42 @@
          * Create the top anchor
          */
         function createTopAnchor() {
-            return $('<div>').addClass(asClass(classes.elevator)).attr('id', asId(classes.anchor_top));
+            return createElement('<div>', selectors.elevator).attr('id', asId(selectors.anchor_top));
         }
         
         /**
          * Create the go to top link
          */
         function createTopLink() {
-            return $('<a>').addClass(asClass(classes.top)).addClass('item').attr('href', classes.anchor_top).html('&#9650;');
+            return createElement('<a>', selectors.top).attr('href', selectors.anchor_top).html('&#9650;');
         }
         
         /**
          * Create the bottom anchor
          */
         function createBottomAnchor() {
-            return $('<div>').addClass(asClass(classes.elevator)).attr('id', asId(classes.anchor_bottom));
+            return createElement('<div>', selectors.elevator).attr('id', asId(selectors.anchor_bottom));
         }
         
         /**
          * Create the go to bottom link
          */
         function createBottomLink() {
-            return $('<a>').addClass(asClass(classes.bottom)).attr('href', classes.anchor_bottom).html('&#9660;');
+            return createElement('<a>', selectors.bottom).attr('href', selectors.anchor_bottom).html('&#9660;');
         }
         
         /**
          * Create the navigation for sections
          */
         function createNav() {
-            return $('<nav>').addClass(asClass(classes.section)); 
+            return createElement('<nav>', selectors.section);
         }
         
         /**
          * Create a single link for sections
          */
         function createSectionLink(name, title) {
-            return $('<a>').addClass(asClass(classes.anchor)).attr('href', name).text(title);
+            return createElement('<a>', selectors.anchor).attr('href', name).text(title);
         }
         
         /**
@@ -139,16 +142,12 @@
                 var at_top = pos <= margin;
                 var at_bottom = $win.scrollTop() + $win.height() > height - margin;
                 if (at_top) {
-
-                    $(classes.top).addClass('item');
-                    $(classes.bottom).removeClass('item');
-
+                    $(selectors.top).addClass('item');
+                    $(selectors.bottom).removeClass('item');
                 }
                 else if (at_bottom) {
-
-                    $(classes.top).removeClass('item');
-                    $(classes.bottom).addClass('item');
-
+                    $(selectors.top).removeClass('item');
+                    $(selectors.bottom).addClass('item');
                 }
             });
         }
@@ -157,8 +156,8 @@
          * Add the needed events
          */
         function addEvents() {
-            addScrollClickEvent(classes.bottom, $(document).height());
-            addScrollClickEvent(classes.top, 0);
+            addScrollClickEvent(selectors.bottom, $(document).height());
+            addScrollClickEvent(selectors.top, 0);
             addScrollDetectEvent();
         }
         
