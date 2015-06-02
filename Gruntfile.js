@@ -16,14 +16,17 @@ module.exports = function (grunt) {
         },
         jshint: {
             options: { jshintrc: true },
-            code: { src: ['src/*.js'] },
-            tests: { src: ['tests/*.js'] }
+            all: [
+                'Gruntfile.js',
+                'src/*.js',
+                'test/*.js'
+            ]
         },
         watch: {
             js: {
                 files: [
                     'src/*.js',
-                    'tests/*.js'
+                    'test/*.js'
                 ],
                 tasks: [
                     'compile',
