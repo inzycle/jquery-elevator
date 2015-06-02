@@ -1,19 +1,13 @@
-/* -- Anchors --------------------------------------------------------------- */
+/* -- jQuery Elevator ------------------------------------------------------------- */
 
-#top.elevator { width: 0 !important; height: 0 !important; padding: 0 !important; margin: 0 !important; }
+.jq-elevator { position: fixed; width: 60px; }
 
-#bottom.elevator { width: 0 !important; height: 0 !important; padding: 0 !important; margin: 0 !important; }
+    .jq-elevator.align-top { top: 10px; }
+    .jq-elevator.align-bottom { bottom: 10px; }
+    .jq-elevator.align-left { left: 10px; }
+    .jq-elevator.align-right { right: 10px; }
 
-/* -- jElevator ------------------------------------------------------------- */
-
-.jelevator { position: fixed; width: 60px; }
-
-    .jelevator.align-top { top: 10px; }
-    .jelevator.align-bottom { bottom: 10px; }
-    .jelevator.align-left { left: 10px; }
-    .jelevator.align-right { right: 10px; }
-
-    .jelevator a { text-decoration: none; font-family: "Courier New", Courier, monospace;
+    .jq-elevator a { text-decoration: none; font-family: "Courier New", Courier, monospace;
         opacity: 0.5;
         -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=50)";
         filter: alpha(opacity=50);
@@ -25,7 +19,7 @@
         -o-transition: opacity 0.2s linear;
     }
     
-    .jelevator:hover a {
+    .jq-elevator:hover a {
         opacity: 1;
         -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
         filter: alpha(opacity=100);
@@ -33,8 +27,8 @@
         -khtml-opacity: 1;
     }
 
-.jelevator-document-anchor-top,
-.jelevator-document-anchor-bottom {
+.jq-elevator-top,
+.jq-elevator-bottom {
 
     float: left;
     
@@ -56,7 +50,7 @@
 
 }
 
-    .jelevator-document-anchor-top.item {
+    .jq-elevator-top.item {
     
         font-size: 10px;
         line-height: 12px;
@@ -72,7 +66,7 @@
     
     }
 
-    .jelevator-document-anchor-bottom.item {
+    .jq-elevator-bottom.item {
     
         text-align: center;
         font-size: 10px;
@@ -93,5 +87,5 @@
     
     }
     
-    .jelevator a { margin-bottom: 5px; }
+    .jq-elevator a { margin-bottom: 5px; }
 
