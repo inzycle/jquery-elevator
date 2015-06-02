@@ -1,0 +1,11 @@
+{
+    "strict": true,
+    "browser": true,
+    "eqeqeq": true,
+    "immed": true,
+    "newcap": true,
+    "maxparams": 2,
+    "maxdepth": 3,
+    "maxstatements": 5,
+    "maxcomplexity": 6
+}
