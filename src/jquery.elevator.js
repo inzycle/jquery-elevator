@@ -103,6 +103,7 @@
             if (settings.nav) {
                 nav = createNav();
                 nav_list = createSectionsLinks();
+                nav.append(nav_list);
                 dom.append(nav);
             }
 
