@@ -1,0 +1,45 @@
+{
+    "name": "jquery-elevator",
+    "version": "0.1.0",
+    "title": "jQuery Elevator",
+    "description": "A better back to top jquery plugin.",
+    "keywords": [
+        "jquery",
+        "back-to-top",
+        "navigation"
+    ],
+    "homepage": "https://github.com/inzycle/jquery-elevator",
+    "author": {
+        "name": "inZycle",
+        "url": "http://www.inzycle.com"
+    },
+    "contributors": [
+        {
+            "name": "Salvador Saldana",
+            "url": "https://www.inzycle.com"
+        },
+        {
+            "name": "Pablo Rosales",
+            "url": "https://www.pablorosales.xyz"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/inzycle/jquery-elevator.git"
+    },
+    "bugs": "https://github.com/inzycle/jquery-elevator/issues",
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://www.opensource.org/licenses/MIT"
+        }
+    ],
+    "main": "js/jquery.elevator.js",
+    "devDependencies": {
+        "grunt": "^0.4.5",
+        "grunt-cli": "^0.1.13",
+        "grunt-contrib-clean": "^0.6.0",
+        "grunt-contrib-jshint": "^0.10.0",
+        "grunt-contrib-uglify": "~0.4.0"
+    }
+}
