@@ -2,12 +2,15 @@
 
 .jq-elevator { position: fixed; width: 60px; }
 
+    .jq-elevator:before, .jq-elevator:after { display: table; content: " "; }
+    .jq-elevator:after { clear: both; }
+
     .jq-elevator.align-top { top: 10px; }
     .jq-elevator.align-bottom { bottom: 10px; }
     .jq-elevator.align-left { left: 10px; }
     .jq-elevator.align-right { right: 10px; }
 
-    .jq-elevator a { text-decoration: none; font-family: "Courier New", Courier, monospace;
+    .jq-elevator a { text-decoration: none; font-family: "Courier New", Courier, monospace; float: left; text-align: center; color: #666666; background: #E9EDF1;
         opacity: 0.5;
         -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=50)";
         filter: alpha(opacity=50);
@@ -27,65 +30,147 @@
         -khtml-opacity: 1;
     }
 
-.jq-elevator-top,
-.jq-elevator-bottom {
+    .jq-top { /**/ }
+    .jq-item { /**/ }
+    .jq-bottom { /**/ }
 
-    float: left;
-    
-    text-align: center;
-    font-size: 16px;
-    line-height: 16px;
-    
-    padding: 20px 0;
-    width: 60px;
-    display: block;
-    
-    color: #000;
-    background: #c6c6c6;
+    .jq-big, .jq-big.circle { /* 2px horizontal adjust */
 
-    -moz-border-radius: 30px;
-    -webkit-border-radius: 30px;
-    -khtml-border-radius: 30px;
-    border-radius: 30px;
+        font-size: 16px;
+        line-height: 16px;
 
-}
+        padding: 20px 0;
+        width: 60px;
 
-    .jq-elevator-top.item {
-    
+        -moz-border-radius: 30px;
+        -webkit-border-radius: 30px;
+        -khtml-border-radius: 30px;
+        border-radius: 30px;
+
+    }
+
+        .rounded .jq-big, .jq-big.rounded { /* 2px horizontal adjust */
+
+            font-size: 16px;
+            line-height: 16px;
+
+            padding: 20px 0;
+            width: 60px;
+
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -khtml-border-radius: 10px;
+            border-radius: 10px;
+
+        }
+
+        .square .jq-big, .jq-big.square { /* 2px horizontal adjust */
+
+            font-size: 16px;
+            line-height: 16px;
+
+            padding: 20px 0;
+            width: 60px;
+
+            -moz-border-radius: 0;
+            -webkit-border-radius: 0;
+            -khtml-border-radius: 0;
+            border-radius: 0;
+
+        }
+
+    .jq-mid, .jq-mid.circle { /* 2px horizontal adjust */
+
+        font-size: 16px;
+        line-height: 16px;
+
+        padding: 12px 0;
+        width: 40px;
+        margin: 5px 10px;
+
+        -moz-border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -khtml-border-radius: 20px;
+        border-radius: 20px;
+
+    }
+
+        .rounded .jq-mid, .jq-mid.rounded { /* 2px horizontal adjust */
+
+            font-size: 16px;
+            line-height: 16px;
+
+            padding: 12px 0;
+            width: 40px;
+            margin: 5px 10px;
+
+            -moz-border-radius: 8px;
+            -webkit-border-radius: 8px;
+            -khtml-border-radius: 8px;
+            border-radius: 8px;
+
+        }
+
+        .square .jq-mid, .jq-mid.square { /* 2px horizontal adjust */
+
+            font-size: 16px;
+            line-height: 16px;
+
+            padding: 12px 0;
+            width: 40px;
+            margin: 5px 10px;
+
+            -moz-border-radius: 0;
+            -webkit-border-radius: 0;
+            -khtml-border-radius: 0;
+            border-radius: 0;
+
+        }
+
+    .jq-sml, .jq-sml.circle { /* 2px horizontal adjust */
+
         font-size: 10px;
         line-height: 12px;
-        
+
         padding: 4px 0;
         width: 20px;
         margin: 5px 20px;
 
-        -moz-border-radius: 18px;
-        -webkit-border-radius: 18px;
-        -khtml-border-radius: 18px;
-        border-radius: 18px;
-    
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -khtml-border-radius: 10px;
+        border-radius: 10px;
     }
 
-    .jq-elevator-bottom.item {
-    
-        text-align: center;
-        font-size: 10px;
-        line-height: 12px;
-        
-        padding: 4px 0;
-        width: 20px;
-        margin: 5px 20px;
-        display: block;
-        
-        color: #000;
-        background: #c6c6c6;
-    
-        -moz-border-radius: 18px;
-        -webkit-border-radius: 18px;
-        -khtml-border-radius: 18px;
-        border-radius: 18px;
-    
-    }
-    
-    .jq-elevator a { margin-bottom: 5px; }
+        .rounded .jq-sml, .jq-sml.rounded { /* 2px horizontal adjust */
+
+            font-size: 10px;
+            line-height: 12px;
+
+            padding: 4px 0;
+            width: 20px;
+            margin: 5px 20px;
+
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -khtml-border-radius: 4px;
+            border-radius: 4px;
+        }
+
+        .square .jq-sml, .jq-sml.square { /* 2px horizontal adjust */
+
+            font-size: 10px;
+            line-height: 12px;
+
+            padding: 4px 0;
+            width: 20px;
+            margin: 5px 20px;
+
+            -moz-border-radius: 0;
+            -webkit-border-radius: 0;
+            -khtml-border-radius: 0;
+            border-radius: 0;
+        }
+
+    /*.jq-elevator a { margin-bottom: 5px; }*/
 
