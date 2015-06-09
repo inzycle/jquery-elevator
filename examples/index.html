@@ -127,7 +127,9 @@
             ],
             item_bottom: $('#section'),
             speed: 2000,
-            shape: 'rounded'
+            shape: 'rounded',
+            onBeforeMove: function(){ alert('onBeforeMove'); },
+            onAfterMove: function(){ alert('onAfterMove'); }
         });
     </script>
 

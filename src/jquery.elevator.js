@@ -16,7 +16,9 @@
             item_bottom: false,
             navigation: [],
             margin: 100,
-            speed: 1000
+            speed: 1000,
+            onBeforeMove: function(){},
+            onAfterMove: function(){}
         },
         settings = {},
         $doc = $(document),
@@ -25,14 +27,22 @@
         top_link,
         bottom_link;
 
+
     $.elevator = function(options) {
 
         settings = $.extend({}, defaults, options);
 
         function scrollTo(target) {
-            $('html, body').animate({
+
+            settings.onBeforeMove.call(this);
+
+            $('body').animate({
                 scrollTop: target
-            }, settings.speed);
+            }, {
+                duration: settings.speed,
+                complete: settings.onAfterMove
+            });
+
         }
 
         function getDocHeight() {
