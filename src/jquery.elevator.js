@@ -43,16 +43,19 @@
 
             var _class = 'jq-top jq-mid',
                 _anchor = '#',
+                _title = 'Go to Top',
                 _item_top = settings.item_top;
 
             if(_item_top && typeof(_item_top) == 'object'){
                 _item_top.attr('id') ? _item_top.attr('id') : _item_top.attr('id','jq-TOP');
                 _anchor = '#' + _item_top.attr('id');
+                _title = _item_top.attr('title') ? _item_top.attr('title') : _item_top.attr('data-title');
             }
 
             top_link = $('<a>')
                 .addClass(_class)
                 .attr('href', _anchor)
+                .attr('title', _title)
                 .html('&#9650;');
 
             top_link.on('click.' + _class, function(e) {
@@ -73,6 +76,7 @@
 
             var _class = 'jq-item jq-sml',
                 _anchor = '#',
+                _title = '',
                 _navigation = settings.navigation;
 
             $.each(_navigation, function(key, val){
@@ -80,10 +84,13 @@
                 $(val).attr('id') ? $(val).attr('id') : $(val).attr('id','jq-' + parseInt($(val).offset().top));
                 _anchor = '#' + $(val).attr('id');
 
+                _title = $(val).attr('title') ? $(val).attr('title') : $(val).attr('data-title');
+
                 var item_link = $('<a>')
                     .addClass(_class)
                     .attr('href', _anchor)
-                    .html('&#9664;');
+                    .attr('title', _title)
+                    .html('&nbsp');
 
                 $div.append(item_link);
 
@@ -103,16 +110,19 @@
 
             var _class = 'jq-bottom jq-mid',
                 _anchor = '#',
+                _title = 'Go to Bottom',
                 _item_bottom = settings.item_bottom;
 
             if(_item_bottom && typeof(_item_bottom) == 'object'){
                 _item_bottom.attr('id') ? _item_bottom.attr('id') : _item_bottom.attr('id','jq-BOTTOM');
                 _anchor = '#' + _item_bottom.attr('id');
+                _title = _item_bottom.attr('title') ? _item_bottom.attr('title') : _item_bottom.attr('data-title');
             }
 
             bottom_link = $('<a>')
                 .addClass(_class)
                 .attr('href', _anchor)
+                .attr('title', _title)
                 .html('&#9660;');
 
             bottom_link.on('click.' + _class, function(e) {

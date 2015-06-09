@@ -28,6 +28,11 @@
         filter: alpha(opacity=100);
         -moz-opacity: 1;
         -khtml-opacity: 1;
+        box-shadow: 1px 1px 2px #d0d4d8;
+    }
+
+    .jq-elevator:hover a:active {
+        box-shadow: 1px 1px 2px #d0d4d8 inset;
     }
 
     .jq-top { /**/ }
