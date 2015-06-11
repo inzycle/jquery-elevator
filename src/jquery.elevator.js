@@ -9,11 +9,11 @@
 }(function($) {
 
     var defaults = {
-            align: 'bottom right',
             show_top: true,
-            item_top: false,
             show_bottom: true,
+            item_top: false,
             item_bottom: false,
+            align: 'bottom right',
             navigation: [],
             margin: 100,
             speed: 1000,
@@ -51,26 +51,26 @@
 
         function createTopLink() {
 
-            var _class = 'jq-top jq-mid',
-                _anchor = '#',
-                _title = 'Go to Top',
-                _item_top = settings.item_top;
+            var classes = 'jq-top jq-mid',
+                anchor = '#',
+                title = 'Go to Top',
+                item_top = settings.item_top;
 
-            if(_item_top && typeof(_item_top) == 'object'){
-                _item_top.attr('id') ? _item_top.attr('id') : _item_top.attr('id','jq-TOP');
-                _anchor = '#' + _item_top.attr('id');
-                _title = _item_top.attr('title') ? _item_top.attr('title') : _item_top.attr('data-title');
+            if(item_top && typeof(item_top) == 'object'){
+                item_top.attr('id') ? item_top.attr('id') : item_top.attr('id','jq-TOP');
+                anchor = '#' + item_top.attr('id');
+                title = item_top.attr('title') ? item_top.attr('title') : item_top.attr('data-title');
             }
 
             top_link = $('<a>')
-                .addClass(_class)
-                .attr('href', _anchor)
-                .attr('title', _title)
+                .addClass(classes)
+                .attr('href', anchor)
+                .attr('title', title)
                 .html('&#9650;');
 
-            top_link.on('click.' + _class, function(e) {
-                if(_item_top && typeof(_item_top) == 'object') {
-                    scrollTo(_item_top.offset().top);
+            top_link.on('click.' + classes, function(e) {
+                if(item_top && typeof(item_top) == 'object') {
+                    scrollTo(item_top.offset().top);
                 }
                 else {
                     scrollTo(0);
@@ -84,22 +84,22 @@
 
         function createNavigationLinks() {
 
-            var _class = 'jq-item jq-sml',
-                _anchor = '#',
-                _title = '',
-                _navigation = settings.navigation;
+            var classes = 'jq-item jq-sml',
+                anchor = '#',
+                title = '',
+                navigation = settings.navigation;
 
-            $.each(_navigation, function(key, val){
+            $.each(navigation, function(key, val){
 
                 $(val).attr('id') ? $(val).attr('id') : $(val).attr('id','jq-' + parseInt($(val).offset().top));
-                _anchor = '#' + $(val).attr('id');
+                anchor = '#' + $(val).attr('id');
 
-                _title = $(val).attr('title') ? $(val).attr('title') : $(val).attr('data-title');
+                title = $(val).attr('title') ? $(val).attr('title') : $(val).attr('data-title');
 
                 var item_link = $('<a>')
-                    .addClass(_class)
-                    .attr('href', _anchor)
-                    .attr('title', _title)
+                    .addClass(classes)
+                    .attr('href', anchor)
+                    .attr('title', title)
                     .html('&nbsp');
 
                 $div.append(item_link);
@@ -118,26 +118,26 @@
 
         function createBottomLink() {
 
-            var _class = 'jq-bottom jq-mid',
-                _anchor = '#',
-                _title = 'Go to Bottom',
-                _item_bottom = settings.item_bottom;
+            var classes = 'jq-bottom jq-mid',
+                anchor = '#',
+                title = 'Go to Bottom',
+                item_bottom = settings.item_bottom;
 
-            if(_item_bottom && typeof(_item_bottom) == 'object'){
-                _item_bottom.attr('id') ? _item_bottom.attr('id') : _item_bottom.attr('id','jq-BOTTOM');
-                _anchor = '#' + _item_bottom.attr('id');
-                _title = _item_bottom.attr('title') ? _item_bottom.attr('title') : _item_bottom.attr('data-title');
+            if(item_bottom && typeof(item_bottom) == 'object'){
+                item_bottom.attr('id') ? item_bottom.attr('id') : item_bottom.attr('id','jq-BOTTOM');
+                anchor = '#' + item_bottom.attr('id');
+                title = item_bottom.attr('title') ? item_bottom.attr('title') : item_bottom.attr('data-title');
             }
 
             bottom_link = $('<a>')
-                .addClass(_class)
-                .attr('href', _anchor)
-                .attr('title', _title)
+                .addClass(classes)
+                .attr('href', anchor)
+                .attr('title', title)
                 .html('&#9660;');
 
-            bottom_link.on('click.' + _class, function(e) {
-                if(_item_bottom && typeof(_item_bottom) == 'object') {
-                    scrollTo(_item_bottom.offset().top + (_item_bottom.outerHeight(true) - $win.height()));
+            bottom_link.on('click.' + classes, function(e) {
+                if(item_bottom && typeof(item_bottom) == 'object') {
+                    scrollTo(item_bottom.offset().top + (item_bottom.outerHeight(true) - $win.height()));
                 }
                 else {
                     scrollTo(getDocHeight());
@@ -151,32 +151,32 @@
 
         function atTop() {
 
-            var _item_top = settings.item_top,
-                _ret = null;
+            var item_top = settings.item_top,
+                ret = null;
 
-            if(_item_top && typeof(_item_top) == 'object'){
-                _ret = $win.scrollTop() <= _item_top.offset().top + settings.margin;
+            if(item_top && typeof(item_top) == 'object'){
+                ret = $win.scrollTop() <= item_top.offset().top + settings.margin;
             }
             else {
-                _ret = $win.scrollTop() <= settings.margin;
+                ret = $win.scrollTop() <= settings.margin;
             }
 
-            return _ret;
+            return ret;
         }
 
         function atBottom() {
 
-            var _item_bottom = settings.item_bottom,
-                _ret = null;
+            var item_bottom = settings.item_bottom,
+                ret = null;
 
-            if(_item_bottom && typeof(_item_bottom) == 'object'){
-                _ret = $win.scrollTop() >= _item_bottom.offset().top - $win.height() - settings.margin;
+            if(item_bottom && typeof(item_bottom) == 'object'){
+                ret = $win.scrollTop() >= item_bottom.offset().top - $win.height() - settings.margin;
             }
             else {
-                _ret = $win.scrollTop() + $win.height() >= getDocHeight() - settings.margin;
+                ret = $win.scrollTop() + $win.height() >= getDocHeight() - settings.margin;
             }
 
-            return _ret;
+            return ret;
 
         }
 
