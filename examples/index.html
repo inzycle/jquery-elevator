@@ -115,7 +115,7 @@
     </main>
 
     <!-- Resources -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="../src/jquery.elevator.js"></script>
     <script type="text/javascript">
         $.elevator({
@@ -129,7 +129,13 @@
             speed: 2000,
             shape: 'rounded',
             onBeforeMove: function(){ console.log('onBeforeMove'); },
-            onAfterMove: function(){ console.log('onAfterMove'); }
+            onAfterMove: function(){ console.log('onAfterMove'); },
+            onBeforeGoTop: function(){ console.log('onBeforeGoTop'); },
+            onAfterGoTop: function(){ console.log('onAfterGoTop'); },
+            onBeforeGoBottom: function(){ console.log('onBeforeGoBottom'); },
+            onAfterGoBottom: function(){ console.log('onAfterGoBottom'); },
+            onBeforeGoSection: function(){ console.log('onBeforeGoSection'); },
+            onAfterGoSection: function(){ console.log('onAfterGoSection'); }
         });
     </script>
 

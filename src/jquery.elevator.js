@@ -18,7 +18,13 @@
             margin: 100,
             speed: 1000,
             onBeforeMove: function(){},
-            onAfterMove: function(){}
+            onAfterMove: function(){},
+            onBeforeGoTop: function(){},
+            onAfterGoTop: function(){},
+            onBeforeGoBottom: function(){},
+            onAfterGoBottom: function(){},
+            onBeforeGoSection: function(){},
+            onAfterGoSection: function(){}
         },
         settings = {},
         $doc = $(document),
@@ -32,7 +38,7 @@
 
         settings = $.extend({}, defaults, options);
 
-        function scrollTo(target) {
+        function scrollTo(target,callback) {
 
             settings.onBeforeMove.call(this);
 
@@ -40,7 +46,12 @@
                 scrollTop: target
             }, {
                 duration: settings.speed,
-                complete: settings.onAfterMove
+                complete: function(){
+                    if (typeof callback === 'function') {
+                        callback.call(this);
+                    }
+                    settings.onAfterMove.call(this);
+                }
             });
 
         }
@@ -69,13 +80,22 @@
                 .html('&#9650;');
 
             top_link.on('click.' + classes, function(e) {
+
+                settings.onBeforeGoTop.call(this);
+
+                var pos = 0;
+
                 if(item_top && typeof(item_top) == 'object') {
-                    scrollTo(item_top.offset().top);
+                    pos = item_top.offset().top;
                 }
                 else {
-                    scrollTo(0);
+                    pos = 0;
                 }
+
+                scrollTo(pos,settings.onAfterGoTop);
+
                 e.preventDefault();
+
             });
 
             $div.append(top_link);
@@ -106,12 +126,16 @@
 
             });
 
-            // TODO: Update jq-item handler to namespaces
-
             $(document).on('click', '.jq-item', function(e) {
+
+                settings.onBeforeGoSection.call(this);
+
                 var _item = $($(this).attr('href'));
-                scrollTo(_item.offset().top);
+
+                scrollTo(_item.offset().top,settings.onAfterGoSection);
+
                 e.preventDefault();
+
             });
 
         }
@@ -136,13 +160,22 @@
                 .html('&#9660;');
 
             bottom_link.on('click.' + classes, function(e) {
+
+                settings.onBeforeGoBottom.call(this);
+
+                var pos = 0;
+
                 if(item_bottom && typeof(item_bottom) == 'object') {
-                    scrollTo(item_bottom.offset().top + (item_bottom.outerHeight(true) - $win.height()));
+                    pos = item_bottom.offset().top + (item_bottom.outerHeight(true) - $win.height());
                 }
                 else {
-                    scrollTo(getDocHeight());
+                    pos = getDocHeight();
                 }
+
+                scrollTo(pos,settings.onAfterGoBottom);
+
                 e.preventDefault();
+
             });
 
             $div.append(bottom_link);
