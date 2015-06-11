@@ -38,17 +38,21 @@
 
         settings = $.extend({}, defaults, options);
 
-        function scrollTo(target,callback) {
+        function scrollTo(target,callback_before,callback_after) {
 
             settings.onBeforeMove.call(this);
+
+            if (typeof callback_before === 'function') {
+                callback_before.call(this);
+            }
 
             $('body').animate({
                 scrollTop: target
             }, {
                 duration: settings.speed,
                 complete: function(){
-                    if (typeof callback === 'function') {
-                        callback.call(this);
+                    if (typeof callback_after === 'function') {
+                        callback_after.call(this);
                     }
                     settings.onAfterMove.call(this);
                 }
@@ -81,8 +85,6 @@
 
             top_link.on('click.' + classes, function(e) {
 
-                settings.onBeforeGoTop.call(this);
-
                 var pos = 0;
 
                 if(item_top && typeof(item_top) == 'object') {
@@ -92,7 +94,7 @@
                     pos = 0;
                 }
 
-                scrollTo(pos,settings.onAfterGoTop);
+                scrollTo(pos,settings.onBeforeGoTop,settings.onAfterGoTop);
 
                 e.preventDefault();
 
@@ -128,11 +130,9 @@
 
             $(document).on('click', '.jq-item', function(e) {
 
-                settings.onBeforeGoSection.call(this);
-
                 var _item = $($(this).attr('href'));
 
-                scrollTo(_item.offset().top,settings.onAfterGoSection);
+                scrollTo(_item.offset().top,settings.onBeforeGoSection,settings.onAfterGoSection);
 
                 e.preventDefault();
 
@@ -161,8 +161,6 @@
 
             bottom_link.on('click.' + classes, function(e) {
 
-                settings.onBeforeGoBottom.call(this);
-
                 var pos = 0;
 
                 if(item_bottom && typeof(item_bottom) == 'object') {
@@ -172,7 +170,7 @@
                     pos = getDocHeight();
                 }
 
-                scrollTo(pos,settings.onAfterGoBottom);
+                scrollTo(pos,settings.onBeforeGoBottom,settings.onAfterGoBottom);
 
                 e.preventDefault();
 
