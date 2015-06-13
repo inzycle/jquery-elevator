@@ -45,16 +45,15 @@
                 callback_before.call(this);
             }
 
-            $('html,body').animate({
+            $.when($('html,body').animate({
                 scrollTop: target
             }, {
-                duration: settings.speed,
-                complete: function(){
-                    if (typeof callback_after === 'function') {
-                        callback_after.call(this);
-                    }
-                    settings.onAfterMove.call(this);
+                duration: settings.speed
+            })).then(function(){
+                if (typeof callback_after === 'function') {
+                    callback_after.call(this);
                 }
+                settings.onAfterMove.call(this);
             });
 
         }

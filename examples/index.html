@@ -119,13 +119,13 @@
     <script src="../src/jquery.elevator.js"></script>
     <script type="text/javascript">
         $.elevator({
-            // item_top: $('#toolbar'),
+            item_top: $('#toolbar'),
             navigation: [
                 $('h3#section_1'),
                 $('h3.section_2'),
                 $('h3[data-extra="section_3"]')
             ],
-            // item_bottom: $('#section'),
+            item_bottom: $('#section'),
             speed: 2000,
             shape: 'rounded',
             onBeforeMove: function(){ console.log('onBeforeMove'); },
