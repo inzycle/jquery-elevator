@@ -12,7 +12,7 @@ $(document).ready(function(){
 });
 ```
 
-### - Defining position
+### Defining position
 
 You can customize **where** the **elevator** buttons panel should appear by using ```align``` argument:
 
@@ -24,7 +24,7 @@ $(document).ready(function(){
 });
 ```
 
-### - Defining shape
+### Defining shape
 
 You can customize **how** the **elevator** buttons panel should look by using ```shape``` argument:
 
@@ -36,7 +36,7 @@ $(document).ready(function(){
 });
 ```
 
-### - Defining speed
+### Defining speed
 
 You can customize **when** the **elevator** should arrive by using ```speed``` argument:
 
@@ -50,7 +50,7 @@ $(document).ready(function(){
 
 Those arguments: ```align```, ```shape``` and ```speed``` are totally optional and their default values are: ```bottom right```, ```circle``` and ```1000``` respectively.  
 
-### - Basic options
+### Basic options
 
 ```js
 $(document).ready(function(){
