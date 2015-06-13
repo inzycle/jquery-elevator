@@ -6,7 +6,8 @@
     "keywords": [
         "jquery",
         "back-to-top",
-        "navigation"
+        "navigation",
+        "scroll-to-top"
     ],
     "homepage": "https://github.com/inzycle/jquery-elevator",
     "author": {
@@ -28,6 +29,7 @@
         "url": "git://github.com/inzycle/jquery-elevator.git"
     },
     "bugs": "https://github.com/inzycle/jquery-elevator/issues",
+    "license": "MIT",
     "licenses": [
         {
             "type": "MIT",
@@ -40,6 +42,8 @@
         "grunt-cli": "^0.1.13",
         "grunt-contrib-clean": "^0.6.0",
         "grunt-contrib-jshint": "^0.10.0",
-        "grunt-contrib-uglify": "~0.4.0"
+        "grunt-contrib-uglify": "~0.4.0",
+        "grunt-contrib-concat": "~0.3.0",
+        "grunt-contrib-watch": "~0.6.0"
     }
 }
