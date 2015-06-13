@@ -115,27 +115,27 @@
     </main>
 
     <!-- Resources -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="../src/jquery.elevator.js"></script>
     <script type="text/javascript">
         $.elevator({
-            item_top: $('#toolbar'),
+            // item_top: $('#toolbar'),
             navigation: [
                 $('h3#section_1'),
                 $('h3.section_2'),
                 $('h3[data-extra="section_3"]')
             ],
-            item_bottom: $('#section'),
+            // item_bottom: $('#section'),
             speed: 2000,
             shape: 'rounded',
-            onBeforeMove: function(){ alert('onBeforeMove'); },
-            onAfterMove: function(){ alert('onAfterMove'); },
-            onBeforeGoTop: function(){ alert('onBeforeGoTop'); },
-            onAfterGoTop: function(){ alert('onAfterGoTop'); },
-            onBeforeGoBottom: function(){ alert('onBeforeGoBottom'); },
-            onAfterGoBottom: function(){ alert('onAfterGoBottom'); },
-            onBeforeGoSection: function(){ alert('onBeforeGoSection'); },
-            onAfterGoSection: function(){ alert('onAfterGoSection'); }
+            onBeforeMove: function(){ console.log('onBeforeMove'); },
+            onAfterMove: function(){ console.log('onAfterMove'); },
+            onBeforeGoTop: function(){ console.log('onBeforeGoTop'); },
+            onAfterGoTop: function(){ console.log('onAfterGoTop'); },
+            onBeforeGoBottom: function(){ console.log('onBeforeGoBottom'); },
+            onAfterGoBottom: function(){ console.log('onAfterGoBottom'); },
+            onBeforeGoSection: function(){ console.log('onBeforeGoSection'); },
+            onAfterGoSection: function(){ console.log('onAfterGoSection'); }
         });
     </script>
 

@@ -11,8 +11,8 @@
     var defaults = {
             show_top: true,
             show_bottom: true,
-            item_top: false,
-            item_bottom: false,
+            item_top: null,
+            item_bottom: null,
             align: 'bottom right',
             navigation: [],
             margin: 100,
@@ -33,7 +33,6 @@
         top_link,
         bottom_link;
 
-
     $.elevator = function(options) {
 
         settings = $.extend({}, defaults, options);
@@ -46,7 +45,7 @@
                 callback_before.call(this);
             }
 
-            $('body').animate({
+            $('html,body').animate({
                 scrollTop: target
             }, {
                 duration: settings.speed,
