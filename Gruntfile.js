@@ -24,17 +24,6 @@ module.exports = function(grunt) {
             files: ['<%= jshint.files %>'],
             tasks: ['jshint']
         },
-        concat: {
-            dist: {
-                options: {
-                    banner: banner
-                },
-                files: {
-                    "dist/jquery.elevator.js": [ "src/*.js" ],
-                    "dist/jquery.elevator.css": [ "src/*.css" ]
-                }
-            }
-        },
         uglify: {
             options: {
                 preserveComments: false,
@@ -42,13 +31,8 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    "dist/jquery.elevator.min.js": "dist/jquery.validate.js"
+                    "dist/jquery.elevator.min.js": "dist/jquery.elevator.js"
                 }
-            },
-            all: {
-                expand: true,
-                src: "**/*.js",
-                ext: ".min.js"
             }
         },
         cssmin: {
@@ -66,13 +50,12 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks("grunt-contrib-concat");
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-    grunt.registerTask("default", ["concat", "jshint"]);
+    grunt.registerTask("default", ["jshint"]);
     grunt.registerTask("release", ["cssmin", "default", "uglify"]);
-    grunt.registerTask("start", ["concat", "watch"]);
+    grunt.registerTask("start", ["watch", "default"]);
 
 
 };

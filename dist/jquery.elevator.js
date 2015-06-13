@@ -1,8 +1,11 @@
-/*! jQuery Elevator - v0.1.0 - 2015/6/12
+/*! jQuery Elevator - v0.1.0 - 2015/6/13
  * https://github.com/inzycle/jquery-elevator
  * Copyright (c) 2015 inZycle;
  * Licensed MIT */
 (function(factory) {
+
+    'use strict';
+
     if (typeof define === 'function' && define.amd) {
         define(['jquery'], factory);
     } else if (typeof module === 'object' && module.exports) {
@@ -10,13 +13,16 @@
     } else {
         factory(jQuery);
     }
+
 }(function($) {
+
+    'use strict';
 
     var defaults = {
             show_top: true,
             show_bottom: true,
-            item_top: false,
-            item_bottom: false,
+            item_top: null,
+            item_bottom: null,
             align: 'bottom right',
             navigation: [],
             margin: 100,
@@ -37,29 +43,27 @@
         top_link,
         bottom_link;
 
-
     $.elevator = function(options) {
 
         settings = $.extend({}, defaults, options);
 
-        function scrollTo(target,callback_before,callback_after) {
+        function scrollTo(target, callback_before, callback_after) {
 
-            settings.onBeforeMove.call(this);
+            settings.onBeforeMove.call();
 
             if (typeof callback_before === 'function') {
-                callback_before.call(this);
+                callback_before.call();
             }
 
-            $('body').animate({
+            $.when($('html,body').animate({
                 scrollTop: target
             }, {
-                duration: settings.speed,
-                complete: function(){
-                    if (typeof callback_after === 'function') {
-                        callback_after.call(this);
-                    }
-                    settings.onAfterMove.call(this);
+                duration: settings.speed
+            })).then(function() {
+                if (typeof callback_after === 'function') {
+                    callback_after.call();
                 }
+                settings.onAfterMove.call();
             });
 
         }
@@ -75,8 +79,8 @@
                 title = 'Go to Top',
                 item_top = settings.item_top;
 
-            if(item_top && typeof(item_top) == 'object'){
-                item_top.attr('id') ? item_top.attr('id') : item_top.attr('id','jq-TOP');
+            if(item_top && typeof(item_top) == 'object') {
+                if (!item_top.attr('id')) { item_top.attr('id', 'jq-TOP'); }
                 anchor = '#' + item_top.attr('id');
                 title = item_top.attr('title') ? item_top.attr('title') : item_top.attr('data-title');
             }
@@ -89,7 +93,7 @@
 
             top_link.on('click.' + classes, function(e) {
 
-                var pos = 0;
+                var pos;
 
                 if(item_top && typeof(item_top) == 'object') {
                     pos = item_top.offset().top;
@@ -115,9 +119,12 @@
                 title = '',
                 navigation = settings.navigation;
 
-            $.each(navigation, function(key, val){
+            $.each(navigation, function(key, val) {
 
-                $(val).attr('id') ? $(val).attr('id') : $(val).attr('id','jq-' + parseInt($(val).offset().top));
+                if (!$(val).attr('id')) {
+                    $(val).attr('id', 'jq-' + parseInt($(val).offset().top));
+                }
+
                 anchor = '#' + $(val).attr('id');
 
                 title = $(val).attr('title') ? $(val).attr('title') : $(val).attr('data-title');
@@ -133,13 +140,9 @@
             });
 
             $(document).on('click', '.jq-item', function(e) {
-
                 var _item = $($(this).attr('href'));
-
                 scrollTo(_item.offset().top,settings.onBeforeGoSection,settings.onAfterGoSection);
-
                 e.preventDefault();
-
             });
 
         }
@@ -151,8 +154,8 @@
                 title = 'Go to Bottom',
                 item_bottom = settings.item_bottom;
 
-            if(item_bottom && typeof(item_bottom) == 'object'){
-                item_bottom.attr('id') ? item_bottom.attr('id') : item_bottom.attr('id','jq-BOTTOM');
+            if(item_bottom && typeof(item_bottom) == 'object') {
+                if (!item_bottom.attr('id')) { item_bottom.attr('id', 'jq-BOTTOM'); }
                 anchor = '#' + item_bottom.attr('id');
                 title = item_bottom.attr('title') ? item_bottom.attr('title') : item_bottom.attr('data-title');
             }
@@ -189,7 +192,7 @@
             var item_top = settings.item_top,
                 ret = null;
 
-            if(item_top && typeof(item_top) == 'object'){
+            if(item_top && typeof(item_top) == 'object') {
                 ret = $win.scrollTop() <= item_top.offset().top + settings.margin;
             }
             else {
@@ -204,7 +207,7 @@
             var item_bottom = settings.item_bottom,
                 ret = null;
 
-            if(item_bottom && typeof(item_bottom) == 'object'){
+            if(item_bottom && typeof(item_bottom) == 'object') {
                 ret = $win.scrollTop() >= item_bottom.offset().top - $win.height() - settings.margin;
             }
             else {
@@ -277,27 +280,27 @@
             }
 
             if (atTop()) {
-                settings.show_top ? top_link.removeClass('jq-mid').addClass('jq-sml') : false;
-                settings.show_bottom ? bottom_link.removeClass('jq-mid').addClass('jq-big') : false;
+                if (settings.show_top) { top_link.removeClass('jq-mid').addClass('jq-sml'); }
+                if (settings.show_bottom) { bottom_link.removeClass('jq-mid').addClass('jq-big'); }
             }
             else if (atBottom()) {
-                settings.show_top ? top_link.removeClass('jq-mid').addClass('jq-big') : false;
-                settings.show_bottom ? bottom_link.removeClass('jq-mid').addClass('jq-sml') : false;
+                if (settings.show_top) { top_link.removeClass('jq-mid').addClass('jq-big'); }
+                if (settings.show_bottom) { bottom_link.removeClass('jq-mid').addClass('jq-sml'); }
             }
 
             $doc.scroll(function() {
 
                 if (atTop()) {
-                    settings.show_top ? top_link.removeClass('jq-mid').addClass('jq-sml') : false;
-                    settings.show_bottom ? bottom_link.removeClass('jq-mid').addClass('jq-big') : false;
+                    if (settings.show_top) { top_link.removeClass('jq-mid').addClass('jq-sml'); }
+                    if (settings.show_bottom) { bottom_link.removeClass('jq-mid').addClass('jq-big'); }
                 }
                 else if (atBottom()) {
-                    settings.show_top ? top_link.removeClass('jq-mid').addClass('jq-big') : false;
-                    settings.show_bottom ? bottom_link.removeClass('jq-mid').addClass('jq-sml') : false;
+                    if (settings.show_top) { top_link.removeClass('jq-mid').addClass('jq-big'); }
+                    if (settings.show_bottom) { bottom_link.removeClass('jq-mid').addClass('jq-sml'); }
                 }
                 else {
-                    settings.show_top ? top_link.removeClass('jq-big jq-sml').addClass('jq-mid') : false;
-                    settings.show_bottom ? bottom_link.removeClass('jq-big jq-sml').addClass('jq-mid') : false;
+                    if (settings.show_top) { top_link.removeClass('jq-big jq-sml').addClass('jq-mid'); }
+                    if (settings.show_bottom) { bottom_link.removeClass('jq-big jq-sml').addClass('jq-mid'); }
                 }
             });
 
@@ -307,6 +310,6 @@
 
         init();
 
-    }
+    };
 
 }));
