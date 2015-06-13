@@ -30,7 +30,8 @@ module.exports = function(grunt) {
                     banner: banner
                 },
                 files: {
-                    "dist/jquery.elevator.js": [ "src/*.js" ]
+                    "dist/jquery.elevator.js": [ "src/*.js" ],
+                    "dist/jquery.elevator.css": [ "src/*.css" ]
                 }
             }
         },
@@ -49,6 +50,17 @@ module.exports = function(grunt) {
                 src: "**/*.js",
                 ext: ".min.js"
             }
+        },
+        cssmin: {
+            options: {
+                shorthandCompacting: false,
+                roundingPrecision: -1
+            },
+            target: {
+                files: {
+                    'dist/jquery.elevator.min.css': ['src/jquery.elevator.css']
+                }
+            }
         }
     });
 
@@ -56,9 +68,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks("grunt-contrib-concat");
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.registerTask("default", ["concat", "jshint"]);
-    grunt.registerTask("release", ["default", "uglify"]);
+    grunt.registerTask("release", ["cssmin", "default", "uglify"]);
     grunt.registerTask("start", ["concat", "watch"]);
 
 
