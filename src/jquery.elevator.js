@@ -39,21 +39,21 @@
 
         function scrollTo(target,callback_before,callback_after) {
 
-            settings.onBeforeMove.call(this);
+            settings.onBeforeMove.call();
 
             if (typeof callback_before === 'function') {
-                callback_before.call(this);
+                callback_before.call();
             }
 
             $.when($('html,body').animate({
                 scrollTop: target
             }, {
-                duration: settings.speed
+                duration: settings.speed,
             })).then(function(){
                 if (typeof callback_after === 'function') {
-                    callback_after.call(this);
+                    callback_after.call();
                 }
-                settings.onAfterMove.call(this);
+                settings.onAfterMove.call();
             });
 
         }
