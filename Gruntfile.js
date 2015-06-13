@@ -30,7 +30,8 @@ module.exports = function(grunt) {
                     banner: banner
                 },
                 files: {
-                    "dist/jquery.elevator.js": [ "src/*.js" ]
+                    "dist/jquery.elevator.js": [ "src/*.js" ],
+                    "dist/jquery.elevator.css": [ "src/*.css" ]
                 }
             }
         },
