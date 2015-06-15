@@ -8,7 +8,7 @@
     .jq-elevator.align-left { left: 10px; }
     .jq-elevator.align-right { right: 10px; }
 
-    .jq-elevator a { text-decoration: none; font-family: "Courier New", Courier, monospace; float: left; text-align: center; color: #666666; background: #E9EDF1;
+    .jq-elevator a { text-decoration: none; font-family: "Courier New", Courier, monospace; float: left; text-align: center; color: #444444; background: #eaeaea;
         opacity: 0.5;
         -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=50)";
         filter: alpha(opacity=50);
@@ -26,11 +26,11 @@
         filter: alpha(opacity=100);
         -moz-opacity: 1;
         -khtml-opacity: 1;
-        box-shadow: 1px 1px 2px #d0d4d8;
+        box-shadow: 1px 1px 1px #a0a0a0;
     }
 
     .jq-elevator:hover a:active {
-        box-shadow: 1px 1px 2px #d0d4d8 inset;
+        box-shadow: 1px 1px 1px #a0a0a0 inset;
     }
 
     .jq-top { /**/ }
@@ -44,6 +44,7 @@
 
         padding: 20px 0;
         width: 60px;
+        margin: 3px 0;
 
         -moz-border-radius: 30px;
         -webkit-border-radius: 30px;
@@ -59,6 +60,7 @@
 
             padding: 20px 0;
             width: 60px;
+            margin: 3px 0;
 
             -moz-border-radius: 10px;
             -webkit-border-radius: 10px;
@@ -74,6 +76,7 @@
 
             padding: 20px 0;
             width: 60px;
+            margin: 3px 0;
 
             -moz-border-radius: 0;
             -webkit-border-radius: 0;
@@ -89,7 +92,7 @@
 
         padding: 12px 0;
         width: 40px;
-        margin: 5px 10px;
+        margin: 3px 10px;
 
         -moz-border-radius: 20px;
         -webkit-border-radius: 20px;
@@ -105,7 +108,7 @@
 
             padding: 12px 0;
             width: 40px;
-            margin: 5px 10px;
+            margin: 3px 10px;
 
             -moz-border-radius: 8px;
             -webkit-border-radius: 8px;
@@ -121,7 +124,7 @@
 
             padding: 12px 0;
             width: 40px;
-            margin: 5px 10px;
+            margin: 3px 10px;
 
             -moz-border-radius: 0;
             -webkit-border-radius: 0;
@@ -137,7 +140,7 @@
 
         padding: 4px 0;
         width: 20px;
-        margin: 5px 20px;
+        margin: 3px 20px;
 
         -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
@@ -152,7 +155,7 @@
 
             padding: 4px 0;
             width: 20px;
-            margin: 5px 20px;
+            margin: 3px 20px;
 
             -moz-border-radius: 4px;
             -webkit-border-radius: 4px;
@@ -167,7 +170,7 @@
 
             padding: 4px 0;
             width: 20px;
-            margin: 5px 20px;
+            margin: 3px 20px;
 
             -moz-border-radius: 0;
             -webkit-border-radius: 0;
@@ -175,5 +178,10 @@
             border-radius: 0;
         }
 
-    /*.jq-elevator a { margin-bottom: 5px; }*/
-
+    .jq-sml.jq-text {
+        float: right;
+        width: initial;
+        text-align: right;
+        padding: 2px 5px;
+        white-space: nowrap;
+    }

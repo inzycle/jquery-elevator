@@ -21,6 +21,7 @@
             item_bottom: null,
             align: 'bottom right',
             navigation: [],
+            navigation_text: false,
             margin: 100,
             speed: 1000,
             onBeforeMove: function(){},
@@ -130,6 +131,11 @@
                     .attr('href', anchor)
                     .attr('title', title)
                     .html('&nbsp');
+
+                if (settings.navigation_text){
+                    item_link.html(title);
+                    item_link.addClass('jq-text');
+                }
 
                 $div.append(item_link);
 
