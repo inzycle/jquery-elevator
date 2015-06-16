@@ -1,4 +1,4 @@
-/*! jQuery Elevator - v1.0.1 - 2015/6/13
+/*! jQuery Elevator - v1.0.2 - 2015/6/13
  * https://github.com/inzycle/jquery-elevator
  * Copyright (c) 2015 inZycle;
  * Licensed MIT */
