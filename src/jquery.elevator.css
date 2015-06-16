@@ -8,7 +8,7 @@
     .jq-elevator.align-left { left: 10px; }
     .jq-elevator.align-right { right: 10px; }
 
-    .jq-elevator a { text-decoration: none; font-family: "Courier New", Courier, monospace; float: left; text-align: center; color: #444444; background: #eaeaea;
+    .jq-top, .jq-item, .jq-bottom { text-decoration: none; font-family: "Courier New", Courier, monospace; float: left; text-align: center; color: #444444; background: #eaeaea;
         opacity: 0.5;
         -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=50)";
         filter: alpha(opacity=50);
@@ -20,7 +20,7 @@
         -o-transition: opacity 0.2s linear;
     }
     
-    .jq-elevator:hover a {
+    .jq-top:hover, .jq-item:hover, .jq-bottom:hover {
         opacity: 1;
         -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
         filter: alpha(opacity=100);
@@ -29,7 +29,7 @@
         box-shadow: 1px 1px 1px #a0a0a0;
     }
 
-    .jq-elevator:hover a:active {
+    .jq-top:active, .jq-item:active, .jq-bottom:active {
         box-shadow: 1px 1px 1px #a0a0a0 inset;
     }
 

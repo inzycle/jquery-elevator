@@ -1,0 +1,72 @@
+body { font-family: Arial, Helvetica, sans-serif; color: #444; }
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 10px; }
+
+.stripe { background: #444 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAJElEQVQImWOUkpJiYGDQ0tJiYGBggrOuXbvGBGdBZSAsLS0tAMrcCdQoiNkHAAAAAElFTkSuQmCC') left top repeat fixed; }
+
+.clearfix:before, .clearfix:after { display: table; content: " "; }
+.clearfix:after { clear: both; }
+
+#header { color: #ffffff; padding: 20px 0; border-bottom: 1px solid #1a1a1a; }
+
+    #header h1 { font-size: 150%; font-weight: bold; margin-bottom: 10px; }
+
+    #header h2 { font-size: 90%; font-weight: bold; }
+
+#top-element { background: #d0d0d0; padding: 10px 0; border-bottom: 1px solid #c0c0c0; }
+
+    #top-element span { font-weight: bold; text-transform: uppercase; }
+
+#main { padding: 10px 0; background: #e0e0e0; }
+
+    #main p { margin-bottom: 10px; text-align: justify; line-height: 115%; font-size: 95%; }
+
+    #main .section { color: #ffffff; padding: 10px 15px; margin-bottom: 10px; }
+
+        #main .section p { margin: 0; font-weight: bold; font-size: 80%; }
+
+#bottom-element { background: #d0d0d0; padding: 10px 0; border-top: 1px solid #c0c0c0; border-bottom: 1px solid #c0c0c0; }
+
+    #bottom-element span { font-weight: bold; text-transform: uppercase ; }
+
+#aside { padding: 20px 0; background: #e0e0e0; }
+
+    #aside p { float: left; width: 50%; font-size: 95%; line-height: 115%; }
+
+        #aside p span { display: block; padding: 0 10px; }
+
+            #aside p:first-child span { padding-left: 0; }
+            #aside p:last-child span { padding-right: 0; }
+
+#footer { color: #ffffff; padding: 20px 0; border-top: 1px solid #1a1a1a; }
+
+    #footer p { font-weight: bold; text-align: left; margin-bottom: 10px; }
+
+        #footer p:last-child { font-weight: normal; font-size: 90%; margin: 0; }
+
+/* -- Custom jQuery Elevator Event Visor ---------------------------------------------------------------------------- */
+
+#events { position: fixed; top: 15px; right: 10px; font-size: 80%; }
+
+    #events span { cursor: pointer; background: #1a1a1a; color: #ffffff; padding: 5px 10px;
+        opacity: 0.7;
+        -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=70)";
+        filter: alpha(opacity=70);
+        -moz-opacity: 0.7;
+        -khtml-opacity: 0.7;
+        -moz-border-radius: 30px;
+        -webkit-border-radius: 30px;
+        -khtml-border-radius: 30px;
+        border-radius: 30px;
+        display: block;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+/* -- Custom jQuery Elevator Buttons Panel -------------------------------------------------------------------------- */
+
+.jq-top { background: #12a30e; color: #ffffff; }
+
+.jq-item { background: #ffffff; color: #444444; }
+
+.jq-bottom { background: #12a30e; color: #ffffff; }
