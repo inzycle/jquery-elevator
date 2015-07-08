@@ -1,7 +1,3 @@
-/*! jQuery Elevator - v1.0.2 - 2015/6/13
- * https://github.com/inzycle/jquery-elevator
- * Copyright (c) 2015 inZycle;
- * Licensed MIT */
 (function(factory) {
 
     'use strict';
@@ -25,6 +21,7 @@
             item_bottom: null,
             align: 'bottom right',
             navigation: [],
+            navigation_text: false,
             margin: 100,
             speed: 1000,
             onBeforeMove: function(){},
@@ -134,6 +131,11 @@
                     .attr('href', anchor)
                     .attr('title', title)
                     .html('&nbsp');
+
+                if (settings.navigation_text){
+                    item_link.html(title);
+                    item_link.addClass('jq-text');
+                }
 
                 $div.append(item_link);
 
