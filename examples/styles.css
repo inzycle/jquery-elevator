@@ -17,7 +17,7 @@ body { font-family: Arial, Helvetica, sans-serif; color: #444; }
 
     #top-element span { font-weight: bold; text-transform: uppercase; }
 
-#main { padding: 10px 0; background: #e0e0e0; }
+#main { padding: 10px 0; background: #efefef; }
 
     #main p { margin-bottom: 10px; text-align: justify; line-height: 115%; font-size: 95%; }
 
@@ -63,10 +63,38 @@ body { font-family: Arial, Helvetica, sans-serif; color: #444; }
         text-align: center;
     }
 
-/* -- Custom jQuery Elevator Buttons Panel -------------------------------------------------------------------------- */
+/* -- Custom jQuery Controls Editor --------------------------------------------------------------------------------- */
+
+#controls { position: fixed; left: 0; top: 50%; font-size: 12px; line-height: 12px; padding: 0 10px 10px 10px; margin-top: -246px; background: #e0e0e0; border: 1px solid #d0d0d0; border-left: none; }
+
+    #controls span { float: left; width: 100%; font-weight: bold; padding: 10px 0; text-transform: uppercase; }
+    #controls button { cursor: pointer; }
+
+    #controls-reset { width: 85px; }
+
+        #controls-reset button { width: 100%; padding-top: 5px; padding-bottom: 5px; text-align: center; margin-bottom: 5px; }
+
+    #controls-align { width: 90px; }
+
+        #controls-align button { float: left; padding: 6px 12px; margin-right: 5px; margin-bottom: 5px; }
+
+    #controls-shape { width: 85px; }
+
+        #controls-shape button { width: 100%; text-align: left; margin-bottom: 5px; }
+
+    #controls-speed { width: 85px; }
+
+        #controls-speed input { width: 96%; padding: 3px 0; text-align: center; margin-bottom: 5px; }
+        #controls-speed button { width: 100%; text-align: center; }
+
+    #controls-glass input { cursor: pointer; }
+
+/* -- Custom jQuery Elevator Buttons Panel -----------------------------------------------------------------------------
 
 .jq-top { background: #12a30e; color: #ffffff; }
 
 .jq-item { background: #ffffff; color: #444444; }
 
 .jq-bottom { background: #12a30e; color: #ffffff; }
+
+-- */

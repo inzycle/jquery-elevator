@@ -1,6 +1,6 @@
 # jQuery Elevator
 
-**Version 1.0.3**
+**Version 1.0.4**
 
 An enhanced "back to top" and more, plugin for jQuery. With support for: top, bottom, sections, callbacks, smooth movement and fully customizable.
 
