@@ -50,6 +50,8 @@
                 -moz-opacity: 1;
                 -khtml-opacity: 1;
 
+                overflow: inherit;
+
             }
 
             .jq-elevator.auto-hide.glass:hover .jq-sml {
