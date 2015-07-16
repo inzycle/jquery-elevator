@@ -647,6 +647,8 @@
                     $div.addClass(CLASS_ALIGN_RIGHT);
                 }
 
+                settings.align = align;
+
             };
 
             /**
@@ -675,6 +677,8 @@
                     default:
                         $div.addClass(CLASS_CIRCLE);
                 }
+
+                settings.shape = shape;
 
             };
 
@@ -705,6 +709,20 @@
                 } else {
                     $div.removeClass(CLASS_GLASS)
                 }
+
+                settings.glass = glass;
+
+            };
+
+            /**
+             Return the actual settings
+             @method get_settings
+             @example
+             elevator.get_settings();
+             */
+            this.get_settings = function(){
+
+                return settings;
 
             };
 

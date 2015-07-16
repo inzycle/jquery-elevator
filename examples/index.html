@@ -231,11 +231,12 @@
             $('#controls-reset').on('click','button',function(e){
                 e.preventDefault();
 
-                _elevator.destroy();
-
                 _elevator_config['navigation_text'] = parseInt($(this).attr('data-text')) ? true : false;
                 _elevator_config['glass'] = $('#controls-glass input').is(':checked');
                 _elevator_config['speed'] = 1000;
+                _elevator_config['align'] = _elevator.get_settings().align;
+
+                _elevator.destroy();
 
                 _elevator = $.elevator(_elevator_config);
 
