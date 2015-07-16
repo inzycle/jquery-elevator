@@ -168,6 +168,10 @@
             <span>Glass</span>
             <input type="checkbox" name="glass" checked />
         </div>
+        <div id="controls-hide" class="clearfix">
+            <span>Auto hide</span>
+            <input type="checkbox" name="hide" />
+        </div>
     </div>
 
     <div id="events"></div>
@@ -225,6 +229,15 @@
                     _elevator.reset_glass(true);
                 } else {
                     _elevator.reset_glass(false);
+                }
+            });
+
+            $('#controls-hide').on('change','input',function(e){
+                e.preventDefault();
+                if(this.checked) {
+                    _elevator.auto_hide(true);
+                } else {
+                    _elevator.auto_hide(false);
                 }
             });
 

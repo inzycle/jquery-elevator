@@ -21,6 +21,51 @@
 
         .jq-item { color: #000000; font-weight: bold; font-family: Arial, Helvetica, sans-serif; }
 
+            .jq-elevator.auto-hide .jq-sml {
+
+                height: 0; padding: 0; margin: 0;
+
+                opacity: 0;
+                -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                filter: alpha(opacity=0);
+                -moz-opacity: 0;
+                -khtml-opacity: 0;
+
+                transition: opacity 0.5s ease-out;
+                -webkit-transition: opacity 0.5s ease-out;
+                -moz-transition: opacity 0.5s ease-out;
+                -o-transition: opacity 0.5s ease-out;
+
+                overflow: hidden;
+
+            }
+
+            .jq-elevator.auto-hide:hover .jq-sml {
+
+                height: auto; padding: 4px 0; margin: 3px 20px;
+
+                opacity: 1;
+                -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+                filter: alpha(opacity=100);
+                -moz-opacity: 1;
+                -khtml-opacity: 1;
+
+            }
+
+            .jq-elevator.auto-hide.glass:hover .jq-sml {
+
+                height: auto; padding: 4px 0; margin: 3px 20px;
+
+                opacity: 0.5;
+                -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=50)";
+                filter: alpha(opacity=50);
+                -moz-opacity: 0.5;
+                -khtml-opacity: 0.5;
+
+            }
+
+            .jq-elevator.auto-hide:hover .jq-sml.jq-text { padding: 3px 7px; }
+
         .jq-elevator.glass .jq-top, .jq-elevator.glass .jq-item, .jq-elevator.glass .jq-bottom {
             opacity: 0.5;
             -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=50)";
@@ -34,11 +79,11 @@
         }
 
         .jq-elevator.glass .jq-top:hover, .jq-elevator.glass .jq-item:hover, .jq-elevator.glass .jq-bottom:hover {
-            opacity: 1;
-            -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
-            filter: alpha(opacity=100);
-            -moz-opacity: 1;
-            -khtml-opacity: 1;
+            opacity: 1 !important;
+            -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)" !important;
+            filter: alpha(opacity=100) !important;
+            -moz-opacity: 1 !important;
+            -khtml-opacity: 1 !important;
         }
 
     .jq-top:hover, .jq-item:hover, .jq-bottom:hover {
@@ -209,3 +254,4 @@
             .jq-elevator.align-right .jq-sml .jq-title { right: 30px; }
 
     .jq-top:hover .jq-title, .jq-item:hover .jq-title, .jq-bottom:hover .jq-title { display: block; }
+

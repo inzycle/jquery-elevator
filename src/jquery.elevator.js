@@ -80,6 +80,14 @@
         CLASS_GLASS = 'glass',
 
         /**
+         a classname for glass translucent elements.
+         @property CLASS_AUTO_HIDE
+         @type String
+         @default 'auto-hide'
+         */
+        CLASS_AUTO_HIDE = 'auto-hide',
+
+        /**
          a classname for right alignment.
          @property CLASS_ALIGN_TOP
          @type String
@@ -556,6 +564,11 @@
 
             if ( settings.glass ) {
                 $div.addClass(CLASS_GLASS);
+
+            }
+
+            if ( settings.auto_hide ) {
+                $div.addClass(CLASS_AUTO_HIDE);
             }
 
         }
@@ -711,6 +724,25 @@
                 }
 
                 settings.glass = glass;
+
+            };
+
+            /**
+             Reset the auto hidden status of the navigation items
+             @method auto_hide
+             @param hide {Boolean} A setting to reestablish the auto hidden status of the navigation items.
+             @example
+             elevator.auto_hide(true);
+             */
+            this.auto_hide = function(auto_hide){
+
+                if (auto_hide){
+                    $div.addClass(CLASS_AUTO_HIDE)
+                } else {
+                    $div.removeClass(CLASS_AUTO_HIDE)
+                }
+
+                settings.auto_hide = auto_hide;
 
             };
 
