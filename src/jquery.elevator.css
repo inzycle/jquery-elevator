@@ -19,6 +19,8 @@
         -o-transition: box-shadow 150ms cubic-bezier(0,0,0.2,1);
     }
 
+        .jq-item { color: #000000; font-weight: bold; font-family: Arial, Helvetica, sans-serif; }
+
         .jq-elevator.glass .jq-top, .jq-elevator.glass .jq-item, .jq-elevator.glass .jq-bottom {
             opacity: 0.5;
             -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=50)";
@@ -147,8 +149,9 @@
 
     .jq-title {
 
-        font-size: 10px; line-height: 10px; white-space: pre;
-        position: absolute; height: 12px; padding: 4px 10px;
+        font-weight: bold; font-size: 10px; font-family: Arial, Helvetica, sans-serif;
+        line-height: 11px; white-space: pre;
+        position: absolute; height: 11px; padding: 4px 10px;
         color: #ffffff; background: #000000;
         display: none;
 
