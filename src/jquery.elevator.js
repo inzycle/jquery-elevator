@@ -720,6 +720,8 @@
                 bottom_link.off('click.' + CLASS_ITEM_BOTTOM);
                 $(document).off('click', '.' + CLASS_ITEM);
 
+                $div = $('<div>');
+
                 $('body').find('.' + CLASS_DIV).remove();
 
                 return null;
