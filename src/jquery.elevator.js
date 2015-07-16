@@ -716,6 +716,10 @@
              */
             this.destroy = function(){
 
+                top_link.off('click.' + CLASS_ITEM_TOP);
+                bottom_link.off('click.' + CLASS_ITEM_BOTTOM);
+                $(document).off('click', '.' + CLASS_ITEM);
+
                 $('body').find('.' + CLASS_DIV).remove();
 
                 return null;
