@@ -109,7 +109,7 @@
         }
 
     .jq-sml { /* 2px horizontal adjust */
-        font-size: 10px;
+        font-size: 11px;
         line-height: 12px;
         padding: 4px 0;
         width: 20px;
@@ -139,7 +139,7 @@
 
     .jq-sml.jq-text {
         width: initial;
-        padding: 2px 7px;
+        padding: 3px 7px;
         white-space: nowrap;
     }
 
@@ -149,7 +149,7 @@
 
     .jq-title {
 
-        font-weight: bold; font-size: 10px; font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold; font-size: 11px; font-family: Arial, Helvetica, sans-serif;
         line-height: 11px; white-space: pre;
         position: absolute; height: 11px; padding: 4px 10px;
         color: #ffffff; background: #000000;
