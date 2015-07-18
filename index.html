@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>jQuery-Elevator by inzycle</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>jQuery-Elevator</h1>
+          <h2>A better &quot;back to top&quot; plugin for jQuery</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/inzycle/jquery-elevator/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/inzycle/jquery-elevator/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/inzycle/jquery-elevator" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a id="jquery-elevator" class="anchor" href="#jquery-elevator" aria-hidden="true"><span class="octicon octicon-link"></span></a>jQuery Elevator</h1>
+
+<p><strong>Version 1.0.5</strong></p>
+
+<p>An enhanced "back to top" and more, plugin for jQuery. With support for: top, bottom, sections, callbacks, smooth movement, mobile touch and fully customizable.</p>
+
+<h2>
+<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic usage</h2>
+
+<p>Begin by call the <strong>elevator</strong> core:</p>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator();
+
+});</pre></div>
+
+<h3>
+<a id="defining-position" class="anchor" href="#defining-position" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining position</h3>
+
+<p>You can customize <strong>where</strong> the <strong>elevator</strong> buttons panel should appear by using <code>align</code> argument:</p>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>bottom right<span class="pl-pds">'</span></span>   <span class="pl-c">// default</span>
+
+    });
+
+});</pre></div>
+
+<h3>
+<a id="defining-shape" class="anchor" href="#defining-shape" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining shape</h3>
+
+<p>You can customize <strong>how</strong> the <strong>elevator</strong> buttons panel should look by using <code>shape</code> argument:</p>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>circle<span class="pl-pds">'</span></span>         <span class="pl-c">// default</span>
+
+    });
+
+});</pre></div>
+
+<h3>
+<a id="defining-speed" class="anchor" href="#defining-speed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining speed</h3>
+
+<p>You can customize <strong>when</strong> the <strong>elevator</strong> should arrive by using <code>speed</code> argument:</p>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        speed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1000<span class="pl-pds">'</span></span>           <span class="pl-c">// default</span>
+
+    });
+
+});</pre></div>
+
+<p>Those arguments: <code>align</code>, <code>shape</code> and <code>speed</code> are totally optional and their default values are: <code>bottom right</code>, <code>circle</code> and <code>1000</code> respectively.  </p>
+
+<h3>
+<a id="basic-options" class="anchor" href="#basic-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic options</h3>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>top left<span class="pl-pds">'</span></span>       <span class="pl-c">// (string) Align to Top and Left of the page</span>
+        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>top right<span class="pl-pds">'</span></span>      <span class="pl-c">// (string) Align to Top and Right of the page</span>
+        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>bottom left<span class="pl-pds">'</span></span>    <span class="pl-c">// (string) Align to Bottom and Left of the page</span>
+        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>bottom right<span class="pl-pds">'</span></span>   <span class="pl-c">// (string) Align to Bottom and Right of the page</span>
+
+        shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>circle<span class="pl-pds">'</span></span>         <span class="pl-c">// (string) Circle shape for elevator buttons panel</span>
+        shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>rounded<span class="pl-pds">'</span></span>        <span class="pl-c">// (string) Rounded shape for elevator buttons panel</span>
+        shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>square<span class="pl-pds">'</span></span>         <span class="pl-c">// (string) Square shape for elevator buttons panel</span>
+
+        speed<span class="pl-k">:</span> <span class="pl-c1">1000</span>             <span class="pl-c">// (integer) Speed of animation in milliseconds ( 1s )</span>
+
+    });
+
+});</pre></div>
+
+<h2>
+<a id="custom-options" class="anchor" href="#custom-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom options</h2>
+
+<p>jQuery Elevator allow custom arguments to activate or set some functionalities on <strong>elevator</strong> element</p>
+
+<h3>
+<a id="defining-transparency" class="anchor" href="#defining-transparency" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining transparency</h3>
+
+<p>You can activate the transparency of <strong>elevator</strong> should using <code>glass</code> argument:</p>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        glass<span class="pl-k">:</span> <span class="pl-c1">true</span>             <span class="pl-c">// default (false)</span>
+
+    });
+
+});</pre></div>
+
+<h3>
+<a id="defining-auto-hide-elements" class="anchor" href="#defining-auto-hide-elements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining auto-hide elements</h3>
+
+<p>You can activate the auto-hide functionality for elements of <strong>elevator</strong> should using <code>hide</code> argument:</p>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        hide<span class="pl-k">:</span> <span class="pl-c1">true</span>              <span class="pl-c">// default (false)</span>
+
+    });
+
+});</pre></div>
+
+<h3>
+<a id="defining-new-top-and-bottom-using-elements" class="anchor" href="#defining-new-top-and-bottom-using-elements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining new TOP and BOTTOM using elements</h3>
+
+<p>You can define an element of DOM which act as top or bottom for <strong>elevator</strong> using the arguments <code>ìtem_top</code> and <code>ìtem_bottom</code>, setting a <strong>jQuery Object</strong> for this purpose:</p>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        item_top<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>#element-as-top<span class="pl-pds">'</span></span>)
+
+        item_bottom<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>#element-as-bottom<span class="pl-pds">'</span></span>)
+
+    });
+
+});</pre></div>
+
+<h3>
+<a id="show-or-hide-the-top-and-bottom-buttons" class="anchor" href="#show-or-hide-the-top-and-bottom-buttons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Show or Hide the TOP and BOTTOM buttons</h3>
+
+<p>You can show or hide the TOP and BOTTOM buttons at <strong>elevator</strong> buttons panel, using the arguments <code>show_top</code> and <code>show_bottom</code>. Those buttons are default enabled:</p>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        show_top<span class="pl-k">:</span> <span class="pl-c1">true</span>          <span class="pl-c">// default</span>
+
+        show_bottom<span class="pl-k">:</span> <span class="pl-c1">true</span>       <span class="pl-c">// default</span>
+
+    });
+
+});</pre></div>
+
+<h3>
+<a id="defining-a-margin-zone-on-top-and-bottom" class="anchor" href="#defining-a-margin-zone-on-top-and-bottom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining a margin zone on TOP and BOTTOM</h3>
+
+<p>You can extended the TOP or BOTTOM zone with an extra margin, using the argument <code>margin</code>. While you are moving inside or outside the zone the <strong>elevator</strong> objects modify its appearance to make more intuitive.  </p>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        margin<span class="pl-k">:</span> <span class="pl-c1">100</span>             <span class="pl-c">// (integer) default - extra margin in pixels</span>
+
+    });
+
+});</pre></div>
+
+<h3>
+<a id="defining-the-sections-list" class="anchor" href="#defining-the-sections-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining the sections list</h3>
+
+<p>You can use a <strong>jQuery Object</strong> or an <strong>array of jQuery Objects</strong> to define a section list which the <strong>elevator</strong> will turn into buttons panel using the argument <code>navigation</code>:</p>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        navigation<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>h2<span class="pl-pds">'</span></span>)     <span class="pl-c">// (object) section list based on H2 elements</span>
+
+        navigation<span class="pl-k">:</span> [           <span class="pl-c">// (array) section list based on different elements</span>
+
+            $(<span class="pl-s"><span class="pl-pds">'</span>h1<span class="pl-pds">'</span></span>),
+            $(<span class="pl-s"><span class="pl-pds">'</span>h2.section_1<span class="pl-pds">'</span></span>),
+            $(<span class="pl-s"><span class="pl-pds">'</span>h2.section_2<span class="pl-pds">'</span></span>),
+            $(<span class="pl-s"><span class="pl-pds">'</span>h3<span class="pl-pds">'</span></span>)
+
+        ]
+
+    });
+
+});</pre></div>
+
+<p>Those new section buttons can show a <code>title</code> if you define a <code>data-title</code> attribute in the right HTML element corresponding to the jQuery Object:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">html</span>&gt;
+
+    &lt;<span class="pl-ent">body</span>&gt;
+
+        &lt;<span class="pl-ent">h1</span> <span class="pl-e">data-title</span>=<span class="pl-s"><span class="pl-pds">"</span>Important Stuff<span class="pl-pds">"</span></span>&gt;Lorem ipsum dolor sit amet&lt;<span class="pl-ent">h1</span>&gt;
+
+    &lt;/<span class="pl-ent">body</span>&gt;
+
+&lt;/<span class="pl-ent">html</span>&gt;</pre></div>
+
+<h3>
+<a id="activating-text-on-section-buttons" class="anchor" href="#activating-text-on-section-buttons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activating text on section buttons</h3>
+
+<p>You can also show as content on section buttons at <strong>elevator</strong> buttons panel, the text defined in the HTML attribute <code>data-title</code> setting to <code>true</code> the attribute <code>navigation_text</code>:</p>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        navigation_text<span class="pl-k">:</span> <span class="pl-c1">true</span>   <span class="pl-c">// default: false</span>
+
+    });
+
+});</pre></div>
+
+<h3>
+<a id="activating-tooltips-on-buttons" class="anchor" href="#activating-tooltips-on-buttons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activating tooltips on buttons</h3>
+
+<p>You can also show tooltips at <strong>elevator</strong> buttons panel, setting to <code>true</code> the attribute <code>tooltips</code>:</p>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        tooltips<span class="pl-k">:</span> <span class="pl-c1">true</span>          <span class="pl-c">// default: false</span>
+
+    });
+
+});</pre></div>
+
+<h2>
+<a id="callbacks" class="anchor" href="#callbacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Callbacks</h2>
+
+<p>You can also use your own functions and code based on what happened while <strong>elevator</strong> is working using the callback functions provided:</p>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        <span class="pl-en">onBeforeMove</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}          <span class="pl-c">// Execute Order: 0</span>
+
+            <span class="pl-en">onBeforeGoTop</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}     <span class="pl-c">// Execute Order: 1</span>
+            <span class="pl-en">onAfterGoTop</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}      <span class="pl-c">// Execute Order: 2</span>
+
+            <span class="pl-en">onBeforeGoBottom</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}  <span class="pl-c">// Execute Order: 1</span>
+            <span class="pl-en">onAfterGoBottom</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}   <span class="pl-c">// Execute Order: 2</span>
+
+            <span class="pl-en">onBeforeGoSection</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){} <span class="pl-c">// Execute Order: 1</span>
+            <span class="pl-en">onAfterGoSection</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}  <span class="pl-c">// Execute Order: 2</span>
+
+        <span class="pl-en">onAfterMove</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}           <span class="pl-c">// Execute Order: 3</span>
+
+    });
+
+});</pre></div>
+
+<h2>
+<a id="options-summary" class="anchor" href="#options-summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options Summary</h2>
+
+<p>This is the full options list able for jQuery-elevator:</p>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>bottom right<span class="pl-pds">'</span></span>,               <span class="pl-c">// options: (string) 'top left' | 'top right' </span>
+                                             <span class="pl-c">//                   'bottom left' | 'bottom right' </span>
+
+        shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>circle<span class="pl-pds">'</span></span>,                     <span class="pl-c">// options: (string) 'circle' (default) | 'rounded' | 'square'</span>
+
+        speed<span class="pl-k">:</span> <span class="pl-c1">1000</span>,                         <span class="pl-c">// options: (integer) 1000 (default | milliseconds)</span>
+
+        speed<span class="pl-k">:</span> <span class="pl-c1">1000</span>,                         <span class="pl-c">// options: (integer) 1000 (default | milliseconds)</span>
+
+        glass<span class="pl-k">:</span> <span class="pl-c1">false</span>                         <span class="pl-c">// options: (boolean) true | false (default)</span>
+
+        hide<span class="pl-k">:</span> <span class="pl-c1">false</span>                          <span class="pl-c">// options: (boolean) true | false (default)</span>
+
+        item_top<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>#item-as-top<span class="pl-pds">'</span></span>),         <span class="pl-c">// options: (object) null (default)</span>
+
+        item_bottom<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>#item-as-bottom<span class="pl-pds">'</span></span>),   <span class="pl-c">// options: (object) null (default)</span>
+
+        show_top<span class="pl-k">:</span> <span class="pl-c1">true</span>,                      <span class="pl-c">// options: (boolean) true (default) | false</span>
+
+        show_bottom<span class="pl-k">:</span> <span class="pl-c1">true</span>,                   <span class="pl-c">// options: (boolean) true (default) | false</span>
+
+        margin<span class="pl-k">:</span> <span class="pl-c1">100</span>,                         <span class="pl-c">// options: (integer) 100 (default)</span>
+
+        navigation<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>h2<span class="pl-pds">'</span></span>),                 <span class="pl-c">// options: (object) | array[(object)]</span>
+
+        navigation_text<span class="pl-k">:</span> <span class="pl-c1">false</span>,              <span class="pl-c">// options: (boolean) true | false (default)</span>
+
+        tooltips<span class="pl-k">:</span> <span class="pl-c1">false</span>                      <span class="pl-c">// options: (boolean) true | false (default)</span>
+
+        <span class="pl-en">onBeforeMove</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){},          <span class="pl-c">// Execute Order: 0</span>
+
+            <span class="pl-en">onBeforeGoTop</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){},     <span class="pl-c">// Execute Order: 1</span>
+            <span class="pl-en">onAfterGoTop</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){},      <span class="pl-c">// Execute Order: 2</span>
+
+            <span class="pl-en">onBeforeGoBottom</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){},  <span class="pl-c">// Execute Order: 1</span>
+            <span class="pl-en">onAfterGoBottom</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){},   <span class="pl-c">// Execute Order: 2</span>
+
+            <span class="pl-en">onBeforeGoSection</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}, <span class="pl-c">// Execute Order: 1</span>
+            <span class="pl-en">onAfterGoSection</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){},  <span class="pl-c">// Execute Order: 2</span>
+
+        <span class="pl-en">onAfterMove</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}            <span class="pl-c">// Execute Order: 3</span>
+
+    });
+
+});</pre></div>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">html</span>&gt;
+
+    &lt;<span class="pl-ent">body</span>&gt;
+
+        &lt;<span class="pl-ent">h2</span> <span class="pl-e">data-title</span>=<span class="pl-s"><span class="pl-pds">"</span>Title for Section<span class="pl-pds">"</span></span>&gt;Lorem ipsum dolor sit amet&lt;<span class="pl-ent">h2</span>&gt;
+
+    &lt;/<span class="pl-ent">body</span>&gt;
+
+&lt;/<span class="pl-ent">html</span>&gt;</pre></div>
+
+<h2>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributors</h2>
+
+<ul>
+<li>Salvador Saldaña</li>
+<li>Pablo Rosales</li>
+</ul>
+        </section>
+
+        <footer>
+          jQuery-Elevator is maintained by <a href="https://github.com/inzycle">inzycle</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
