@@ -1,0 +1,218 @@
+body { font-family: Arial, Helvetica, sans-serif; color: #444; }
+
+strong { font-weight: bold; }
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 10px; }
+
+.stripe { background: #444 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAJElEQVQImWOUkpJiYGDQ0tJiYGBggrOuXbvGBGdBZSAsLS0tAMrcCdQoiNkHAAAAAElFTkSuQmCC') left top repeat fixed; }
+
+.clearfix:before, .clearfix:after { display: table; content: " "; }
+.clearfix:after { clear: both; }
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+#header { color: #ffffff; padding: 20px 0; border-bottom: 1px solid #1a1a1a; }
+
+    #header h1 { font-size: 150%; font-weight: bold; margin-bottom: 10px; }
+
+    #header h2 { font-size: 90%; font-weight: bold; }
+
+#top-element { background: #d0d0d0; padding: 10px 0; border-bottom: 1px solid #c0c0c0; }
+
+    #top-element span { font-weight: bold; text-transform: uppercase; }
+
+#main { padding: 10px 0; background: #efefef; }
+
+    #main p { margin-bottom: 10px; text-align: justify; line-height: 115%; font-size: 95%; }
+
+    #main .section { color: #ffffff; padding: 10px 15px; margin-bottom: 10px; }
+
+        #main .section p { margin: 0; font-weight: bold; font-size: 80%; }
+
+#bottom-element { background: #d0d0d0; padding: 10px 0; border-top: 1px solid #c0c0c0; border-bottom: 1px solid #c0c0c0; }
+
+    #bottom-element span { font-weight: bold; text-transform: uppercase ; }
+
+#aside { padding: 20px 0; background: #e0e0e0; }
+
+    #aside p { float: left; width: 50%; font-size: 95%; line-height: 115%; }
+
+        #aside p span { display: block; padding: 0 10px; }
+
+            #aside p:first-child span { padding-left: 0; }
+            #aside p:last-child span { padding-right: 0; }
+
+#footer { color: #ffffff; padding: 20px 0; border-top: 1px solid #1a1a1a; }
+
+    #footer p { font-weight: bold; text-align: left; margin-bottom: 10px; }
+
+        #footer p:last-child { font-weight: normal; font-size: 90%; margin: 0; }
+
+/* -- Custom jQuery Elevator Event Visor ---------------------------------------------------------------------------- */
+
+#events { position: fixed; top: 15px; right: 10px; font-size: 80%; }
+
+    #events span { background: #1a1a1a; color: #ffffff; padding: 5px 10px;
+        opacity: 0.7;
+        -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=70)";
+        filter: alpha(opacity=70);
+        -moz-opacity: 0.7;
+        -khtml-opacity: 0.7;
+        -moz-border-radius: 30px;
+        -webkit-border-radius: 30px;
+        -khtml-border-radius: 30px;
+        border-radius: 30px;
+        display: block;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+/* -- Custom jQuery Controls Editor --------------------------------------------------------------------------------- */
+
+.controls { font-size: 12px; line-height: 12px; padding: 10px 15px; margin-bottom: 10px; border: 1px solid #d0d0d0; background: #e0e0e0; }
+
+    .controls input[type="text"] { float: left; padding: 6px 8px; width: 40px; margin-left: 5px; text-align: right; }
+
+    .controls span { float: left; font-weight: bold; line-height: 25px; padding: 6px 0; text-transform: uppercase; }
+
+    .controls button { float: left; padding: 6px 12px; margin-left: 5px; border: 2px solid #505050; color: #c0c0c0; cursor: pointer;
+
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -khtml-border-radius: 2px;
+        border-radius: 2px;
+
+        background: #505050;
+        background: linear-gradient(top, #505050, #1a1a1a);
+        background: -ms-linear-gradient(top, #505050, #1a1a1a);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#505050', endColorstr='#1a1a1a',GradientType=0 );
+        background: -moz-linear-gradient(top, #505050, #1a1a1a);
+        background: -o-linear-gradient(top, #505050, #1a1a1a);
+        background: -webkit-linear-gradient(top, #505050, #1a1a1a);
+
+    }
+
+        .controls button i { background: #c0c0c0; }
+
+        .controls button:hover { color: #ffffff; }
+
+            .controls button:hover i { background: #ffffff; }
+
+    .shape-square, .shape-rounded, .shape-circle { display: block; width: 16px; height: 16px; margin: 2px 0; }
+
+        .shape-square::after, .shape-rounded::after, .shape-circle::after { content: "\00a0"; }
+
+        .shape-square {
+
+            -moz-border-radius: 0;
+            -webkit-border-radius: 0;
+            -khtml-border-radius: 0;
+            border-radius: 0;
+
+        }
+
+        .shape-rounded {
+
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -khtml-border-radius: 2px;
+            border-radius: 2px;
+
+        }
+
+        .shape-circle {
+
+            -moz-border-radius: 8px;
+            -webkit-border-radius: 8px;
+            -khtml-border-radius: 8px;
+            border-radius: 8px;
+
+        }
+
+/* -- Custom Checkboxes --------------------------------------------------------------------------------------------- */
+
+    .controls-checkbox {
+
+        float: left;
+        position: relative;
+        width: 37px;
+        height: 37px;
+        margin-left: 5px;
+        background: #a0a0a0;
+
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -khtml-border-radius: 2px;
+        border-radius: 2px;
+
+    }
+
+        .controls-checkbox label {
+
+            position: absolute;
+            left: 1px;
+            top: 1px;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+
+            background: #505050;
+            background: linear-gradient(top, #505050, #1a1a1a);
+            background: -ms-linear-gradient(top, #505050, #1a1a1a);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#505050', endColorstr='#1a1a1a',GradientType=0 );
+            background: -moz-linear-gradient(top, #505050, #1a1a1a);
+            background: -o-linear-gradient(top, #505050, #1a1a1a);
+            background: -webkit-linear-gradient(top, #505050, #1a1a1a);
+        }
+
+        .controls-checkbox input[type=checkbox] { visibility: hidden; }
+
+    .controls-checkbox label:after {
+
+        position: absolute;
+        top: 10px;
+        left: 11px;
+
+        width: 9px;
+        height: 5px;
+        border: 3px solid #fcfff4;
+        border-top: none;
+        border-right: none;
+
+        background: transparent;
+
+        content: '';
+
+        opacity: 0.2;
+        -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=20)";
+        filter: alpha(opacity=20);
+        -moz-opacity: 0.2;
+        -khtml-opacity: 0.2;
+
+        transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+
+    }
+
+    .controls-checkbox input[type=checkbox]:checked + label:after {
+        opacity: 1;
+        -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        filter: alpha(opacity=100);
+        -moz-opacity: 1;
+        -khtml-opacity: 1;
+    }
+
+/* -- Custom jQuery Elevator Buttons Panel -----------------------------------------------------------------------------
+
+.jq-top { background: #12a30e; color: #ffffff; }
+
+.jq-item { background: #ffffff; color: #444444; }
+
+.jq-bottom { background: #12a30e; color: #ffffff; }
+
+-- */

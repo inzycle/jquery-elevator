@@ -1,8 +1,8 @@
 # jQuery Elevator
 
-**Version 1.0.4**
+**Version 1.0.5**
 
-An enhanced "back to top" and more, plugin for jQuery. With support for: top, bottom, sections, callbacks, smooth movement and fully customizable.
+An enhanced "back to top" and more, plugin for jQuery. With support for: top, bottom, sections, callbacks, smooth movement, mobile touch and fully customizable.
 
 ## Basic usage
 
@@ -10,7 +10,9 @@ Begin by call the **elevator** core:
 
 ```js
 $(document).ready(function(){
+
     $.elevator();
+    
 });
 ```
 
@@ -20,9 +22,13 @@ You can customize **where** the **elevator** buttons panel should appear by usin
 
 ```js
 $(document).ready(function(){
+
     $.elevator({
+    
         align: 'bottom right'   // default
+        
     });
+    
 });
 ```
 
@@ -32,9 +38,13 @@ You can customize **how** the **elevator** buttons panel should look by using ``
 
 ```js
 $(document).ready(function(){
+
     $.elevator({
+    
         shape: 'circle'         // default
+        
     });
+    
 });
 ```
 
@@ -44,9 +54,13 @@ You can customize **when** the **elevator** should arrive by using ```speed``` a
 
 ```js
 $(document).ready(function(){
+
     $.elevator({
+    
         speed: '1000'           // default
+        
     });
+    
 });
 ```
 
@@ -56,6 +70,7 @@ Those arguments: ```align```, ```shape``` and ```speed``` are totally optional a
 
 ```js
 $(document).ready(function(){
+
     $.elevator({
 
         align: 'top left'       // (string) Align to Top and Left of the page
@@ -70,6 +85,7 @@ $(document).ready(function(){
         speed: 1000             // (integer) Speed of animation in milliseconds ( 1s )
 
     });
+    
 });
 ```
 
@@ -77,12 +93,45 @@ $(document).ready(function(){
 
 jQuery Elevator allow custom arguments to activate or set some functionalities on **elevator** element
  
+### Defining transparency
+
+You can activate the transparency of **elevator** should using ```glass``` argument:
+
+```js
+$(document).ready(function(){
+
+    $.elevator({
+    
+        glass: true             // default (false)
+        
+    });
+    
+});
+```
+
+### Defining auto-hide elements
+
+You can activate the auto-hide functionality for elements of **elevator** should using ```hide``` argument:
+
+```js
+$(document).ready(function(){
+
+    $.elevator({
+    
+        hide: true              // default (false)
+        
+    });
+    
+});
+```
+
 ### Defining new TOP and BOTTOM using elements
 
 You can define an element of DOM which act as top or bottom for **elevator** using the arguments ```ìtem_top``` and ```ìtem_bottom```, setting a **jQuery Object** for this purpose:
 
 ```js
 $(document).ready(function(){
+
     $.elevator({
 
         item_top: $('#element-as-top')
@@ -90,6 +139,7 @@ $(document).ready(function(){
         item_bottom: $('#element-as-bottom')
 
     });
+    
 });
 ```
 
@@ -99,6 +149,7 @@ You can show or hide the TOP and BOTTOM buttons at **elevator** buttons panel, u
 
 ```js
 $(document).ready(function(){
+
     $.elevator({
 
         show_top: true          // default
@@ -106,6 +157,7 @@ $(document).ready(function(){
         show_bottom: true       // default
 
     });
+    
 });
 ```
 
@@ -115,11 +167,13 @@ You can extended the TOP or BOTTOM zone with an extra margin, using the argument
 
 ```js
 $(document).ready(function(){
+
     $.elevator({
 
         margin: 100             // (integer) default - extra margin in pixels
 
     });
+    
 });
 ```
 
@@ -129,6 +183,7 @@ You can use a **jQuery Object** or an **array of jQuery Objects** to define a se
  
 ```js
 $(document).ready(function(){
+
     $.elevator({
 
         navigation: $('h2')     // (object) section list based on H2 elements
@@ -143,6 +198,7 @@ $(document).ready(function(){
         ]
 
     });
+    
 });
 ```
 
@@ -150,11 +206,13 @@ Those new section buttons can show a ```title``` if you define a ```data-title``
 
 ```html
 <html>
+
     <body>
     
         <h1 data-title="Important Stuff">Lorem ipsum dolor sit amet<h1>
     
     </body>
+    
 </html>
 ```
 
@@ -164,11 +222,29 @@ You can also show as content on section buttons at **elevator** buttons panel, t
  
 ```js
 $(document).ready(function(){
+
     $.elevator({
 
         navigation_text: true   // default: false
 
     });
+    
+});
+```
+
+### Activating tooltips on buttons
+
+You can also show tooltips at **elevator** buttons panel, setting to ```true``` the attribute ```tooltips```:
+ 
+```js
+$(document).ready(function(){
+
+    $.elevator({
+
+        tooltips: true          // default: false
+
+    });
+    
 });
 ```
 
@@ -178,6 +254,7 @@ You can also use your own functions and code based on what happened while **elev
 
 ```js
 $(document).ready(function(){
+
     $.elevator({
 
         onBeforeMove: function(){}          // Execute Order: 0
@@ -194,6 +271,7 @@ $(document).ready(function(){
         onAfterMove: function(){}           // Execute Order: 3
 
     });
+    
 });
 ```
 
@@ -203,6 +281,7 @@ This is the full options list able for jQuery-elevator:
 
 ```js
 $(document).ready(function(){
+
     $.elevator({
 
         align: 'bottom right',               // options: (string) 'top left' | 'top right' 
@@ -211,6 +290,12 @@ $(document).ready(function(){
         shape: 'circle',                     // options: (string) 'circle' (default) | 'rounded' | 'square'
 
         speed: 1000,                         // options: (integer) 1000 (default | milliseconds)
+        
+        speed: 1000,                         // options: (integer) 1000 (default | milliseconds)
+
+        glass: false                         // options: (boolean) true | false (default)
+
+        hide: false                          // options: (boolean) true | false (default)
 
         item_top: $('#item-as-top'),         // options: (object) null (default)
 
@@ -225,6 +310,8 @@ $(document).ready(function(){
         navigation: $('h2'),                 // options: (object) | array[(object)]
 
         navigation_text: false,              // options: (boolean) true | false (default)
+        
+        tooltips: false                      // options: (boolean) true | false (default)
 
         onBeforeMove: function(){},          // Execute Order: 0
         
@@ -240,16 +327,19 @@ $(document).ready(function(){
         onAfterMove: function(){}            // Execute Order: 3
 
     });
+    
 });
 ```
 
 ```html
 <html>
+
     <body>
     
         <h2 data-title="Title for Section">Lorem ipsum dolor sit amet<h2>
     
     </body>
+    
 </html>
 ```
 

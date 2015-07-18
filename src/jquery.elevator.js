@@ -1,6 +1,7 @@
-/*! jQuery Elevator - v1.0.4 - 2015
+/*! jQuery Elevator - v1.0.5 - 2015
  * https://inzycle.github.com/jquery-elevator
  * Copyright (c) 2015 inZycle; Licensed MIT */
+
 (function(factory) {
     if (typeof define === 'function' && define.amd) {
         return define(['jquery'], function($) {
@@ -22,6 +23,22 @@
          @default 'jq-elevator'
          */
     var CLASS_DIV = 'jq-elevator',
+
+        /**
+         a classname for active elements.
+         @property CLASS_ACTIVE
+         @type String
+         @default 'active'
+         */
+        CLASS_ACTIVE = 'active',
+
+        /**
+         a classname for touchable elevator version.
+         @property CLASS_TOUCH
+         @type String
+         @default 'touch'
+         */
+        CLASS_TOUCH = 'touch',
 
         /**
          a classname for big elements.
@@ -134,6 +151,22 @@
          @default 'jq-top'
          */
         CLASS_ITEM_TOP = 'jq-top',
+
+        /**
+         a classname for navigation items container.
+         @property CLASS_ITEM_CONTAINER
+         @type String
+         @default 'jq-items'
+         */
+        CLASS_ITEM_CONTAINER = 'jq-items',
+
+        /**
+         a classname for navigation items container.
+         @property CLASS_ITEM_CONTAINER
+         @type String
+         @default 'jq-items'
+         */
+        CLASS_ITEM_TOGGLE = 'jq-items-toggle',
 
         /**
          a classname for navigation item.
@@ -374,18 +407,17 @@
 
             top_link.on('click.' + CLASS_ITEM_TOP, function(e) {
 
+                e.preventDefault();
+
                 var pos;
 
                 if(item_top && typeof(item_top) == 'object') {
                     pos = item_top.offset().top;
-                }
-                else {
+                } else {
                     pos = 0;
                 }
 
                 scrollTo(pos,settings.onBeforeGoTop,settings.onAfterGoTop);
-
-                e.preventDefault();
 
             });
 
@@ -399,20 +431,23 @@
                 title = 'Go to Section',
                 navigation = settings.navigation;
 
+            var $container = $('<div>')
+                .addClass(CLASS_ITEM_CONTAINER);
+
             $.each(navigation, function(key, val) {
 
                 if (!$(val).attr('id')) {
                     $(val).attr('id', 'jq-' + parseInt($(val).offset().top));
                 }
 
-                anchor = '#' + $(val).attr('id');
+                var _anchor = anchor + $(val).attr('id');
 
                 title = $(val).attr('title') ? $(val).attr('title') : ( $(val).attr('data-title') ? $(val).attr('data-title') : title );
 
                 var item_link = $('<a>')
                     .addClass(CLASS_ITEM)
                     .addClass(CLASS_SMALL)
-                    .attr('href', anchor)
+                    .attr('href', _anchor)
                     .html('&nbsp');
 
                 if(settings.tooltips){
@@ -428,14 +463,43 @@
                     item_link.addClass(CLASS_ITEM_TEXT);
                 }
 
-                $div.append(item_link);
+                $container.append(item_link);
 
             });
 
+            $div.append($container);
+
+            var items_togle = $('<a>')
+                .addClass(CLASS_ITEM_TOGGLE)
+                .attr('href', anchor)
+                .html('&#9679;');
+
+            items_togle.on('click.' + CLASS_ITEM_TOGGLE, function(e) {
+
+                e.preventDefault();
+
+                if ( $(this).hasClass(CLASS_ACTIVE) ){
+
+                    $(this).removeClass(CLASS_ACTIVE);
+
+                    $container.hide();
+
+                } else {
+
+                    $(this).addClass(CLASS_ACTIVE);
+
+                    $container.show();
+
+                }
+
+            });
+
+            $div.append(items_togle);
+
             $(document).on('click', '.' + CLASS_ITEM, function(e) {
+                e.preventDefault();
                 var _item = $($(this).attr('href'));
                 scrollTo(_item.offset().top,settings.onBeforeGoSection,settings.onAfterGoSection);
-                e.preventDefault();
             });
 
         }
@@ -468,18 +532,17 @@
 
             bottom_link.on('click.' + CLASS_ITEM_BOTTOM, function(e) {
 
+                e.preventDefault();
+
                 var pos = 0;
 
                 if(item_bottom && typeof(item_bottom) == 'object') {
                     pos = item_bottom.offset().top + (item_bottom.outerHeight(true) - $win.height());
-                }
-                else {
+                } else {
                     pos = $doc.height();
                 }
 
                 scrollTo(pos,settings.onBeforeGoBottom,settings.onAfterGoBottom);
-
-                e.preventDefault();
 
             });
 
@@ -494,8 +557,7 @@
 
             if(item_top && typeof(item_top) == 'object') {
                 ret = $win.scrollTop() <= item_top.offset().top + settings.margin;
-            }
-            else {
+            } else {
                 ret = $win.scrollTop() <= settings.margin;
             }
 
@@ -509,8 +571,7 @@
 
             if(item_bottom && typeof(item_bottom) == 'object') {
                 ret = $win.scrollTop() >= item_bottom.offset().top - $win.height() - settings.margin;
-            }
-            else {
+            } else {
                 ret = $win.scrollTop() + $win.height() >= $doc.height() - settings.margin;
             }
 
@@ -577,6 +638,8 @@
 
             $div.addClass(CLASS_DIV);
 
+            if ( 'ontouchstart' in window || navigator.msMaxTouchPoints ){ $div.addClass(CLASS_TOUCH); }
+
             setAlign();
             setShape();
             setStyle();
@@ -598,8 +661,7 @@
             if (atTop()) {
                 if (settings.show_top) { top_link.removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
                 if (settings.show_bottom) { bottom_link.removeClass(CLASS_MIDDLE).addClass(CLASS_BIG); }
-            }
-            else if (atBottom()) {
+            } else if (atBottom()) {
                 if (settings.show_top) { top_link.removeClass(CLASS_MIDDLE).addClass(CLASS_BIG); }
                 if (settings.show_bottom) { bottom_link.removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
             }
@@ -609,12 +671,10 @@
                 if (atTop()) {
                     if (settings.show_top) { top_link.removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
                     if (settings.show_bottom) { bottom_link.removeClass(CLASS_MIDDLE).addClass(CLASS_BIG); }
-                }
-                else if (atBottom()) {
+                } else if (atBottom()) {
                     if (settings.show_top) { top_link.removeClass(CLASS_MIDDLE).addClass(CLASS_BIG); }
                     if (settings.show_bottom) { bottom_link.removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
-                }
-                else {
+                } else {
                     if (settings.show_top) { top_link.removeClass(CLASS_BIG).removeClass(CLASS_SMALL).addClass(CLASS_MIDDLE); }
                     if (settings.show_bottom) { bottom_link.removeClass(CLASS_BIG).removeClass(CLASS_SMALL).addClass(CLASS_MIDDLE); }
                 }
