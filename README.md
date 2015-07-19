@@ -1,6 +1,6 @@
 # jQuery Elevator
 
-**Version 1.0.5**
+**Version 1.0.6**
 
 An enhanced "back to top" and more, plugin for jQuery. With support for: top, bottom, sections, callbacks, smooth movement, mobile touch and fully customizable.
 
@@ -111,14 +111,14 @@ $(document).ready(function(){
 
 ### Defining auto-hide elements
 
-You can activate the auto-hide functionality for elements of **elevator** should using ```hide``` argument:
+You can activate the auto-hide functionality for elements of **elevator** should using ```auto_hide``` argument:
 
 ```js
 $(document).ready(function(){
 
     $.elevator({
     
-        hide: true              // default (false)
+        auto_hide: true         // default (false)
         
     });
     
@@ -295,7 +295,7 @@ $(document).ready(function(){
 
         glass: false                         // options: (boolean) true | false (default)
 
-        hide: false                          // options: (boolean) true | false (default)
+        auto_hide: false                     // options: (boolean) true | false (default)
 
         item_top: $('#item-as-top'),         // options: (object) null (default)
 
@@ -340,6 +340,81 @@ $(document).ready(function(){
     
     </body>
     
+</html>
+```
+
+## Controls
+
+You can use the external functions to control and manage some aspects from the **elevator** element, setting the elevator to a object variable:
+
+```js
+$(document).ready(function(){
+
+    $.elevator({
+
+        var elevator = $.elevator();
+    
+        elevator.reset_align(string);
+    
+        elevator.reset_shape(string);
+    
+        elevator.reset_speed(integer);
+    
+        elevator.reset_glass(boolean);
+    
+        elevator.auto_hide(boolean);
+    
+        elevator.move_to( string | integer );
+
+        // move_to :: string: top | bottom
+        // move_to :: integer: section number ( should be higher than 0 )
+
+    });
+    
+});
+```
+
+
+```js
+$(document).ready(function(){
+
+    $.elevator({
+
+        var elevator = $.elevator();
+    
+        var elevator_settings = elevator.get_settings();
+    
+        // get_settings :: return an asociative array 
+    
+        elevator.destroy();
+
+    });
+    
+});
+```
+
+## Auto-Move
+
+You can use the html ```data-elevator``` tag to create an standalone element which interacts with the elevator item:
+
+```html
+<html>
+
+    <body>
+
+        <!-- Elevator :: Auto-Move to Top -->
+        <a href="#" data-elevator="top">Lorem ipsum dolor sit amet</a>
+
+        <!-- Elevator :: Auto-Move to section number -->
+        <a href="#" data-elevator="1">Lorem ipsum dolor sit amet</a>
+        <a href="#" data-elevator="2">Lorem ipsum dolor sit amet</a>
+        <a href="#" data-elevator="3">Lorem ipsum dolor sit amet</a>
+
+        <!-- Elevator :: Auto-Move to Bottom -->
+        <a href="#" data-elevator="bottom">Lorem ipsum dolor sit amet</a>
+
+    </body>
+
 </html>
 ```
 

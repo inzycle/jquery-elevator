@@ -463,6 +463,8 @@
                     item_link.addClass(CLASS_ITEM_TEXT);
                 }
 
+                item_link.attr('data-section',$container.children().length + 1);
+
                 $container.append(item_link);
 
             });
@@ -634,6 +636,40 @@
 
         }
 
+        function moveTo(section){
+
+            var _section = parseInt(section);
+
+            if ( isNaN(_section) ){
+
+                switch (section) {
+
+                    case 'top':
+                        $('.' + CLASS_ITEM_TOP).trigger('click');
+                        break;
+
+                    case 'bottom':
+                        $('.' + CLASS_ITEM_BOTTOM).trigger('click');
+                        break;
+
+                    default:
+
+                        return false;
+
+                }
+
+            } else if ( $.isNumeric(_section) && (+_section === _section && !(_section % 1)) && _section > 0 && _section <= $('.' + CLASS_ITEM_CONTAINER).children().length ){
+
+                $('.' + CLASS_ITEM +'[data-section="' + _section + '"]').trigger('click');
+
+            } else {
+
+                return false;
+
+            }
+
+        }
+
         function init() {
 
             $div.addClass(CLASS_DIV);
@@ -681,6 +717,14 @@
             });
 
             $('body').append($div);
+
+            $('body').on('click','*[data-elevator]',function(e){
+
+                e.preventDefault();
+
+                moveTo( $(this).attr('data-elevator') );
+
+            });
 
         }
 
@@ -803,6 +847,19 @@
                 }
 
                 settings.auto_hide = auto_hide;
+
+            };
+
+            /**
+             Reset the auto hidden status of the navigation items
+             @method auto_hide
+             @param hide {Boolean} A setting to reestablish the auto hidden status of the navigation items.
+             @example
+             elevator.auto_hide(true);
+             */
+            this.move_to = function(section){
+
+                moveTo(section);
 
             };
 

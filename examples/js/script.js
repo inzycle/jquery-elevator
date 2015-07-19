@@ -1,4 +1,8 @@
-var _elevator = null;
+/*! jQuery Elevator - v1.0.6 - 2015
+ * https://inzycle.github.com/jquery-elevator
+ * Copyright (c) 2015 inZycle; Licensed MIT */
+
+ var _elevator = null;
 
 var _elevator_config = {
     item_top: $('#top-element'),
