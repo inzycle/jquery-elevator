@@ -1,0 +1,357 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+body { font-family: Arial, Helvetica, sans-serif; color: #444; background: #333333 url(../img/grid.png) left top repeat; }
+
+strong { font-weight: bold; }
+
+pre, code { font-family: "Lucida Console", Monaco, monospace; }
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 10px; }
+
+    .element { padding: 10px; color: #ffffff; }
+
+        .element .title { margin-bottom: 10px; }
+
+    .comment { font-style: italic; font-size: 85%; }
+
+    .content { color: #e0e0e0; font-size: 90%; }
+
+        .content p { margin-bottom: 10px; line-height: 130%; }
+
+        .content strong { color: #ffffff; }
+
+        .content code { font-size: 80%; padding: 4px; color: #444; background: #f0f0f0; }
+
+    .filler { font-size: 90%; color: #505050; text-align: justify; }
+
+        .filler p { margin-bottom: 10px; }
+
+    .section { padding: 10px 15px; margin-bottom: 10px; border: 1px solid #000000; color: #ffffff; background: #1f1f1f; }
+
+        .section span { margin: 0; font-weight: bold; font-size: 80%; }
+
+    .highlight { padding: 35px 15px 15px 15px; margin-top: 20px; margin-bottom: 20px; background: #2b2b2b; color: #ffffff; border: 1px solid #1f1f1f; position: relative; overflow-x: auto; }
+
+        .highlight .title { position: absolute; left: 0; top: 0; padding: 5px 10px; text-transform: uppercase; font-size: 11px; font-weight: bold; background: #1f1f1f; }
+
+        .highlight a { color: #ffffff; }
+
+.clearfix:before, .container:before, .clearfix:after, .container:after { display: table; content: " "; }
+.clearfix:after, .container:after { clear: both; }
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+#header { font-family: 'Montserrat', sans-serif; padding: 20px 0; color: #ffffff; background: #1a1a1a; }
+
+    #header .container { position: relative; }
+
+        #header .logo { position: absolute; left: 10px; top: 0; }
+
+            #header .logo img {
+
+                width: 80px;
+                height: 80px;
+
+                background: #ffffff;
+
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                -khtml-border-radius: 5px;
+                border-radius: 5px;
+
+            }
+
+        #header .title { float: left; margin-left: 90px; min-height: 80px; }
+
+            #header .title h1 { font-weight: bold; font-size: 110%; margin-bottom: 10px; }
+
+            #header .title h2 { font-weight: normal; font-size: 75%; color: #a0a0a0; }
+
+#navbar {
+
+    margin-bottom: 20px;
+
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+    #navbar a { float: left; padding: 15px; color: #ffffff; text-decoration: none; }
+
+    #navbar a:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+#main { /**/ }
+
+    #top-element { margin-bottom: 10px; }
+
+#footer { font-family: 'Montserrat', sans-serif; padding: 20px 0; color: #ffffff; background: #1a1a1a; }
+
+    #footer a { color: #ffffff; }
+
+    #footer .contributors { font-size: 80%; }
+
+        #footer ul { margin-top: 10px; padding-left: 20px; }
+
+            #footer li { list-style: disc; padding: 3px 0; font-size: 90%; }
+
+    #footer .info { font-size: 80%; text-align: center; display: block; margin-top: 10px; }
+
+/* -- Custom jQuery Elevator Event Visor ---------------------------------------------------------------------------- */
+
+#events { position: fixed; top: 15px; right: 10px; font-size: 80%; }
+
+    #events span { background: #1a1a1a; color: #ffffff; padding: 5px 10px;
+        opacity: 0.7;
+        -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=70)";
+        filter: alpha(opacity=70);
+        -moz-opacity: 0.7;
+        -khtml-opacity: 0.7;
+        -moz-border-radius: 30px;
+        -webkit-border-radius: 30px;
+        -khtml-border-radius: 30px;
+        border-radius: 30px;
+        display: block;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+/* -- Custom jQuery Controls Editor --------------------------------------------------------------------------------- */
+
+.controls, .element { font-size: 12px; line-height: 12px; padding: 10px 15px; margin-bottom: 10px;
+
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+
+}
+
+    .controls input[type="text"] { float: left; padding: 5px 8px; width: 40px; margin-left: 5px; text-align: right; }
+
+    .controls span { float: left; font-weight: bold; text-transform: uppercase; padding: 5px 0 0 0; color: #ffffff; margin-right: 5px; }
+
+    .controls button { float: left; padding: 6px 12px; margin-left: 5px; border: 1px solid #505050; color: #ffffff; cursor: pointer;
+
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -khtml-border-radius: 2px;
+        border-radius: 2px;
+
+        background: #51a277;
+        background: linear-gradient(top, #51a277, #397652);
+        background: -ms-linear-gradient(top, #51a277, #397652);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#51a277', endColorstr='#397652',GradientType=0 );
+        background: -moz-linear-gradient(top, #51a277, #397652);
+        background: -o-linear-gradient(top, #51a277, #397652);
+        background: -webkit-linear-gradient(top, #51a277, #397652);
+
+    }
+
+        .controls button:focus { outline: 0; }
+
+        .controls button i { background: #ffffff; }
+
+        .controls button:hover {
+
+            background: #5caf82;
+            background: linear-gradient(top, #5caf82, #3c8059);
+            background: -ms-linear-gradient(top, #5caf82, #3c8059);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5caf82', endColorstr='#3c8059',GradientType=0 );
+            background: -moz-linear-gradient(top, #5caf82, #3c8059);
+            background: -o-linear-gradient(top, #5caf82, #3c8059);
+            background: -webkit-linear-gradient(top, #5caf82, #3c8059);
+
+        }
+
+        .controls button:active {
+
+            background: #4f9b71;
+            background: linear-gradient(top, #4f9b71, #356b46);
+            background: -ms-linear-gradient(top, #4f9b71, #356b46);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f9b71', endColorstr='#356b46',GradientType=0 );
+            background: -moz-linear-gradient(top, #4f9b71, #356b46);
+            background: -o-linear-gradient(top, #4f9b71, #356b46);
+            background: -webkit-linear-gradient(top, #4f9b71, #356b46);
+
+        }
+
+    .shape-square, .shape-rounded, .shape-circle { display: block; width: 16px; height: 16px; margin: 2px 0; }
+
+        .shape-square::after, .shape-rounded::after, .shape-circle::after { content: "\00a0"; }
+
+        .shape-square {
+
+            -moz-border-radius: 0;
+            -webkit-border-radius: 0;
+            -khtml-border-radius: 0;
+            border-radius: 0;
+
+        }
+
+        .shape-rounded {
+
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -khtml-border-radius: 2px;
+            border-radius: 2px;
+
+        }
+
+        .shape-circle {
+
+            -moz-border-radius: 8px;
+            -webkit-border-radius: 8px;
+            -khtml-border-radius: 8px;
+            border-radius: 8px;
+
+        }
+
+/* -- Custom Checkboxes --------------------------------------------------------------------------------------------- */
+
+    .controls-checkbox {
+
+        float: left;
+        position: relative;
+        width: 37px;
+        height: 37px;
+        margin-left: 5px;
+        background: #505050;
+
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -khtml-border-radius: 2px;
+        border-radius: 2px;
+
+    }
+
+        .controls-checkbox label {
+
+            position: absolute;
+            left: 1px;
+            top: 1px;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+
+            background: #51a277;
+            background: linear-gradient(top, #51a277, #397652);
+            background: -ms-linear-gradient(top, #51a277, #397652);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#51a277', endColorstr='#397652',GradientType=0 );
+            background: -moz-linear-gradient(top, #51a277, #397652);
+            background: -o-linear-gradient(top, #51a277, #397652);
+            background: -webkit-linear-gradient(top, #51a277, #397652);
+
+        }
+
+        .controls-checkbox input[type=checkbox] { visibility: hidden; }
+
+    .controls-checkbox label:after {
+
+        position: absolute;
+        top: 12px;
+        left: 11px;
+
+        width: 9px;
+        height: 5px;
+        border: 3px solid #fcfff4;
+        border-top: none;
+        border-right: none;
+
+        background: transparent;
+
+        content: '';
+
+        opacity: 0.2;
+        -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=20)";
+        filter: alpha(opacity=20);
+        -moz-opacity: 0.2;
+        -khtml-opacity: 0.2;
+
+        transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+
+    }
+
+    .controls-checkbox input[type=checkbox]:hover + label {
+
+        background: #5caf82;
+        background: linear-gradient(top, #5caf82, #3c8059);
+        background: -ms-linear-gradient(top, #5caf82, #3c8059);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5caf82', endColorstr='#3c8059',GradientType=0 );
+        background: -moz-linear-gradient(top, #5caf82, #3c8059);
+        background: -o-linear-gradient(top, #5caf82, #3c8059);
+        background: -webkit-linear-gradient(top, #5caf82, #3c8059);
+
+    }
+
+    .controls-checkbox input[type=checkbox]:active + label,
+    .controls-checkbox input[type=checkbox]:checked + label {
+
+        background: #4f9b71;
+        background: linear-gradient(top, #4f9b71, #356b46);
+        background: -ms-linear-gradient(top, #4f9b71, #356b46);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f9b71', endColorstr='#356b46',GradientType=0 );
+        background: -moz-linear-gradient(top, #4f9b71, #356b46);
+        background: -o-linear-gradient(top, #4f9b71, #356b46);
+        background: -webkit-linear-gradient(top, #4f9b71, #356b46);
+
+    }
+
+    .controls-checkbox input[type=checkbox]:checked + label:after {
+        opacity: 1;
+        -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        filter: alpha(opacity=100);
+        -moz-opacity: 1;
+        -khtml-opacity: 1;
+    }
+
+/* -- Media Queries ------------------------------------------------------------------------------------------------- */
+
+@media screen and (max-width: 640px) {
+
+    #navbar a span { display: none; }
+
+}
+
+@media print {
+
+    .page-break { page-break-after: always; }
+
+    body { background: #ffffff; }
+
+    #header { background: #f0f0f0; margin-bottom: 10px; color: #444444; }
+
+    #navbar { display: none; }
+
+    .jq-elevator { display: none; }
+
+    .element { color: #444444; background: #fafafa; }
+
+    .controls { display: none }
+
+    .content { color: #444444; }
+
+        .content strong { color: #444444; }
+
+    .highlight { background: #fafafa; color: #444444; }
+
+        .highlight .title { color: #ffffff; }
+
+    .filler { display: none; }
+
+    .sumary .pl-c { font-size: 11px; }
+
+    .functions, .core { font-size: 11px; }
+
+        .functions a { color: #444444; }
+
+    #footer { background: #f0f0f0; color: #444444; }
+
+        #footer a { color: #444444; }
+
+}

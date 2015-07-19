@@ -1,168 +1,75 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>jQuery-Elevator by inzycle</title>
-  </head>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>jQuery-Elevator - inZycle</title>
+    <meta name="description" content="A better back to top jQuery plugin. Support: top, bottom, sections, callbacks, mobile touch, customs, and more.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="all" href="css/reset.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/github-dark.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="lib/jquery.elevator.min.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+</head>
+<body>
 
-  <body>
-    <div id="container">
-      <div class="inner">
+    <header id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="img/logo.png" />
+            </a>
+            <hgroup class="title">
+                <h1>jQuery-Elevator</h1>
+                <h2>A better back to top <abbr title="jQuery Plugin">plugin</abbr>.<br/>Support: top, bottom, sections,<br/>callbacks, mobile touch, customs,<br/>and more.</h2>
+            </hgroup>
+        </div>
+    </header>
 
-        <header>
-          <h1>jQuery-Elevator</h1>
-          <h2>A better &quot;back to top&quot; plugin for jQuery</h2>
-        </header>
+    <div id="navbar">
+        <div class="container">
+            <nav>
+                <a href="https://github.com/inzycle/jquery-elevator/zipball/master"><i class="icon-download"></i> <span>Download</span>.zip</a>
+                <a href="https://github.com/inzycle/jquery-elevator/tarball/master"><i class="icon-download"></i> <span>Download</span>.tar.gz</a>
+                <a href="https://github.com/inzycle/jquery-elevator"><i class="icon-github"></i> <span>GitHub</span></a>
+            </nav>
+        </div>
+    </div>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/inzycle/jquery-elevator/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/inzycle/jquery-elevator/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/inzycle/jquery-elevator" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
+    <main id="main">
+        <div class="container">
 
-        <hr>
+            <!-- Top Element ------------------------------------------------------------------------------------------>
 
-        <section id="main_content">
-          <h1>
-<a id="jquery-elevator" class="anchor" href="#jquery-elevator" aria-hidden="true"><span class="octicon octicon-link"></span></a>jQuery Elevator</h1>
+            <div id="top-element" class="element" data-title="Top element for Elevator">
+                <p class="title"><strong>Top Element</strong></p>
+                <p class="comment">This is a example element which acts as top for elevator instead of page top in itself. You can use this feature to manage a proper top below the header containing important information. You can also set a title using the <strong>data-title</strong> property on this element, as now it is: <strong>data-title="title"</strong></p>
+            </div>
 
-<p><strong>Version 1.0.5</strong></p>
+            <!-- Basic Usage ------------------------------------------------------------------------------------------>
 
-<p>An enhanced "back to top" and more, plugin for jQuery. With support for: top, bottom, sections, callbacks, smooth movement, mobile touch and fully customizable.</p>
-
-<h2>
-<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic usage</h2>
-
-<p>Begin by call the <strong>elevator</strong> core:</p>
-
-<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+            <div class="highlight">
+                <span class="title">Basic usage</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
 
     $.elevator();
 
 });</pre></div>
 
-<h3>
-<a id="defining-position" class="anchor" href="#defining-position" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining position</h3>
+            <!-- Top and Bottom --------------------------------------------------------------------------------------->
 
-<p>You can customize <strong>where</strong> the <strong>elevator</strong> buttons panel should appear by using <code>align</code> argument:</p>
+            <div class="content">
+                <p>You can define an element of DOM which act as top or bottom for <strong>elevator</strong> using the arguments <code>ìtem_top</code> and <code>ìtem_bottom</code>, setting a <strong>jQuery Object</strong> for this purpose:</p>
+            </div>
 
-<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
-
-    $.elevator({
-
-        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>bottom right<span class="pl-pds">'</span></span>   <span class="pl-c">// default</span>
-
-    });
-
-});</pre></div>
-
-<h3>
-<a id="defining-shape" class="anchor" href="#defining-shape" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining shape</h3>
-
-<p>You can customize <strong>how</strong> the <strong>elevator</strong> buttons panel should look by using <code>shape</code> argument:</p>
-
-<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+            <div class="highlight">
+                <span class="title">Defining new TOP and BOTTOM</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
 
     $.elevator({
 
-        shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>circle<span class="pl-pds">'</span></span>         <span class="pl-c">// default</span>
-
-    });
-
-});</pre></div>
-
-<h3>
-<a id="defining-speed" class="anchor" href="#defining-speed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining speed</h3>
-
-<p>You can customize <strong>when</strong> the <strong>elevator</strong> should arrive by using <code>speed</code> argument:</p>
-
-<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
-
-    $.elevator({
-
-        speed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1000<span class="pl-pds">'</span></span>           <span class="pl-c">// default</span>
-
-    });
-
-});</pre></div>
-
-<p>Those arguments: <code>align</code>, <code>shape</code> and <code>speed</code> are totally optional and their default values are: <code>bottom right</code>, <code>circle</code> and <code>1000</code> respectively.  </p>
-
-<h3>
-<a id="basic-options" class="anchor" href="#basic-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic options</h3>
-
-<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
-
-    $.elevator({
-
-        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>top left<span class="pl-pds">'</span></span>       <span class="pl-c">// (string) Align to Top and Left of the page</span>
-        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>top right<span class="pl-pds">'</span></span>      <span class="pl-c">// (string) Align to Top and Right of the page</span>
-        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>bottom left<span class="pl-pds">'</span></span>    <span class="pl-c">// (string) Align to Bottom and Left of the page</span>
-        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>bottom right<span class="pl-pds">'</span></span>   <span class="pl-c">// (string) Align to Bottom and Right of the page</span>
-
-        shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>circle<span class="pl-pds">'</span></span>         <span class="pl-c">// (string) Circle shape for elevator buttons panel</span>
-        shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>rounded<span class="pl-pds">'</span></span>        <span class="pl-c">// (string) Rounded shape for elevator buttons panel</span>
-        shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>square<span class="pl-pds">'</span></span>         <span class="pl-c">// (string) Square shape for elevator buttons panel</span>
-
-        speed<span class="pl-k">:</span> <span class="pl-c1">1000</span>             <span class="pl-c">// (integer) Speed of animation in milliseconds ( 1s )</span>
-
-    });
-
-});</pre></div>
-
-<h2>
-<a id="custom-options" class="anchor" href="#custom-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom options</h2>
-
-<p>jQuery Elevator allow custom arguments to activate or set some functionalities on <strong>elevator</strong> element</p>
-
-<h3>
-<a id="defining-transparency" class="anchor" href="#defining-transparency" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining transparency</h3>
-
-<p>You can activate the transparency of <strong>elevator</strong> should using <code>glass</code> argument:</p>
-
-<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
-
-    $.elevator({
-
-        glass<span class="pl-k">:</span> <span class="pl-c1">true</span>             <span class="pl-c">// default (false)</span>
-
-    });
-
-});</pre></div>
-
-<h3>
-<a id="defining-auto-hide-elements" class="anchor" href="#defining-auto-hide-elements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining auto-hide elements</h3>
-
-<p>You can activate the auto-hide functionality for elements of <strong>elevator</strong> should using <code>hide</code> argument:</p>
-
-<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
-
-    $.elevator({
-
-        hide<span class="pl-k">:</span> <span class="pl-c1">true</span>              <span class="pl-c">// default (false)</span>
-
-    });
-
-});</pre></div>
-
-<h3>
-<a id="defining-new-top-and-bottom-using-elements" class="anchor" href="#defining-new-top-and-bottom-using-elements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining new TOP and BOTTOM using elements</h3>
-
-<p>You can define an element of DOM which act as top or bottom for <strong>elevator</strong> using the arguments <code>ìtem_top</code> and <code>ìtem_bottom</code>, setting a <strong>jQuery Object</strong> for this purpose:</p>
-
-<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
-
-    $.elevator({
-
-        item_top<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>#element-as-top<span class="pl-pds">'</span></span>)
+        item_top<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>#element-as-top<span class="pl-pds">'</span></span>),
 
         item_bottom<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>#element-as-bottom<span class="pl-pds">'</span></span>)
 
@@ -170,50 +77,345 @@
 
 });</pre></div>
 
-<h3>
-<a id="show-or-hide-the-top-and-bottom-buttons" class="anchor" href="#show-or-hide-the-top-and-bottom-buttons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Show or Hide the TOP and BOTTOM buttons</h3>
+            <div class="page-break"></div>
 
-<p>You can show or hide the TOP and BOTTOM buttons at <strong>elevator</strong> buttons panel, using the arguments <code>show_top</code> and <code>show_bottom</code>. Those buttons are default enabled:</p>
+            <!-- Show Top and Bottom ---------------------------------------------------------------------------------->
 
-<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+            <div class="content">
+                <p>You can show or hide the TOP and BOTTOM buttons at <strong>elevator</strong> buttons panel, using the arguments <code>show_top</code> and <code>show_bottom</code>. Those buttons are default enabled:</p>
+            </div>
+
+            <div class="highlight">
+                <span class="title">Show or Hide the TOP and BOTTOM</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
 
     $.elevator({
 
-        show_top<span class="pl-k">:</span> <span class="pl-c1">true</span>          <span class="pl-c">// default</span>
+        show_top<span class="pl-k">:</span> <span class="pl-c1">true</span>,
 
-        show_bottom<span class="pl-k">:</span> <span class="pl-c1">true</span>       <span class="pl-c">// default</span>
+        show_bottom<span class="pl-k">:</span> <span class="pl-c1">true</span>
 
     });
 
 });</pre></div>
 
-<h3>
-<a id="defining-a-margin-zone-on-top-and-bottom" class="anchor" href="#defining-a-margin-zone-on-top-and-bottom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining a margin zone on TOP and BOTTOM</h3>
+            <!-- Extra Margin ----------------------------------------------------------------------------------------->
 
-<p>You can extended the TOP or BOTTOM zone with an extra margin, using the argument <code>margin</code>. While you are moving inside or outside the zone the <strong>elevator</strong> objects modify its appearance to make more intuitive.  </p>
+            <div class="content">
+                <p>You can extended the TOP or BOTTOM zone with an extra margin, using the argument <code>margin</code>. While you are moving inside or outside the zone the <strong>elevator</strong> objects modify its appearance to make more intuitive.  </p>
+            </div>
 
-<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+            <div class="highlight highlight-js">
+                <span class="title">Defining a margin for TOP and BOTTOM</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
 
     $.elevator({
 
-        margin<span class="pl-k">:</span> <span class="pl-c1">100</span>             <span class="pl-c">// (integer) default - extra margin in pixels</span>
+        margin<span class="pl-k">:</span> <span class="pl-c1">100</span>
 
     });
 
 });</pre></div>
 
-<h3>
-<a id="defining-the-sections-list" class="anchor" href="#defining-the-sections-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining the sections list</h3>
+            <div class="page-break"></div>
 
-<p>You can use a <strong>jQuery Object</strong> or an <strong>array of jQuery Objects</strong> to define a section list which the <strong>elevator</strong> will turn into buttons panel using the argument <code>navigation</code>:</p>
+            <!-- Alignment -------------------------------------------------------------------------------------------->
 
-<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+            <section class="section" data-title="Elevator's alignment">
+                <span>Elevator's alignment</span>
+            </section>
+
+            <aside class="controls">
+                <div class="controls-align clearfix">
+                    <span>Align: </span>
+                    <button data-align="top left" title="Top and Left">&#9700;</button>
+                    <button data-align="top right" title="Top and Right">&#9701;</button>
+                    <button data-align="bottom left" title="Bottom and Left">&#9699;</button>
+                    <button data-align="bottom right" title="Bottom and Right">&#9698;</button>
+                </div>
+            </aside>
+
+            <div class="content">
+                <p>You can customize <strong>where</strong> the <strong>elevator</strong> buttons panel should appear by using <code>align</code> argument:</p>
+            </div>
+
+            <div class="highlight highlight-js">
+                <span class="title">Defining position</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
 
     $.elevator({
 
-        navigation<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>h2<span class="pl-pds">'</span></span>)     <span class="pl-c">// (object) section list based on H2 elements</span>
+        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>bottom right<span class="pl-pds">'</span></span>
 
-        navigation<span class="pl-k">:</span> [           <span class="pl-c">// (array) section list based on different elements</span>
+    });
+
+});</pre></div>
+
+            <div class="highlight highlight-js">
+                <span class="title">Position options</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>top left<span class="pl-pds">'</span></span>
+
+        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>top right<span class="pl-pds">'</span></span>
+
+        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>bottom right<span class="pl-pds">'</span></span>
+
+        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>bottom left<span class="pl-pds">'</span></span>
+
+    });
+
+});</pre></div>
+
+            <div class="filler">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum turpis elit, at consectetur tellus dapibus ac. Integer a massa a orci luctus cursus vitae vitae nibh. Praesent lacinia eleifend dui, eget placerat ipsum dictum eget. Aliquam nisi dolor, convallis tempus quam at, pellentesque mollis sem. Nullam consectetur libero sed pharetra commodo. Vestibulum lectus magna, feugiat in vehicula nec, facilisis consequat felis. Proin id erat nec purus porta malesuada.</p>
+                <p>Suspendisse vel suscipit neque. Ut sodales accumsan ipsum consectetur commodo. Nullam sed metus placerat, mattis velit et, ultrices felis. Nunc nisi metus, ullamcorper tristique nunc sed, suscipit ornare nunc. Maecenas vitae ullamcorper metus, id tempus dolor. Nulla facilisi. Duis consequat, nisi vitae interdum feugiat, urna lorem venenatis ex, eu scelerisque turpis ipsum eu purus. Nulla cursus erat id neque fringilla, non blandit metus pulvinar. Phasellus metus odio, imperdiet at blandit quis, egestas a sapien.</p>
+                <p>Aenean eget malesuada leo. Nullam auctor orci a varius faucibus. Vivamus pellentesque arcu tortor, id cursus ex pharetra id. Nullam rutrum faucibus diam nec ultrices. Aliquam elementum pretium nibh, id venenatis ex. In iaculis risus a leo condimentum, lacinia finibus massa laoreet. Aliquam erat volutpat. Integer quis tortor et odio dictum tincidunt. Quisque mi leo, hendrerit eu egestas ac, tempus vitae quam. Donec tincidunt, mauris vel dictum posuere, lectus tellus consequat felis, vel eleifend nisl odio vel ipsum. Sed facilisis eget turpis sed accumsan. Proin ut arcu in mi tempus eleifend.</p>
+                <p>Donec rhoncus erat sed dolor dictum, at malesuada velit lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque vel pellentesque risus. Sed eu faucibus justo. Nullam aliquet non ipsum et faucibus. Morbi diam ligula, dignissim at turpis at, dignissim ultricies ipsum. Fusce commodo venenatis ante at accumsan. Nullam varius fermentum porttitor. Integer posuere nunc a tellus mattis bibendum. Aliquam erat volutpat. Quisque porta condimentum arcu. Donec metus lorem, faucibus ut pretium in, pharetra vitae odio. Donec ex velit, semper eu urna sit amet, dignissim auctor lectus. Phasellus consectetur quam ac molestie tincidunt. Duis elementum dapibus lacus faucibus volutpat.</p>
+                <p>Nullam porta gravida nisl quis sodales. Cras suscipit mauris enim, vel bibendum felis facilisis eget. Phasellus eleifend est a rutrum fermentum. Etiam bibendum lectus in dolor vulputate lobortis. Vestibulum aliquam, purus vel molestie venenatis, turpis neque lacinia nisl, ac gravida diam tellus id lorem. Aliquam ac tortor eget nulla vestibulum blandit. In bibendum mi finibus tempor consectetur. Sed convallis dui ut felis ullamcorper venenatis. Quisque congue scelerisque ipsum, sit amet fringilla nibh sollicitudin non. Sed quis erat nec nisl finibus iaculis sed nec justo. Aliquam sit amet tincidunt dui, quis tristique ante. Ut vitae massa neque. Sed tempus ante id lorem gravida fringilla. Quisque eros arcu, pulvinar eu sapien et, elementum dapibus quam. Ut elementum tempus lectus, sed lacinia tellus lacinia vitae. Vivamus lobortis, tellus id semper congue, dui nisi mattis nibh, id vulputate mi quam in risus.</p>
+                <p>Praesent lacinia, lorem non posuere congue, justo odio condimentum lectus, et interdum neque diam id urna. Pellentesque varius sapien risus, sed lacinia orci semper et. Aliquam euismod imperdiet euismod. Nunc nec velit rutrum, consequat purus eu, tincidunt leo. Sed malesuada, erat non bibendum consectetur, ipsum ipsum rutrum diam, in condimentum massa arcu eget libero. Nulla viverra ligula nec metus tristique euismod. Donec et turpis leo. Vestibulum eget ullamcorper dolor. Fusce eget quam vitae ipsum laoreet aliquam malesuada at eros. Donec diam mi, iaculis et blandit vitae, egestas in massa. Nulla suscipit massa placerat dui eleifend eleifend.</p>
+                <p>Aenean eget condimentum lacus. Quisque sem leo, interdum vel varius id, tempor id urna. In euismod, est et fringilla ornare, eros nibh rutrum odio, eu pellentesque odio arcu hendrerit diam. Suspendisse potenti. Nunc nibh dolor, ultrices ac ligula sed, fermentum dictum ipsum. Integer ipsum sapien, malesuada at arcu eu, tempor condimentum quam. Cras imperdiet tempus tempor. Pellentesque nisl velit, pretium id nisi sit amet, malesuada aliquet lorem.</p>
+                <p>Aliquam id tincidunt augue. Quisque interdum, massa vitae ultrices commodo, ex risus laoreet eros, eu porta ex dui nec ante. In ut aliquam nisi. Quisque iaculis lacus id ipsum molestie gravida. Sed volutpat turpis odio. Maecenas malesuada justo blandit sapien efficitur vehicula. Sed augue lacus, ullamcorper a condimentum sit amet, tristique ac turpis. Integer vitae justo eu purus iaculis consequat. Sed non lacus sit amet nibh convallis placerat. Aenean molestie vulputate pellentesque. Sed placerat arcu quis cursus rutrum. Sed malesuada pellentesque nibh, ac sodales ante tempus eu.</p>
+                <p>Nam finibus aliquet dolor facilisis bibendum. Donec sit amet efficitur enim. Mauris blandit tempor justo, id porta lacus tincidunt nec. Donec gravida turpis ipsum, quis laoreet metus maximus vitae. Donec aliquet vel lorem ac congue. Donec eleifend, lacus non maximus facilisis, tellus est commodo elit, sed consectetur mi lectus fermentum elit. Donec vel congue eros, in vestibulum diam. Aenean non elit dignissim, accumsan mauris nec, lacinia eros. Ut dignissim finibus purus, ac tincidunt velit malesuada sit amet. Quisque id diam porttitor, tempor nibh ut, ornare metus. Maecenas velit nisi, porttitor ut risus fermentum, ultrices blandit nisi. Sed tempus at enim aliquam auctor. Sed pharetra dictum felis eget placerat. Etiam lacinia neque at faucibus gravida. Vivamus eu elit semper, tempor ligula vitae, sodales nulla. Integer venenatis vitae elit pellentesque condimentum.</p>
+                <p>Suspendisse id enim vehicula, lobortis sapien non, ultricies erat. Nunc imperdiet aliquam venenatis. Aliquam euismod eu erat sit amet tempor. Vivamus ut faucibus enim. Etiam pretium, risus sit amet lacinia porttitor, mauris nunc faucibus sapien, vitae suscipit massa leo vel justo. Donec justo urna, condimentum et finibus eget, facilisis et massa. Cras ipsum neque, vestibulum non ligula vitae, malesuada ultrices augue. Nullam sodales quam lacinia tortor tempor, sit amet interdum urna congue. Phasellus tristique maximus mi vel tincidunt. Fusce vel tincidunt velit. Curabitur mollis metus ipsum, eu laoreet eros dignissim eget. Donec aliquet maximus orci, eget tristique nibh pretium vulputate.</p>
+            </div>
+
+            <div class="page-break"></div>
+
+            <!-- Shape ------------------------------------------------------------------------------------------------>
+
+            <section class="section" data-title="Elavator's shape">
+                <span>Elevator's shape</span>
+            </section>
+
+            <div class="controls">
+                <div class="controls-shape clearfix">
+                    <span>Shape: </span>
+                    <button data-shape="square" title="Square Shape"><i class="shape-square"></i></button>
+                    <button data-shape="rounded" title="Rounded Shape"><i class="shape-rounded"></i></button>
+                    <button data-shape="circle" title="Circle Shape"><i class="shape-circle"></i></button>
+                </div>
+            </div>
+
+            <div class="content">
+                <p>You can customize <strong>how</strong> the <strong>elevator</strong> buttons panel should look by using <code>shape</code> argument:</p>
+            </div>
+
+            <div class="highlight highlight-js">
+                <span class="title">Defining shape</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>circle<span class="pl-pds">'</span></span>
+
+    });
+
+});</pre></div>
+
+            <div class="highlight highlight-js">
+                <span class="title">Shape options</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>square<span class="pl-pds">'</span></span>
+
+        shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>rounded<span class="pl-pds">'</span></span>
+
+        shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>circle<span class="pl-pds">'</span></span>
+
+    });
+
+});</pre></div>
+
+            <div class="filler">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum turpis elit, at consectetur tellus dapibus ac. Integer a massa a orci luctus cursus vitae vitae nibh. Praesent lacinia eleifend dui, eget placerat ipsum dictum eget. Aliquam nisi dolor, convallis tempus quam at, pellentesque mollis sem. Nullam consectetur libero sed pharetra commodo. Vestibulum lectus magna, feugiat in vehicula nec, facilisis consequat felis. Proin id erat nec purus porta malesuada.</p>
+                <p>Suspendisse vel suscipit neque. Ut sodales accumsan ipsum consectetur commodo. Nullam sed metus placerat, mattis velit et, ultrices felis. Nunc nisi metus, ullamcorper tristique nunc sed, suscipit ornare nunc. Maecenas vitae ullamcorper metus, id tempus dolor. Nulla facilisi. Duis consequat, nisi vitae interdum feugiat, urna lorem venenatis ex, eu scelerisque turpis ipsum eu purus. Nulla cursus erat id neque fringilla, non blandit metus pulvinar. Phasellus metus odio, imperdiet at blandit quis, egestas a sapien.</p>
+                <p>Aenean eget malesuada leo. Nullam auctor orci a varius faucibus. Vivamus pellentesque arcu tortor, id cursus ex pharetra id. Nullam rutrum faucibus diam nec ultrices. Aliquam elementum pretium nibh, id venenatis ex. In iaculis risus a leo condimentum, lacinia finibus massa laoreet. Aliquam erat volutpat. Integer quis tortor et odio dictum tincidunt. Quisque mi leo, hendrerit eu egestas ac, tempus vitae quam. Donec tincidunt, mauris vel dictum posuere, lectus tellus consequat felis, vel eleifend nisl odio vel ipsum. Sed facilisis eget turpis sed accumsan. Proin ut arcu in mi tempus eleifend.</p>
+                <p>Donec rhoncus erat sed dolor dictum, at malesuada velit lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque vel pellentesque risus. Sed eu faucibus justo. Nullam aliquet non ipsum et faucibus. Morbi diam ligula, dignissim at turpis at, dignissim ultricies ipsum. Fusce commodo venenatis ante at accumsan. Nullam varius fermentum porttitor. Integer posuere nunc a tellus mattis bibendum. Aliquam erat volutpat. Quisque porta condimentum arcu. Donec metus lorem, faucibus ut pretium in, pharetra vitae odio. Donec ex velit, semper eu urna sit amet, dignissim auctor lectus. Phasellus consectetur quam ac molestie tincidunt. Duis elementum dapibus lacus faucibus volutpat.</p>
+                <p>Nullam porta gravida nisl quis sodales. Cras suscipit mauris enim, vel bibendum felis facilisis eget. Phasellus eleifend est a rutrum fermentum. Etiam bibendum lectus in dolor vulputate lobortis. Vestibulum aliquam, purus vel molestie venenatis, turpis neque lacinia nisl, ac gravida diam tellus id lorem. Aliquam ac tortor eget nulla vestibulum blandit. In bibendum mi finibus tempor consectetur. Sed convallis dui ut felis ullamcorper venenatis. Quisque congue scelerisque ipsum, sit amet fringilla nibh sollicitudin non. Sed quis erat nec nisl finibus iaculis sed nec justo. Aliquam sit amet tincidunt dui, quis tristique ante. Ut vitae massa neque. Sed tempus ante id lorem gravida fringilla. Quisque eros arcu, pulvinar eu sapien et, elementum dapibus quam. Ut elementum tempus lectus, sed lacinia tellus lacinia vitae. Vivamus lobortis, tellus id semper congue, dui nisi mattis nibh, id vulputate mi quam in risus.</p>
+                <p>Praesent lacinia, lorem non posuere congue, justo odio condimentum lectus, et interdum neque diam id urna. Pellentesque varius sapien risus, sed lacinia orci semper et. Aliquam euismod imperdiet euismod. Nunc nec velit rutrum, consequat purus eu, tincidunt leo. Sed malesuada, erat non bibendum consectetur, ipsum ipsum rutrum diam, in condimentum massa arcu eget libero. Nulla viverra ligula nec metus tristique euismod. Donec et turpis leo. Vestibulum eget ullamcorper dolor. Fusce eget quam vitae ipsum laoreet aliquam malesuada at eros. Donec diam mi, iaculis et blandit vitae, egestas in massa. Nulla suscipit massa placerat dui eleifend eleifend.</p>
+                <p>Aenean eget condimentum lacus. Quisque sem leo, interdum vel varius id, tempor id urna. In euismod, est et fringilla ornare, eros nibh rutrum odio, eu pellentesque odio arcu hendrerit diam. Suspendisse potenti. Nunc nibh dolor, ultrices ac ligula sed, fermentum dictum ipsum. Integer ipsum sapien, malesuada at arcu eu, tempor condimentum quam. Cras imperdiet tempus tempor. Pellentesque nisl velit, pretium id nisi sit amet, malesuada aliquet lorem.</p>
+                <p>Aliquam id tincidunt augue. Quisque interdum, massa vitae ultrices commodo, ex risus laoreet eros, eu porta ex dui nec ante. In ut aliquam nisi. Quisque iaculis lacus id ipsum molestie gravida. Sed volutpat turpis odio. Maecenas malesuada justo blandit sapien efficitur vehicula. Sed augue lacus, ullamcorper a condimentum sit amet, tristique ac turpis. Integer vitae justo eu purus iaculis consequat. Sed non lacus sit amet nibh convallis placerat. Aenean molestie vulputate pellentesque. Sed placerat arcu quis cursus rutrum. Sed malesuada pellentesque nibh, ac sodales ante tempus eu.</p>
+                <p>Nam finibus aliquet dolor facilisis bibendum. Donec sit amet efficitur enim. Mauris blandit tempor justo, id porta lacus tincidunt nec. Donec gravida turpis ipsum, quis laoreet metus maximus vitae. Donec aliquet vel lorem ac congue. Donec eleifend, lacus non maximus facilisis, tellus est commodo elit, sed consectetur mi lectus fermentum elit. Donec vel congue eros, in vestibulum diam. Aenean non elit dignissim, accumsan mauris nec, lacinia eros. Ut dignissim finibus purus, ac tincidunt velit malesuada sit amet. Quisque id diam porttitor, tempor nibh ut, ornare metus. Maecenas velit nisi, porttitor ut risus fermentum, ultrices blandit nisi. Sed tempus at enim aliquam auctor. Sed pharetra dictum felis eget placerat. Etiam lacinia neque at faucibus gravida. Vivamus eu elit semper, tempor ligula vitae, sodales nulla. Integer venenatis vitae elit pellentesque condimentum.</p>
+                <p>Suspendisse id enim vehicula, lobortis sapien non, ultricies erat. Nunc imperdiet aliquam venenatis. Aliquam euismod eu erat sit amet tempor. Vivamus ut faucibus enim. Etiam pretium, risus sit amet lacinia porttitor, mauris nunc faucibus sapien, vitae suscipit massa leo vel justo. Donec justo urna, condimentum et finibus eget, facilisis et massa. Cras ipsum neque, vestibulum non ligula vitae, malesuada ultrices augue. Nullam sodales quam lacinia tortor tempor, sit amet interdum urna congue. Phasellus tristique maximus mi vel tincidunt. Fusce vel tincidunt velit. Curabitur mollis metus ipsum, eu laoreet eros dignissim eget. Donec aliquet maximus orci, eget tristique nibh pretium vulputate.</p>
+            </div>
+
+            <div class="page-break"></div>
+
+            <!-- Speed ------------------------------------------------------------------------------------------------>
+
+            <section class="section" data-title="Elevator's speed">
+                <span>Elevator's speed</span>
+            </section>
+
+            <div class="controls">
+                <div class="controls-speed clearfix">
+                    <span>Speed: </span>
+                    <input type="text" name="speed" maxlength="5" value="2000" />
+                    <button>&#9658;</button>
+                </div>
+            </div>
+
+            <div class="content">
+                <p>You can customize <strong>when</strong> the <strong>elevator</strong> should arrive by using <code>speed</code> argument:</p>
+            </div>
+
+            <div class="highlight highlight-js">
+                <span class="title">Defining speed</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        speed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1000<span class="pl-pds">'</span></span>
+
+    });
+
+});</pre></div>
+
+            <div class="filler">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum turpis elit, at consectetur tellus dapibus ac. Integer a massa a orci luctus cursus vitae vitae nibh. Praesent lacinia eleifend dui, eget placerat ipsum dictum eget. Aliquam nisi dolor, convallis tempus quam at, pellentesque mollis sem. Nullam consectetur libero sed pharetra commodo. Vestibulum lectus magna, feugiat in vehicula nec, facilisis consequat felis. Proin id erat nec purus porta malesuada.</p>
+                <p>Suspendisse vel suscipit neque. Ut sodales accumsan ipsum consectetur commodo. Nullam sed metus placerat, mattis velit et, ultrices felis. Nunc nisi metus, ullamcorper tristique nunc sed, suscipit ornare nunc. Maecenas vitae ullamcorper metus, id tempus dolor. Nulla facilisi. Duis consequat, nisi vitae interdum feugiat, urna lorem venenatis ex, eu scelerisque turpis ipsum eu purus. Nulla cursus erat id neque fringilla, non blandit metus pulvinar. Phasellus metus odio, imperdiet at blandit quis, egestas a sapien.</p>
+                <p>Aenean eget malesuada leo. Nullam auctor orci a varius faucibus. Vivamus pellentesque arcu tortor, id cursus ex pharetra id. Nullam rutrum faucibus diam nec ultrices. Aliquam elementum pretium nibh, id venenatis ex. In iaculis risus a leo condimentum, lacinia finibus massa laoreet. Aliquam erat volutpat. Integer quis tortor et odio dictum tincidunt. Quisque mi leo, hendrerit eu egestas ac, tempus vitae quam. Donec tincidunt, mauris vel dictum posuere, lectus tellus consequat felis, vel eleifend nisl odio vel ipsum. Sed facilisis eget turpis sed accumsan. Proin ut arcu in mi tempus eleifend.</p>
+                <p>Donec rhoncus erat sed dolor dictum, at malesuada velit lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque vel pellentesque risus. Sed eu faucibus justo. Nullam aliquet non ipsum et faucibus. Morbi diam ligula, dignissim at turpis at, dignissim ultricies ipsum. Fusce commodo venenatis ante at accumsan. Nullam varius fermentum porttitor. Integer posuere nunc a tellus mattis bibendum. Aliquam erat volutpat. Quisque porta condimentum arcu. Donec metus lorem, faucibus ut pretium in, pharetra vitae odio. Donec ex velit, semper eu urna sit amet, dignissim auctor lectus. Phasellus consectetur quam ac molestie tincidunt. Duis elementum dapibus lacus faucibus volutpat.</p>
+                <p>Nullam porta gravida nisl quis sodales. Cras suscipit mauris enim, vel bibendum felis facilisis eget. Phasellus eleifend est a rutrum fermentum. Etiam bibendum lectus in dolor vulputate lobortis. Vestibulum aliquam, purus vel molestie venenatis, turpis neque lacinia nisl, ac gravida diam tellus id lorem. Aliquam ac tortor eget nulla vestibulum blandit. In bibendum mi finibus tempor consectetur. Sed convallis dui ut felis ullamcorper venenatis. Quisque congue scelerisque ipsum, sit amet fringilla nibh sollicitudin non. Sed quis erat nec nisl finibus iaculis sed nec justo. Aliquam sit amet tincidunt dui, quis tristique ante. Ut vitae massa neque. Sed tempus ante id lorem gravida fringilla. Quisque eros arcu, pulvinar eu sapien et, elementum dapibus quam. Ut elementum tempus lectus, sed lacinia tellus lacinia vitae. Vivamus lobortis, tellus id semper congue, dui nisi mattis nibh, id vulputate mi quam in risus.</p>
+                <p>Praesent lacinia, lorem non posuere congue, justo odio condimentum lectus, et interdum neque diam id urna. Pellentesque varius sapien risus, sed lacinia orci semper et. Aliquam euismod imperdiet euismod. Nunc nec velit rutrum, consequat purus eu, tincidunt leo. Sed malesuada, erat non bibendum consectetur, ipsum ipsum rutrum diam, in condimentum massa arcu eget libero. Nulla viverra ligula nec metus tristique euismod. Donec et turpis leo. Vestibulum eget ullamcorper dolor. Fusce eget quam vitae ipsum laoreet aliquam malesuada at eros. Donec diam mi, iaculis et blandit vitae, egestas in massa. Nulla suscipit massa placerat dui eleifend eleifend.</p>
+                <p>Aenean eget condimentum lacus. Quisque sem leo, interdum vel varius id, tempor id urna. In euismod, est et fringilla ornare, eros nibh rutrum odio, eu pellentesque odio arcu hendrerit diam. Suspendisse potenti. Nunc nibh dolor, ultrices ac ligula sed, fermentum dictum ipsum. Integer ipsum sapien, malesuada at arcu eu, tempor condimentum quam. Cras imperdiet tempus tempor. Pellentesque nisl velit, pretium id nisi sit amet, malesuada aliquet lorem.</p>
+                <p>Aliquam id tincidunt augue. Quisque interdum, massa vitae ultrices commodo, ex risus laoreet eros, eu porta ex dui nec ante. In ut aliquam nisi. Quisque iaculis lacus id ipsum molestie gravida. Sed volutpat turpis odio. Maecenas malesuada justo blandit sapien efficitur vehicula. Sed augue lacus, ullamcorper a condimentum sit amet, tristique ac turpis. Integer vitae justo eu purus iaculis consequat. Sed non lacus sit amet nibh convallis placerat. Aenean molestie vulputate pellentesque. Sed placerat arcu quis cursus rutrum. Sed malesuada pellentesque nibh, ac sodales ante tempus eu.</p>
+                <p>Nam finibus aliquet dolor facilisis bibendum. Donec sit amet efficitur enim. Mauris blandit tempor justo, id porta lacus tincidunt nec. Donec gravida turpis ipsum, quis laoreet metus maximus vitae. Donec aliquet vel lorem ac congue. Donec eleifend, lacus non maximus facilisis, tellus est commodo elit, sed consectetur mi lectus fermentum elit. Donec vel congue eros, in vestibulum diam. Aenean non elit dignissim, accumsan mauris nec, lacinia eros. Ut dignissim finibus purus, ac tincidunt velit malesuada sit amet. Quisque id diam porttitor, tempor nibh ut, ornare metus. Maecenas velit nisi, porttitor ut risus fermentum, ultrices blandit nisi. Sed tempus at enim aliquam auctor. Sed pharetra dictum felis eget placerat. Etiam lacinia neque at faucibus gravida. Vivamus eu elit semper, tempor ligula vitae, sodales nulla. Integer venenatis vitae elit pellentesque condimentum.</p>
+                <p>Suspendisse id enim vehicula, lobortis sapien non, ultricies erat. Nunc imperdiet aliquam venenatis. Aliquam euismod eu erat sit amet tempor. Vivamus ut faucibus enim. Etiam pretium, risus sit amet lacinia porttitor, mauris nunc faucibus sapien, vitae suscipit massa leo vel justo. Donec justo urna, condimentum et finibus eget, facilisis et massa. Cras ipsum neque, vestibulum non ligula vitae, malesuada ultrices augue. Nullam sodales quam lacinia tortor tempor, sit amet interdum urna congue. Phasellus tristique maximus mi vel tincidunt. Fusce vel tincidunt velit. Curabitur mollis metus ipsum, eu laoreet eros dignissim eget. Donec aliquet maximus orci, eget tristique nibh pretium vulputate.</p>
+            </div>
+
+            <!-- Glass ------------------------------------------------------------------------------------------------>
+
+            <section class="section" data-title="Elevator's glass ( translucent )">
+                <span>Elevator's glass ( translucent )</span>
+            </section>
+
+            <div class="controls">
+                <div class="controls-glass clearfix">
+                    <span>Glass: </span>
+
+                    <div class="controls-checkbox">
+                        <input type="checkbox" value="" id="controls-glass" name="glass" />
+                        <label for="controls-glass"></label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="content">
+                <p>You can activate the transparency of <strong>elevator</strong> should using <code>glass</code> argument:</p>
+            </div>
+
+            <div class="highlight highlight-js">
+                <span class="title">Shape transparency</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        glass<span class="pl-k">:</span> <span class="pl-c1">false</span>
+
+    });
+
+});</pre></div>
+
+            <div class="filler">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum turpis elit, at consectetur tellus dapibus ac. Integer a massa a orci luctus cursus vitae vitae nibh. Praesent lacinia eleifend dui, eget placerat ipsum dictum eget. Aliquam nisi dolor, convallis tempus quam at, pellentesque mollis sem. Nullam consectetur libero sed pharetra commodo. Vestibulum lectus magna, feugiat in vehicula nec, facilisis consequat felis. Proin id erat nec purus porta malesuada.</p>
+                <p>Suspendisse vel suscipit neque. Ut sodales accumsan ipsum consectetur commodo. Nullam sed metus placerat, mattis velit et, ultrices felis. Nunc nisi metus, ullamcorper tristique nunc sed, suscipit ornare nunc. Maecenas vitae ullamcorper metus, id tempus dolor. Nulla facilisi. Duis consequat, nisi vitae interdum feugiat, urna lorem venenatis ex, eu scelerisque turpis ipsum eu purus. Nulla cursus erat id neque fringilla, non blandit metus pulvinar. Phasellus metus odio, imperdiet at blandit quis, egestas a sapien.</p>
+                <p>Aenean eget malesuada leo. Nullam auctor orci a varius faucibus. Vivamus pellentesque arcu tortor, id cursus ex pharetra id. Nullam rutrum faucibus diam nec ultrices. Aliquam elementum pretium nibh, id venenatis ex. In iaculis risus a leo condimentum, lacinia finibus massa laoreet. Aliquam erat volutpat. Integer quis tortor et odio dictum tincidunt. Quisque mi leo, hendrerit eu egestas ac, tempus vitae quam. Donec tincidunt, mauris vel dictum posuere, lectus tellus consequat felis, vel eleifend nisl odio vel ipsum. Sed facilisis eget turpis sed accumsan. Proin ut arcu in mi tempus eleifend.</p>
+                <p>Donec rhoncus erat sed dolor dictum, at malesuada velit lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque vel pellentesque risus. Sed eu faucibus justo. Nullam aliquet non ipsum et faucibus. Morbi diam ligula, dignissim at turpis at, dignissim ultricies ipsum. Fusce commodo venenatis ante at accumsan. Nullam varius fermentum porttitor. Integer posuere nunc a tellus mattis bibendum. Aliquam erat volutpat. Quisque porta condimentum arcu. Donec metus lorem, faucibus ut pretium in, pharetra vitae odio. Donec ex velit, semper eu urna sit amet, dignissim auctor lectus. Phasellus consectetur quam ac molestie tincidunt. Duis elementum dapibus lacus faucibus volutpat.</p>
+                <p>Nullam porta gravida nisl quis sodales. Cras suscipit mauris enim, vel bibendum felis facilisis eget. Phasellus eleifend est a rutrum fermentum. Etiam bibendum lectus in dolor vulputate lobortis. Vestibulum aliquam, purus vel molestie venenatis, turpis neque lacinia nisl, ac gravida diam tellus id lorem. Aliquam ac tortor eget nulla vestibulum blandit. In bibendum mi finibus tempor consectetur. Sed convallis dui ut felis ullamcorper venenatis. Quisque congue scelerisque ipsum, sit amet fringilla nibh sollicitudin non. Sed quis erat nec nisl finibus iaculis sed nec justo. Aliquam sit amet tincidunt dui, quis tristique ante. Ut vitae massa neque. Sed tempus ante id lorem gravida fringilla. Quisque eros arcu, pulvinar eu sapien et, elementum dapibus quam. Ut elementum tempus lectus, sed lacinia tellus lacinia vitae. Vivamus lobortis, tellus id semper congue, dui nisi mattis nibh, id vulputate mi quam in risus.</p>
+                <p>Praesent lacinia, lorem non posuere congue, justo odio condimentum lectus, et interdum neque diam id urna. Pellentesque varius sapien risus, sed lacinia orci semper et. Aliquam euismod imperdiet euismod. Nunc nec velit rutrum, consequat purus eu, tincidunt leo. Sed malesuada, erat non bibendum consectetur, ipsum ipsum rutrum diam, in condimentum massa arcu eget libero. Nulla viverra ligula nec metus tristique euismod. Donec et turpis leo. Vestibulum eget ullamcorper dolor. Fusce eget quam vitae ipsum laoreet aliquam malesuada at eros. Donec diam mi, iaculis et blandit vitae, egestas in massa. Nulla suscipit massa placerat dui eleifend eleifend.</p>
+                <p>Aenean eget condimentum lacus. Quisque sem leo, interdum vel varius id, tempor id urna. In euismod, est et fringilla ornare, eros nibh rutrum odio, eu pellentesque odio arcu hendrerit diam. Suspendisse potenti. Nunc nibh dolor, ultrices ac ligula sed, fermentum dictum ipsum. Integer ipsum sapien, malesuada at arcu eu, tempor condimentum quam. Cras imperdiet tempus tempor. Pellentesque nisl velit, pretium id nisi sit amet, malesuada aliquet lorem.</p>
+                <p>Aliquam id tincidunt augue. Quisque interdum, massa vitae ultrices commodo, ex risus laoreet eros, eu porta ex dui nec ante. In ut aliquam nisi. Quisque iaculis lacus id ipsum molestie gravida. Sed volutpat turpis odio. Maecenas malesuada justo blandit sapien efficitur vehicula. Sed augue lacus, ullamcorper a condimentum sit amet, tristique ac turpis. Integer vitae justo eu purus iaculis consequat. Sed non lacus sit amet nibh convallis placerat. Aenean molestie vulputate pellentesque. Sed placerat arcu quis cursus rutrum. Sed malesuada pellentesque nibh, ac sodales ante tempus eu.</p>
+                <p>Nam finibus aliquet dolor facilisis bibendum. Donec sit amet efficitur enim. Mauris blandit tempor justo, id porta lacus tincidunt nec. Donec gravida turpis ipsum, quis laoreet metus maximus vitae. Donec aliquet vel lorem ac congue. Donec eleifend, lacus non maximus facilisis, tellus est commodo elit, sed consectetur mi lectus fermentum elit. Donec vel congue eros, in vestibulum diam. Aenean non elit dignissim, accumsan mauris nec, lacinia eros. Ut dignissim finibus purus, ac tincidunt velit malesuada sit amet. Quisque id diam porttitor, tempor nibh ut, ornare metus. Maecenas velit nisi, porttitor ut risus fermentum, ultrices blandit nisi. Sed tempus at enim aliquam auctor. Sed pharetra dictum felis eget placerat. Etiam lacinia neque at faucibus gravida. Vivamus eu elit semper, tempor ligula vitae, sodales nulla. Integer venenatis vitae elit pellentesque condimentum.</p>
+                <p>Suspendisse id enim vehicula, lobortis sapien non, ultricies erat. Nunc imperdiet aliquam venenatis. Aliquam euismod eu erat sit amet tempor. Vivamus ut faucibus enim. Etiam pretium, risus sit amet lacinia porttitor, mauris nunc faucibus sapien, vitae suscipit massa leo vel justo. Donec justo urna, condimentum et finibus eget, facilisis et massa. Cras ipsum neque, vestibulum non ligula vitae, malesuada ultrices augue. Nullam sodales quam lacinia tortor tempor, sit amet interdum urna congue. Phasellus tristique maximus mi vel tincidunt. Fusce vel tincidunt velit. Curabitur mollis metus ipsum, eu laoreet eros dignissim eget. Donec aliquet maximus orci, eget tristique nibh pretium vulputate.</p>
+            </div>
+
+            <div class="page-break"></div>
+
+            <!-- Auto-Hide -------------------------------------------------------------------------------------------->
+
+            <section class="section" data-title="Elevator's auto-hide">
+                <span>Elevator's auto-hide</span>
+            </section>
+
+            <div class="controls">
+                <div class="controls-hide clearfix">
+                    <span>Auto-hide: </span>
+
+                    <div class="controls-checkbox">
+                        <input type="checkbox" value="" id="controls-autohide" name="auto-hide" />
+                        <label for="controls-autohide"></label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="content">
+                <p>You can activate the auto-hide functionality for elements of <strong>elevator</strong> should using <code>hide</code> argument:</p>
+            </div>
+
+            <div class="highlight highlight-js">
+                <span class="title">Defining auto-hide elements</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        hide<span class="pl-k">:</span> <span class="pl-c1">false</span>
+
+    });
+
+});</pre></div>
+
+            <div class="filler">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum turpis elit, at consectetur tellus dapibus ac. Integer a massa a orci luctus cursus vitae vitae nibh. Praesent lacinia eleifend dui, eget placerat ipsum dictum eget. Aliquam nisi dolor, convallis tempus quam at, pellentesque mollis sem. Nullam consectetur libero sed pharetra commodo. Vestibulum lectus magna, feugiat in vehicula nec, facilisis consequat felis. Proin id erat nec purus porta malesuada.</p>
+                <p>Suspendisse vel suscipit neque. Ut sodales accumsan ipsum consectetur commodo. Nullam sed metus placerat, mattis velit et, ultrices felis. Nunc nisi metus, ullamcorper tristique nunc sed, suscipit ornare nunc. Maecenas vitae ullamcorper metus, id tempus dolor. Nulla facilisi. Duis consequat, nisi vitae interdum feugiat, urna lorem venenatis ex, eu scelerisque turpis ipsum eu purus. Nulla cursus erat id neque fringilla, non blandit metus pulvinar. Phasellus metus odio, imperdiet at blandit quis, egestas a sapien.</p>
+                <p>Aenean eget malesuada leo. Nullam auctor orci a varius faucibus. Vivamus pellentesque arcu tortor, id cursus ex pharetra id. Nullam rutrum faucibus diam nec ultrices. Aliquam elementum pretium nibh, id venenatis ex. In iaculis risus a leo condimentum, lacinia finibus massa laoreet. Aliquam erat volutpat. Integer quis tortor et odio dictum tincidunt. Quisque mi leo, hendrerit eu egestas ac, tempus vitae quam. Donec tincidunt, mauris vel dictum posuere, lectus tellus consequat felis, vel eleifend nisl odio vel ipsum. Sed facilisis eget turpis sed accumsan. Proin ut arcu in mi tempus eleifend.</p>
+                <p>Donec rhoncus erat sed dolor dictum, at malesuada velit lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque vel pellentesque risus. Sed eu faucibus justo. Nullam aliquet non ipsum et faucibus. Morbi diam ligula, dignissim at turpis at, dignissim ultricies ipsum. Fusce commodo venenatis ante at accumsan. Nullam varius fermentum porttitor. Integer posuere nunc a tellus mattis bibendum. Aliquam erat volutpat. Quisque porta condimentum arcu. Donec metus lorem, faucibus ut pretium in, pharetra vitae odio. Donec ex velit, semper eu urna sit amet, dignissim auctor lectus. Phasellus consectetur quam ac molestie tincidunt. Duis elementum dapibus lacus faucibus volutpat.</p>
+                <p>Nullam porta gravida nisl quis sodales. Cras suscipit mauris enim, vel bibendum felis facilisis eget. Phasellus eleifend est a rutrum fermentum. Etiam bibendum lectus in dolor vulputate lobortis. Vestibulum aliquam, purus vel molestie venenatis, turpis neque lacinia nisl, ac gravida diam tellus id lorem. Aliquam ac tortor eget nulla vestibulum blandit. In bibendum mi finibus tempor consectetur. Sed convallis dui ut felis ullamcorper venenatis. Quisque congue scelerisque ipsum, sit amet fringilla nibh sollicitudin non. Sed quis erat nec nisl finibus iaculis sed nec justo. Aliquam sit amet tincidunt dui, quis tristique ante. Ut vitae massa neque. Sed tempus ante id lorem gravida fringilla. Quisque eros arcu, pulvinar eu sapien et, elementum dapibus quam. Ut elementum tempus lectus, sed lacinia tellus lacinia vitae. Vivamus lobortis, tellus id semper congue, dui nisi mattis nibh, id vulputate mi quam in risus.</p>
+                <p>Praesent lacinia, lorem non posuere congue, justo odio condimentum lectus, et interdum neque diam id urna. Pellentesque varius sapien risus, sed lacinia orci semper et. Aliquam euismod imperdiet euismod. Nunc nec velit rutrum, consequat purus eu, tincidunt leo. Sed malesuada, erat non bibendum consectetur, ipsum ipsum rutrum diam, in condimentum massa arcu eget libero. Nulla viverra ligula nec metus tristique euismod. Donec et turpis leo. Vestibulum eget ullamcorper dolor. Fusce eget quam vitae ipsum laoreet aliquam malesuada at eros. Donec diam mi, iaculis et blandit vitae, egestas in massa. Nulla suscipit massa placerat dui eleifend eleifend.</p>
+                <p>Aenean eget condimentum lacus. Quisque sem leo, interdum vel varius id, tempor id urna. In euismod, est et fringilla ornare, eros nibh rutrum odio, eu pellentesque odio arcu hendrerit diam. Suspendisse potenti. Nunc nibh dolor, ultrices ac ligula sed, fermentum dictum ipsum. Integer ipsum sapien, malesuada at arcu eu, tempor condimentum quam. Cras imperdiet tempus tempor. Pellentesque nisl velit, pretium id nisi sit amet, malesuada aliquet lorem.</p>
+                <p>Aliquam id tincidunt augue. Quisque interdum, massa vitae ultrices commodo, ex risus laoreet eros, eu porta ex dui nec ante. In ut aliquam nisi. Quisque iaculis lacus id ipsum molestie gravida. Sed volutpat turpis odio. Maecenas malesuada justo blandit sapien efficitur vehicula. Sed augue lacus, ullamcorper a condimentum sit amet, tristique ac turpis. Integer vitae justo eu purus iaculis consequat. Sed non lacus sit amet nibh convallis placerat. Aenean molestie vulputate pellentesque. Sed placerat arcu quis cursus rutrum. Sed malesuada pellentesque nibh, ac sodales ante tempus eu.</p>
+                <p>Nam finibus aliquet dolor facilisis bibendum. Donec sit amet efficitur enim. Mauris blandit tempor justo, id porta lacus tincidunt nec. Donec gravida turpis ipsum, quis laoreet metus maximus vitae. Donec aliquet vel lorem ac congue. Donec eleifend, lacus non maximus facilisis, tellus est commodo elit, sed consectetur mi lectus fermentum elit. Donec vel congue eros, in vestibulum diam. Aenean non elit dignissim, accumsan mauris nec, lacinia eros. Ut dignissim finibus purus, ac tincidunt velit malesuada sit amet. Quisque id diam porttitor, tempor nibh ut, ornare metus. Maecenas velit nisi, porttitor ut risus fermentum, ultrices blandit nisi. Sed tempus at enim aliquam auctor. Sed pharetra dictum felis eget placerat. Etiam lacinia neque at faucibus gravida. Vivamus eu elit semper, tempor ligula vitae, sodales nulla. Integer venenatis vitae elit pellentesque condimentum.</p>
+                <p>Suspendisse id enim vehicula, lobortis sapien non, ultricies erat. Nunc imperdiet aliquam venenatis. Aliquam euismod eu erat sit amet tempor. Vivamus ut faucibus enim. Etiam pretium, risus sit amet lacinia porttitor, mauris nunc faucibus sapien, vitae suscipit massa leo vel justo. Donec justo urna, condimentum et finibus eget, facilisis et massa. Cras ipsum neque, vestibulum non ligula vitae, malesuada ultrices augue. Nullam sodales quam lacinia tortor tempor, sit amet interdum urna congue. Phasellus tristique maximus mi vel tincidunt. Fusce vel tincidunt velit. Curabitur mollis metus ipsum, eu laoreet eros dignissim eget. Donec aliquet maximus orci, eget tristique nibh pretium vulputate.</p>
+            </div>
+
+            <!-- Sections --------------------------------------------------------------------------------------------->
+
+            <div class="section" data-title="Elevator's sections">
+                <span>Elevator's sections</span>
+            </div>
+
+            <div class="content">
+                <p>You can use a <strong>jQuery Object</strong> or an <strong>array of jQuery Objects</strong> to define a section list which the <strong>elevator</strong> will turn into buttons panel using the argument <code>navigation</code>:</p>
+            </div>
+
+            <div class="highlight highlight-js">
+                <span class="title">Defining sections: object</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        navigation<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>.section<span class="pl-pds">'</span></span>)
+
+    });
+
+});</pre></div>
+
+            <div class="page-break"></div>
+
+            <div class="highlight highlight-js">
+                <span class="title">Defining sections: array</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        navigation<span class="pl-k">:</span> [
 
             $(<span class="pl-s"><span class="pl-pds">'</span>h1<span class="pl-pds">'</span></span>),
             $(<span class="pl-s"><span class="pl-pds">'</span>h2.section_1<span class="pl-pds">'</span></span>),
@@ -226,111 +428,113 @@
 
 });</pre></div>
 
-<p>Those new section buttons can show a <code>title</code> if you define a <code>data-title</code> attribute in the right HTML element corresponding to the jQuery Object:</p>
+            <div class="content">
+                <p>Those new section buttons can show a <code>title</code> if you define a <code>data-title</code> attribute in the right HTML element corresponding to the jQuery Object:</p>
+            </div>
 
-<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">html</span>&gt;
+            <div class="highlight highlight-html">
+                <span class="title">Defining section's titles</span>
+                <pre>&lt;<span class="pl-ent">html</span>&gt;
 
     &lt;<span class="pl-ent">body</span>&gt;
 
-        &lt;<span class="pl-ent">h1</span> <span class="pl-e">data-title</span>=<span class="pl-s"><span class="pl-pds">"</span>Important Stuff<span class="pl-pds">"</span></span>&gt;Lorem ipsum dolor sit amet&lt;<span class="pl-ent">h1</span>&gt;
+        &lt;<span class="pl-ent">h1</span> <span class="pl-e">data-title</span>=<span class="pl-s"><span class="pl-pds">"</span>Important Stuff<span class="pl-pds">"</span></span>&gt;Lorem ipsum dolor sit amet&lt;<span class="pl-ent">/h1</span>&gt;
 
     &lt;/<span class="pl-ent">body</span>&gt;
 
 &lt;/<span class="pl-ent">html</span>&gt;</pre></div>
 
-<h3>
-<a id="activating-text-on-section-buttons" class="anchor" href="#activating-text-on-section-buttons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activating text on section buttons</h3>
+            <div class="filler">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum turpis elit, at consectetur tellus dapibus ac. Integer a massa a orci luctus cursus vitae vitae nibh. Praesent lacinia eleifend dui, eget placerat ipsum dictum eget. Aliquam nisi dolor, convallis tempus quam at, pellentesque mollis sem. Nullam consectetur libero sed pharetra commodo. Vestibulum lectus magna, feugiat in vehicula nec, facilisis consequat felis. Proin id erat nec purus porta malesuada.</p>
+                <p>Suspendisse vel suscipit neque. Ut sodales accumsan ipsum consectetur commodo. Nullam sed metus placerat, mattis velit et, ultrices felis. Nunc nisi metus, ullamcorper tristique nunc sed, suscipit ornare nunc. Maecenas vitae ullamcorper metus, id tempus dolor. Nulla facilisi. Duis consequat, nisi vitae interdum feugiat, urna lorem venenatis ex, eu scelerisque turpis ipsum eu purus. Nulla cursus erat id neque fringilla, non blandit metus pulvinar. Phasellus metus odio, imperdiet at blandit quis, egestas a sapien.</p>
+                <p>Aenean eget malesuada leo. Nullam auctor orci a varius faucibus. Vivamus pellentesque arcu tortor, id cursus ex pharetra id. Nullam rutrum faucibus diam nec ultrices. Aliquam elementum pretium nibh, id venenatis ex. In iaculis risus a leo condimentum, lacinia finibus massa laoreet. Aliquam erat volutpat. Integer quis tortor et odio dictum tincidunt. Quisque mi leo, hendrerit eu egestas ac, tempus vitae quam. Donec tincidunt, mauris vel dictum posuere, lectus tellus consequat felis, vel eleifend nisl odio vel ipsum. Sed facilisis eget turpis sed accumsan. Proin ut arcu in mi tempus eleifend.</p>
+                <p>Donec rhoncus erat sed dolor dictum, at malesuada velit lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque vel pellentesque risus. Sed eu faucibus justo. Nullam aliquet non ipsum et faucibus. Morbi diam ligula, dignissim at turpis at, dignissim ultricies ipsum. Fusce commodo venenatis ante at accumsan. Nullam varius fermentum porttitor. Integer posuere nunc a tellus mattis bibendum. Aliquam erat volutpat. Quisque porta condimentum arcu. Donec metus lorem, faucibus ut pretium in, pharetra vitae odio. Donec ex velit, semper eu urna sit amet, dignissim auctor lectus. Phasellus consectetur quam ac molestie tincidunt. Duis elementum dapibus lacus faucibus volutpat.</p>
+                <p>Nullam porta gravida nisl quis sodales. Cras suscipit mauris enim, vel bibendum felis facilisis eget. Phasellus eleifend est a rutrum fermentum. Etiam bibendum lectus in dolor vulputate lobortis. Vestibulum aliquam, purus vel molestie venenatis, turpis neque lacinia nisl, ac gravida diam tellus id lorem. Aliquam ac tortor eget nulla vestibulum blandit. In bibendum mi finibus tempor consectetur. Sed convallis dui ut felis ullamcorper venenatis. Quisque congue scelerisque ipsum, sit amet fringilla nibh sollicitudin non. Sed quis erat nec nisl finibus iaculis sed nec justo. Aliquam sit amet tincidunt dui, quis tristique ante. Ut vitae massa neque. Sed tempus ante id lorem gravida fringilla. Quisque eros arcu, pulvinar eu sapien et, elementum dapibus quam. Ut elementum tempus lectus, sed lacinia tellus lacinia vitae. Vivamus lobortis, tellus id semper congue, dui nisi mattis nibh, id vulputate mi quam in risus.</p>
+                <p>Praesent lacinia, lorem non posuere congue, justo odio condimentum lectus, et interdum neque diam id urna. Pellentesque varius sapien risus, sed lacinia orci semper et. Aliquam euismod imperdiet euismod. Nunc nec velit rutrum, consequat purus eu, tincidunt leo. Sed malesuada, erat non bibendum consectetur, ipsum ipsum rutrum diam, in condimentum massa arcu eget libero. Nulla viverra ligula nec metus tristique euismod. Donec et turpis leo. Vestibulum eget ullamcorper dolor. Fusce eget quam vitae ipsum laoreet aliquam malesuada at eros. Donec diam mi, iaculis et blandit vitae, egestas in massa. Nulla suscipit massa placerat dui eleifend eleifend.</p>
+                <p>Aenean eget condimentum lacus. Quisque sem leo, interdum vel varius id, tempor id urna. In euismod, est et fringilla ornare, eros nibh rutrum odio, eu pellentesque odio arcu hendrerit diam. Suspendisse potenti. Nunc nibh dolor, ultrices ac ligula sed, fermentum dictum ipsum. Integer ipsum sapien, malesuada at arcu eu, tempor condimentum quam. Cras imperdiet tempus tempor. Pellentesque nisl velit, pretium id nisi sit amet, malesuada aliquet lorem.</p>
+                <p>Aliquam id tincidunt augue. Quisque interdum, massa vitae ultrices commodo, ex risus laoreet eros, eu porta ex dui nec ante. In ut aliquam nisi. Quisque iaculis lacus id ipsum molestie gravida. Sed volutpat turpis odio. Maecenas malesuada justo blandit sapien efficitur vehicula. Sed augue lacus, ullamcorper a condimentum sit amet, tristique ac turpis. Integer vitae justo eu purus iaculis consequat. Sed non lacus sit amet nibh convallis placerat. Aenean molestie vulputate pellentesque. Sed placerat arcu quis cursus rutrum. Sed malesuada pellentesque nibh, ac sodales ante tempus eu.</p>
+                <p>Nam finibus aliquet dolor facilisis bibendum. Donec sit amet efficitur enim. Mauris blandit tempor justo, id porta lacus tincidunt nec. Donec gravida turpis ipsum, quis laoreet metus maximus vitae. Donec aliquet vel lorem ac congue. Donec eleifend, lacus non maximus facilisis, tellus est commodo elit, sed consectetur mi lectus fermentum elit. Donec vel congue eros, in vestibulum diam. Aenean non elit dignissim, accumsan mauris nec, lacinia eros. Ut dignissim finibus purus, ac tincidunt velit malesuada sit amet. Quisque id diam porttitor, tempor nibh ut, ornare metus. Maecenas velit nisi, porttitor ut risus fermentum, ultrices blandit nisi. Sed tempus at enim aliquam auctor. Sed pharetra dictum felis eget placerat. Etiam lacinia neque at faucibus gravida. Vivamus eu elit semper, tempor ligula vitae, sodales nulla. Integer venenatis vitae elit pellentesque condimentum.</p>
+                <p>Suspendisse id enim vehicula, lobortis sapien non, ultricies erat. Nunc imperdiet aliquam venenatis. Aliquam euismod eu erat sit amet tempor. Vivamus ut faucibus enim. Etiam pretium, risus sit amet lacinia porttitor, mauris nunc faucibus sapien, vitae suscipit massa leo vel justo. Donec justo urna, condimentum et finibus eget, facilisis et massa. Cras ipsum neque, vestibulum non ligula vitae, malesuada ultrices augue. Nullam sodales quam lacinia tortor tempor, sit amet interdum urna congue. Phasellus tristique maximus mi vel tincidunt. Fusce vel tincidunt velit. Curabitur mollis metus ipsum, eu laoreet eros dignissim eget. Donec aliquet maximus orci, eget tristique nibh pretium vulputate.</p>
+            </div>
 
-<p>You can also show as content on section buttons at <strong>elevator</strong> buttons panel, the text defined in the HTML attribute <code>data-title</code> setting to <code>true</code> the attribute <code>navigation_text</code>:</p>
+            <div class="page-break"></div>
 
-<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+            <!-- Titles and Tooltips ---------------------------------------------------------------------------------->
+
+            <section class="section" data-title="Elevator's titles & tooltips">
+                <span>Elevator's titles & tooltips</span>
+            </section>
+
+            <div class="controls">
+                <div class="controls-reset clearfix">
+                    <span>Reset: </span>
+                    <button data-text="1">Titles</button>
+                    <button data-text="0">Tooltip</button>
+                </div>
+            </div>
+
+            <div class="content">
+                <p>You can also show as content on section buttons at <strong>elevator</strong> buttons panel, the text defined in the HTML attribute <code>data-title</code> setting to <code>true</code> the attribute <code>navigation_text</code>:</p>
+            </div>
+
+            <div class="highlight highlight-js">
+                <span class="title">Activating text on section buttons</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
 
     $.elevator({
 
-        navigation_text<span class="pl-k">:</span> <span class="pl-c1">true</span>   <span class="pl-c">// default: false</span>
+        navigation_text<span class="pl-k">:</span> <span class="pl-c1">true</span>
 
     });
 
 });</pre></div>
 
-<h3>
-<a id="activating-tooltips-on-buttons" class="anchor" href="#activating-tooltips-on-buttons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activating tooltips on buttons</h3>
+            <div class="content">
+                <p>You can also show tooltips at <strong>elevator</strong> buttons panel, setting to <code>true</code> the attribute <code>tooltips</code>:</p>
+            </div>
 
-<p>You can also show tooltips at <strong>elevator</strong> buttons panel, setting to <code>true</code> the attribute <code>tooltips</code>:</p>
-
-<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+            <div class="highlight highlight-js">
+                <span class="title">Activating tooltips on buttons</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
 
     $.elevator({
 
-        tooltips<span class="pl-k">:</span> <span class="pl-c1">true</span>          <span class="pl-c">// default: false</span>
+        tooltips<span class="pl-k">:</span> <span class="pl-c1">true</span>
 
     });
 
 });</pre></div>
 
-<h2>
-<a id="callbacks" class="anchor" href="#callbacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Callbacks</h2>
+            <div class="filler">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum turpis elit, at consectetur tellus dapibus ac. Integer a massa a orci luctus cursus vitae vitae nibh. Praesent lacinia eleifend dui, eget placerat ipsum dictum eget. Aliquam nisi dolor, convallis tempus quam at, pellentesque mollis sem. Nullam consectetur libero sed pharetra commodo. Vestibulum lectus magna, feugiat in vehicula nec, facilisis consequat felis. Proin id erat nec purus porta malesuada.</p>
+                <p>Suspendisse vel suscipit neque. Ut sodales accumsan ipsum consectetur commodo. Nullam sed metus placerat, mattis velit et, ultrices felis. Nunc nisi metus, ullamcorper tristique nunc sed, suscipit ornare nunc. Maecenas vitae ullamcorper metus, id tempus dolor. Nulla facilisi. Duis consequat, nisi vitae interdum feugiat, urna lorem venenatis ex, eu scelerisque turpis ipsum eu purus. Nulla cursus erat id neque fringilla, non blandit metus pulvinar. Phasellus metus odio, imperdiet at blandit quis, egestas a sapien.</p>
+                <p>Aenean eget malesuada leo. Nullam auctor orci a varius faucibus. Vivamus pellentesque arcu tortor, id cursus ex pharetra id. Nullam rutrum faucibus diam nec ultrices. Aliquam elementum pretium nibh, id venenatis ex. In iaculis risus a leo condimentum, lacinia finibus massa laoreet. Aliquam erat volutpat. Integer quis tortor et odio dictum tincidunt. Quisque mi leo, hendrerit eu egestas ac, tempus vitae quam. Donec tincidunt, mauris vel dictum posuere, lectus tellus consequat felis, vel eleifend nisl odio vel ipsum. Sed facilisis eget turpis sed accumsan. Proin ut arcu in mi tempus eleifend.</p>
+                <p>Donec rhoncus erat sed dolor dictum, at malesuada velit lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque vel pellentesque risus. Sed eu faucibus justo. Nullam aliquet non ipsum et faucibus. Morbi diam ligula, dignissim at turpis at, dignissim ultricies ipsum. Fusce commodo venenatis ante at accumsan. Nullam varius fermentum porttitor. Integer posuere nunc a tellus mattis bibendum. Aliquam erat volutpat. Quisque porta condimentum arcu. Donec metus lorem, faucibus ut pretium in, pharetra vitae odio. Donec ex velit, semper eu urna sit amet, dignissim auctor lectus. Phasellus consectetur quam ac molestie tincidunt. Duis elementum dapibus lacus faucibus volutpat.</p>
+                <p>Nullam porta gravida nisl quis sodales. Cras suscipit mauris enim, vel bibendum felis facilisis eget. Phasellus eleifend est a rutrum fermentum. Etiam bibendum lectus in dolor vulputate lobortis. Vestibulum aliquam, purus vel molestie venenatis, turpis neque lacinia nisl, ac gravida diam tellus id lorem. Aliquam ac tortor eget nulla vestibulum blandit. In bibendum mi finibus tempor consectetur. Sed convallis dui ut felis ullamcorper venenatis. Quisque congue scelerisque ipsum, sit amet fringilla nibh sollicitudin non. Sed quis erat nec nisl finibus iaculis sed nec justo. Aliquam sit amet tincidunt dui, quis tristique ante. Ut vitae massa neque. Sed tempus ante id lorem gravida fringilla. Quisque eros arcu, pulvinar eu sapien et, elementum dapibus quam. Ut elementum tempus lectus, sed lacinia tellus lacinia vitae. Vivamus lobortis, tellus id semper congue, dui nisi mattis nibh, id vulputate mi quam in risus.</p>
+                <p>Praesent lacinia, lorem non posuere congue, justo odio condimentum lectus, et interdum neque diam id urna. Pellentesque varius sapien risus, sed lacinia orci semper et. Aliquam euismod imperdiet euismod. Nunc nec velit rutrum, consequat purus eu, tincidunt leo. Sed malesuada, erat non bibendum consectetur, ipsum ipsum rutrum diam, in condimentum massa arcu eget libero. Nulla viverra ligula nec metus tristique euismod. Donec et turpis leo. Vestibulum eget ullamcorper dolor. Fusce eget quam vitae ipsum laoreet aliquam malesuada at eros. Donec diam mi, iaculis et blandit vitae, egestas in massa. Nulla suscipit massa placerat dui eleifend eleifend.</p>
+                <p>Aenean eget condimentum lacus. Quisque sem leo, interdum vel varius id, tempor id urna. In euismod, est et fringilla ornare, eros nibh rutrum odio, eu pellentesque odio arcu hendrerit diam. Suspendisse potenti. Nunc nibh dolor, ultrices ac ligula sed, fermentum dictum ipsum. Integer ipsum sapien, malesuada at arcu eu, tempor condimentum quam. Cras imperdiet tempus tempor. Pellentesque nisl velit, pretium id nisi sit amet, malesuada aliquet lorem.</p>
+                <p>Aliquam id tincidunt augue. Quisque interdum, massa vitae ultrices commodo, ex risus laoreet eros, eu porta ex dui nec ante. In ut aliquam nisi. Quisque iaculis lacus id ipsum molestie gravida. Sed volutpat turpis odio. Maecenas malesuada justo blandit sapien efficitur vehicula. Sed augue lacus, ullamcorper a condimentum sit amet, tristique ac turpis. Integer vitae justo eu purus iaculis consequat. Sed non lacus sit amet nibh convallis placerat. Aenean molestie vulputate pellentesque. Sed placerat arcu quis cursus rutrum. Sed malesuada pellentesque nibh, ac sodales ante tempus eu.</p>
+                <p>Nam finibus aliquet dolor facilisis bibendum. Donec sit amet efficitur enim. Mauris blandit tempor justo, id porta lacus tincidunt nec. Donec gravida turpis ipsum, quis laoreet metus maximus vitae. Donec aliquet vel lorem ac congue. Donec eleifend, lacus non maximus facilisis, tellus est commodo elit, sed consectetur mi lectus fermentum elit. Donec vel congue eros, in vestibulum diam. Aenean non elit dignissim, accumsan mauris nec, lacinia eros. Ut dignissim finibus purus, ac tincidunt velit malesuada sit amet. Quisque id diam porttitor, tempor nibh ut, ornare metus. Maecenas velit nisi, porttitor ut risus fermentum, ultrices blandit nisi. Sed tempus at enim aliquam auctor. Sed pharetra dictum felis eget placerat. Etiam lacinia neque at faucibus gravida. Vivamus eu elit semper, tempor ligula vitae, sodales nulla. Integer venenatis vitae elit pellentesque condimentum.</p>
+                <p>Suspendisse id enim vehicula, lobortis sapien non, ultricies erat. Nunc imperdiet aliquam venenatis. Aliquam euismod eu erat sit amet tempor. Vivamus ut faucibus enim. Etiam pretium, risus sit amet lacinia porttitor, mauris nunc faucibus sapien, vitae suscipit massa leo vel justo. Donec justo urna, condimentum et finibus eget, facilisis et massa. Cras ipsum neque, vestibulum non ligula vitae, malesuada ultrices augue. Nullam sodales quam lacinia tortor tempor, sit amet interdum urna congue. Phasellus tristique maximus mi vel tincidunt. Fusce vel tincidunt velit. Curabitur mollis metus ipsum, eu laoreet eros dignissim eget. Donec aliquet maximus orci, eget tristique nibh pretium vulputate.</p>
+            </div>
 
-<p>You can also use your own functions and code based on what happened while <strong>elevator</strong> is working using the callback functions provided:</p>
+            <div class="page-break"></div>
 
-<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+            <!-- Callbacks -------------------------------------------------------------------------------------------->
 
-    $.elevator({
+            <section class="section" data-title="Elevator's callbacks">
+                <span>Elevator's callbacks</span>
+            </section>
 
-        <span class="pl-en">onBeforeMove</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}          <span class="pl-c">// Execute Order: 0</span>
+            <div class="content">
+                <p>You can also use your own functions and code based on what happened while <strong>elevator</strong> is working using the callback functions provided:</p>
+            </div>
 
-            <span class="pl-en">onBeforeGoTop</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}     <span class="pl-c">// Execute Order: 1</span>
-            <span class="pl-en">onAfterGoTop</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}      <span class="pl-c">// Execute Order: 2</span>
-
-            <span class="pl-en">onBeforeGoBottom</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}  <span class="pl-c">// Execute Order: 1</span>
-            <span class="pl-en">onAfterGoBottom</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}   <span class="pl-c">// Execute Order: 2</span>
-
-            <span class="pl-en">onBeforeGoSection</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){} <span class="pl-c">// Execute Order: 1</span>
-            <span class="pl-en">onAfterGoSection</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}  <span class="pl-c">// Execute Order: 2</span>
-
-        <span class="pl-en">onAfterMove</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}           <span class="pl-c">// Execute Order: 3</span>
-
-    });
-
-});</pre></div>
-
-<h2>
-<a id="options-summary" class="anchor" href="#options-summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options Summary</h2>
-
-<p>This is the full options list able for jQuery-elevator:</p>
-
-<div class="highlight highlight-js"><pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+            <div class="highlight highlight-js">
+                <span class="title">Callbacks</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
 
     $.elevator({
-
-        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>bottom right<span class="pl-pds">'</span></span>,               <span class="pl-c">// options: (string) 'top left' | 'top right' </span>
-                                             <span class="pl-c">//                   'bottom left' | 'bottom right' </span>
-
-        shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>circle<span class="pl-pds">'</span></span>,                     <span class="pl-c">// options: (string) 'circle' (default) | 'rounded' | 'square'</span>
-
-        speed<span class="pl-k">:</span> <span class="pl-c1">1000</span>,                         <span class="pl-c">// options: (integer) 1000 (default | milliseconds)</span>
-
-        speed<span class="pl-k">:</span> <span class="pl-c1">1000</span>,                         <span class="pl-c">// options: (integer) 1000 (default | milliseconds)</span>
-
-        glass<span class="pl-k">:</span> <span class="pl-c1">false</span>                         <span class="pl-c">// options: (boolean) true | false (default)</span>
-
-        hide<span class="pl-k">:</span> <span class="pl-c1">false</span>                          <span class="pl-c">// options: (boolean) true | false (default)</span>
-
-        item_top<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>#item-as-top<span class="pl-pds">'</span></span>),         <span class="pl-c">// options: (object) null (default)</span>
-
-        item_bottom<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>#item-as-bottom<span class="pl-pds">'</span></span>),   <span class="pl-c">// options: (object) null (default)</span>
-
-        show_top<span class="pl-k">:</span> <span class="pl-c1">true</span>,                      <span class="pl-c">// options: (boolean) true (default) | false</span>
-
-        show_bottom<span class="pl-k">:</span> <span class="pl-c1">true</span>,                   <span class="pl-c">// options: (boolean) true (default) | false</span>
-
-        margin<span class="pl-k">:</span> <span class="pl-c1">100</span>,                         <span class="pl-c">// options: (integer) 100 (default)</span>
-
-        navigation<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>h2<span class="pl-pds">'</span></span>),                 <span class="pl-c">// options: (object) | array[(object)]</span>
-
-        navigation_text<span class="pl-k">:</span> <span class="pl-c1">false</span>,              <span class="pl-c">// options: (boolean) true | false (default)</span>
-
-        tooltips<span class="pl-k">:</span> <span class="pl-c1">false</span>                      <span class="pl-c">// options: (boolean) true | false (default)</span>
 
         <span class="pl-en">onBeforeMove</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){},          <span class="pl-c">// Execute Order: 0</span>
 
@@ -349,43 +553,252 @@
 
 });</pre></div>
 
-<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">html</span>&gt;
+            <div class="filler">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum turpis elit, at consectetur tellus dapibus ac. Integer a massa a orci luctus cursus vitae vitae nibh. Praesent lacinia eleifend dui, eget placerat ipsum dictum eget. Aliquam nisi dolor, convallis tempus quam at, pellentesque mollis sem. Nullam consectetur libero sed pharetra commodo. Vestibulum lectus magna, feugiat in vehicula nec, facilisis consequat felis. Proin id erat nec purus porta malesuada.</p>
+                <p>Suspendisse vel suscipit neque. Ut sodales accumsan ipsum consectetur commodo. Nullam sed metus placerat, mattis velit et, ultrices felis. Nunc nisi metus, ullamcorper tristique nunc sed, suscipit ornare nunc. Maecenas vitae ullamcorper metus, id tempus dolor. Nulla facilisi. Duis consequat, nisi vitae interdum feugiat, urna lorem venenatis ex, eu scelerisque turpis ipsum eu purus. Nulla cursus erat id neque fringilla, non blandit metus pulvinar. Phasellus metus odio, imperdiet at blandit quis, egestas a sapien.</p>
+                <p>Aenean eget malesuada leo. Nullam auctor orci a varius faucibus. Vivamus pellentesque arcu tortor, id cursus ex pharetra id. Nullam rutrum faucibus diam nec ultrices. Aliquam elementum pretium nibh, id venenatis ex. In iaculis risus a leo condimentum, lacinia finibus massa laoreet. Aliquam erat volutpat. Integer quis tortor et odio dictum tincidunt. Quisque mi leo, hendrerit eu egestas ac, tempus vitae quam. Donec tincidunt, mauris vel dictum posuere, lectus tellus consequat felis, vel eleifend nisl odio vel ipsum. Sed facilisis eget turpis sed accumsan. Proin ut arcu in mi tempus eleifend.</p>
+                <p>Donec rhoncus erat sed dolor dictum, at malesuada velit lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque vel pellentesque risus. Sed eu faucibus justo. Nullam aliquet non ipsum et faucibus. Morbi diam ligula, dignissim at turpis at, dignissim ultricies ipsum. Fusce commodo venenatis ante at accumsan. Nullam varius fermentum porttitor. Integer posuere nunc a tellus mattis bibendum. Aliquam erat volutpat. Quisque porta condimentum arcu. Donec metus lorem, faucibus ut pretium in, pharetra vitae odio. Donec ex velit, semper eu urna sit amet, dignissim auctor lectus. Phasellus consectetur quam ac molestie tincidunt. Duis elementum dapibus lacus faucibus volutpat.</p>
+                <p>Nullam porta gravida nisl quis sodales. Cras suscipit mauris enim, vel bibendum felis facilisis eget. Phasellus eleifend est a rutrum fermentum. Etiam bibendum lectus in dolor vulputate lobortis. Vestibulum aliquam, purus vel molestie venenatis, turpis neque lacinia nisl, ac gravida diam tellus id lorem. Aliquam ac tortor eget nulla vestibulum blandit. In bibendum mi finibus tempor consectetur. Sed convallis dui ut felis ullamcorper venenatis. Quisque congue scelerisque ipsum, sit amet fringilla nibh sollicitudin non. Sed quis erat nec nisl finibus iaculis sed nec justo. Aliquam sit amet tincidunt dui, quis tristique ante. Ut vitae massa neque. Sed tempus ante id lorem gravida fringilla. Quisque eros arcu, pulvinar eu sapien et, elementum dapibus quam. Ut elementum tempus lectus, sed lacinia tellus lacinia vitae. Vivamus lobortis, tellus id semper congue, dui nisi mattis nibh, id vulputate mi quam in risus.</p>
+                <p>Praesent lacinia, lorem non posuere congue, justo odio condimentum lectus, et interdum neque diam id urna. Pellentesque varius sapien risus, sed lacinia orci semper et. Aliquam euismod imperdiet euismod. Nunc nec velit rutrum, consequat purus eu, tincidunt leo. Sed malesuada, erat non bibendum consectetur, ipsum ipsum rutrum diam, in condimentum massa arcu eget libero. Nulla viverra ligula nec metus tristique euismod. Donec et turpis leo. Vestibulum eget ullamcorper dolor. Fusce eget quam vitae ipsum laoreet aliquam malesuada at eros. Donec diam mi, iaculis et blandit vitae, egestas in massa. Nulla suscipit massa placerat dui eleifend eleifend.</p>
+                <p>Aenean eget condimentum lacus. Quisque sem leo, interdum vel varius id, tempor id urna. In euismod, est et fringilla ornare, eros nibh rutrum odio, eu pellentesque odio arcu hendrerit diam. Suspendisse potenti. Nunc nibh dolor, ultrices ac ligula sed, fermentum dictum ipsum. Integer ipsum sapien, malesuada at arcu eu, tempor condimentum quam. Cras imperdiet tempus tempor. Pellentesque nisl velit, pretium id nisi sit amet, malesuada aliquet lorem.</p>
+                <p>Aliquam id tincidunt augue. Quisque interdum, massa vitae ultrices commodo, ex risus laoreet eros, eu porta ex dui nec ante. In ut aliquam nisi. Quisque iaculis lacus id ipsum molestie gravida. Sed volutpat turpis odio. Maecenas malesuada justo blandit sapien efficitur vehicula. Sed augue lacus, ullamcorper a condimentum sit amet, tristique ac turpis. Integer vitae justo eu purus iaculis consequat. Sed non lacus sit amet nibh convallis placerat. Aenean molestie vulputate pellentesque. Sed placerat arcu quis cursus rutrum. Sed malesuada pellentesque nibh, ac sodales ante tempus eu.</p>
+                <p>Nam finibus aliquet dolor facilisis bibendum. Donec sit amet efficitur enim. Mauris blandit tempor justo, id porta lacus tincidunt nec. Donec gravida turpis ipsum, quis laoreet metus maximus vitae. Donec aliquet vel lorem ac congue. Donec eleifend, lacus non maximus facilisis, tellus est commodo elit, sed consectetur mi lectus fermentum elit. Donec vel congue eros, in vestibulum diam. Aenean non elit dignissim, accumsan mauris nec, lacinia eros. Ut dignissim finibus purus, ac tincidunt velit malesuada sit amet. Quisque id diam porttitor, tempor nibh ut, ornare metus. Maecenas velit nisi, porttitor ut risus fermentum, ultrices blandit nisi. Sed tempus at enim aliquam auctor. Sed pharetra dictum felis eget placerat. Etiam lacinia neque at faucibus gravida. Vivamus eu elit semper, tempor ligula vitae, sodales nulla. Integer venenatis vitae elit pellentesque condimentum.</p>
+                <p>Suspendisse id enim vehicula, lobortis sapien non, ultricies erat. Nunc imperdiet aliquam venenatis. Aliquam euismod eu erat sit amet tempor. Vivamus ut faucibus enim. Etiam pretium, risus sit amet lacinia porttitor, mauris nunc faucibus sapien, vitae suscipit massa leo vel justo. Donec justo urna, condimentum et finibus eget, facilisis et massa. Cras ipsum neque, vestibulum non ligula vitae, malesuada ultrices augue. Nullam sodales quam lacinia tortor tempor, sit amet interdum urna congue. Phasellus tristique maximus mi vel tincidunt. Fusce vel tincidunt velit. Curabitur mollis metus ipsum, eu laoreet eros dignissim eget. Donec aliquet maximus orci, eget tristique nibh pretium vulputate.</p>
+            </div>
+
+            <div class="page-break"></div>
+
+            <!-- Sumary ----------------------------------------------------------------------------------------------->
+
+            <section class="section" data-title="Elevator's sumary">
+                <span>Elevator's sumary</span>
+            </section>
+
+            <div class="content">
+                <p>This is the full options list able for jQuery-elevator:</p>
+            </div>
+
+            <div class="highlight sumary">
+                <span class="title">Sumary</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    $.elevator({
+
+        align<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>bottom right<span class="pl-pds">'</span></span>,               <span class="pl-c">// options: (string) 'top left' | 'top right' </span>
+                                             <span class="pl-c">//                   'bottom left' | 'bottom right' </span>
+
+        shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>circle<span class="pl-pds">'</span></span>,                     <span class="pl-c">// options: (string) 'circle' (default) | 'rounded' | 'square'</span>
+
+        speed<span class="pl-k">:</span> <span class="pl-c1">1000</span>,                         <span class="pl-c">// options: (integer) 1000 (default | milliseconds)</span>
+
+        glass<span class="pl-k">:</span> <span class="pl-c1">false</span>                         <span class="pl-c">// options: (boolean) true | false (default)</span>
+
+        auto_hide<span class="pl-k">:</span> <span class="pl-c1">false</span>                     <span class="pl-c">// options: (boolean) true | false (default)</span>
+
+        item_top<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>#item-as-top<span class="pl-pds">'</span></span>),         <span class="pl-c">// options: (object) null (default)</span>
+
+        item_bottom<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>#item-as-bottom<span class="pl-pds">'</span></span>),   <span class="pl-c">// options: (object) null (default)</span>
+
+        show_top<span class="pl-k">:</span> <span class="pl-c1">true</span>,                      <span class="pl-c">// options: (boolean) true (default) | false</span>
+
+        show_bottom<span class="pl-k">:</span> <span class="pl-c1">true</span>,                   <span class="pl-c">// options: (boolean) true (default) | false</span>
+
+        margin<span class="pl-k">:</span> <span class="pl-c1">100</span>,                         <span class="pl-c">// options: (integer) 100 (default)</span>
+
+        navigation<span class="pl-k">:</span> $(<span class="pl-s"><span class="pl-pds">'</span>.section<span class="pl-pds">'</span></span>),           <span class="pl-c">// options: (object) | array[(object)]</span>
+
+        navigation_text<span class="pl-k">:</span> <span class="pl-c1">false</span>,              <span class="pl-c">// options: (boolean) true | false (default)</span>
+
+        tooltips<span class="pl-k">:</span> <span class="pl-c1">false</span>                      <span class="pl-c">// options: (boolean) true | false (default)</span>
+        <div class="page-break"></div>
+        <span class="pl-en">onBeforeMove</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){},          <span class="pl-c">// Execute Order: 0</span>
+
+            <span class="pl-en">onBeforeGoTop</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){},     <span class="pl-c">// Execute Order: 1</span>
+            <span class="pl-en">onAfterGoTop</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){},      <span class="pl-c">// Execute Order: 2</span>
+
+            <span class="pl-en">onBeforeGoBottom</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){},  <span class="pl-c">// Execute Order: 1</span>
+            <span class="pl-en">onAfterGoBottom</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){},   <span class="pl-c">// Execute Order: 2</span>
+
+            <span class="pl-en">onBeforeGoSection</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}, <span class="pl-c">// Execute Order: 1</span>
+            <span class="pl-en">onAfterGoSection</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){},  <span class="pl-c">// Execute Order: 2</span>
+
+        <span class="pl-en">onAfterMove</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}            <span class="pl-c">// Execute Order: 3</span>
+
+    });
+
+});</pre></div>
+
+            <div class="filler">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum turpis elit, at consectetur tellus dapibus ac. Integer a massa a orci luctus cursus vitae vitae nibh. Praesent lacinia eleifend dui, eget placerat ipsum dictum eget. Aliquam nisi dolor, convallis tempus quam at, pellentesque mollis sem. Nullam consectetur libero sed pharetra commodo. Vestibulum lectus magna, feugiat in vehicula nec, facilisis consequat felis. Proin id erat nec purus porta malesuada.</p>
+                <p>Suspendisse vel suscipit neque. Ut sodales accumsan ipsum consectetur commodo. Nullam sed metus placerat, mattis velit et, ultrices felis. Nunc nisi metus, ullamcorper tristique nunc sed, suscipit ornare nunc. Maecenas vitae ullamcorper metus, id tempus dolor. Nulla facilisi. Duis consequat, nisi vitae interdum feugiat, urna lorem venenatis ex, eu scelerisque turpis ipsum eu purus. Nulla cursus erat id neque fringilla, non blandit metus pulvinar. Phasellus metus odio, imperdiet at blandit quis, egestas a sapien.</p>
+                <p>Aenean eget malesuada leo. Nullam auctor orci a varius faucibus. Vivamus pellentesque arcu tortor, id cursus ex pharetra id. Nullam rutrum faucibus diam nec ultrices. Aliquam elementum pretium nibh, id venenatis ex. In iaculis risus a leo condimentum, lacinia finibus massa laoreet. Aliquam erat volutpat. Integer quis tortor et odio dictum tincidunt. Quisque mi leo, hendrerit eu egestas ac, tempus vitae quam. Donec tincidunt, mauris vel dictum posuere, lectus tellus consequat felis, vel eleifend nisl odio vel ipsum. Sed facilisis eget turpis sed accumsan. Proin ut arcu in mi tempus eleifend.</p>
+                <p>Donec rhoncus erat sed dolor dictum, at malesuada velit lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque vel pellentesque risus. Sed eu faucibus justo. Nullam aliquet non ipsum et faucibus. Morbi diam ligula, dignissim at turpis at, dignissim ultricies ipsum. Fusce commodo venenatis ante at accumsan. Nullam varius fermentum porttitor. Integer posuere nunc a tellus mattis bibendum. Aliquam erat volutpat. Quisque porta condimentum arcu. Donec metus lorem, faucibus ut pretium in, pharetra vitae odio. Donec ex velit, semper eu urna sit amet, dignissim auctor lectus. Phasellus consectetur quam ac molestie tincidunt. Duis elementum dapibus lacus faucibus volutpat.</p>
+                <p>Nullam porta gravida nisl quis sodales. Cras suscipit mauris enim, vel bibendum felis facilisis eget. Phasellus eleifend est a rutrum fermentum. Etiam bibendum lectus in dolor vulputate lobortis. Vestibulum aliquam, purus vel molestie venenatis, turpis neque lacinia nisl, ac gravida diam tellus id lorem. Aliquam ac tortor eget nulla vestibulum blandit. In bibendum mi finibus tempor consectetur. Sed convallis dui ut felis ullamcorper venenatis. Quisque congue scelerisque ipsum, sit amet fringilla nibh sollicitudin non. Sed quis erat nec nisl finibus iaculis sed nec justo. Aliquam sit amet tincidunt dui, quis tristique ante. Ut vitae massa neque. Sed tempus ante id lorem gravida fringilla. Quisque eros arcu, pulvinar eu sapien et, elementum dapibus quam. Ut elementum tempus lectus, sed lacinia tellus lacinia vitae. Vivamus lobortis, tellus id semper congue, dui nisi mattis nibh, id vulputate mi quam in risus.</p>
+                <p>Praesent lacinia, lorem non posuere congue, justo odio condimentum lectus, et interdum neque diam id urna. Pellentesque varius sapien risus, sed lacinia orci semper et. Aliquam euismod imperdiet euismod. Nunc nec velit rutrum, consequat purus eu, tincidunt leo. Sed malesuada, erat non bibendum consectetur, ipsum ipsum rutrum diam, in condimentum massa arcu eget libero. Nulla viverra ligula nec metus tristique euismod. Donec et turpis leo. Vestibulum eget ullamcorper dolor. Fusce eget quam vitae ipsum laoreet aliquam malesuada at eros. Donec diam mi, iaculis et blandit vitae, egestas in massa. Nulla suscipit massa placerat dui eleifend eleifend.</p>
+                <p>Aenean eget condimentum lacus. Quisque sem leo, interdum vel varius id, tempor id urna. In euismod, est et fringilla ornare, eros nibh rutrum odio, eu pellentesque odio arcu hendrerit diam. Suspendisse potenti. Nunc nibh dolor, ultrices ac ligula sed, fermentum dictum ipsum. Integer ipsum sapien, malesuada at arcu eu, tempor condimentum quam. Cras imperdiet tempus tempor. Pellentesque nisl velit, pretium id nisi sit amet, malesuada aliquet lorem.</p>
+                <p>Aliquam id tincidunt augue. Quisque interdum, massa vitae ultrices commodo, ex risus laoreet eros, eu porta ex dui nec ante. In ut aliquam nisi. Quisque iaculis lacus id ipsum molestie gravida. Sed volutpat turpis odio. Maecenas malesuada justo blandit sapien efficitur vehicula. Sed augue lacus, ullamcorper a condimentum sit amet, tristique ac turpis. Integer vitae justo eu purus iaculis consequat. Sed non lacus sit amet nibh convallis placerat. Aenean molestie vulputate pellentesque. Sed placerat arcu quis cursus rutrum. Sed malesuada pellentesque nibh, ac sodales ante tempus eu.</p>
+                <p>Nam finibus aliquet dolor facilisis bibendum. Donec sit amet efficitur enim. Mauris blandit tempor justo, id porta lacus tincidunt nec. Donec gravida turpis ipsum, quis laoreet metus maximus vitae. Donec aliquet vel lorem ac congue. Donec eleifend, lacus non maximus facilisis, tellus est commodo elit, sed consectetur mi lectus fermentum elit. Donec vel congue eros, in vestibulum diam. Aenean non elit dignissim, accumsan mauris nec, lacinia eros. Ut dignissim finibus purus, ac tincidunt velit malesuada sit amet. Quisque id diam porttitor, tempor nibh ut, ornare metus. Maecenas velit nisi, porttitor ut risus fermentum, ultrices blandit nisi. Sed tempus at enim aliquam auctor. Sed pharetra dictum felis eget placerat. Etiam lacinia neque at faucibus gravida. Vivamus eu elit semper, tempor ligula vitae, sodales nulla. Integer venenatis vitae elit pellentesque condimentum.</p>
+                <p>Suspendisse id enim vehicula, lobortis sapien non, ultricies erat. Nunc imperdiet aliquam venenatis. Aliquam euismod eu erat sit amet tempor. Vivamus ut faucibus enim. Etiam pretium, risus sit amet lacinia porttitor, mauris nunc faucibus sapien, vitae suscipit massa leo vel justo. Donec justo urna, condimentum et finibus eget, facilisis et massa. Cras ipsum neque, vestibulum non ligula vitae, malesuada ultrices augue. Nullam sodales quam lacinia tortor tempor, sit amet interdum urna congue. Phasellus tristique maximus mi vel tincidunt. Fusce vel tincidunt velit. Curabitur mollis metus ipsum, eu laoreet eros dignissim eget. Donec aliquet maximus orci, eget tristique nibh pretium vulputate.</p>
+            </div>
+
+            <!-- Control -------------------------------------------------------------------------------------------->
+
+            <section class="section" data-title="Elevator's controls">
+                <span>Elevator's controls</span>
+            </section>
+
+            <div class="content">
+                <p>You can use the external functions to control and manage some aspects from the <strong>elevator</strong> element, setting the elevator to a object variable:</p>
+            </div>
+
+            <div class="highlight functions">
+                <span class="title">Eleveator's functions</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    <span class="pl-k">var</span> <span class="pl-v">elevator</span> = $.elevator();
+
+    <span class="pl-v">elevator</span>.<span class="pl-e">reset_align</span>(<a href="#" data-elevator="1">string</a>);
+
+    <span class="pl-v">elevator</span>.<span class="pl-e">reset_shape</span>(<a href="#" data-elevator="2">string</a>);
+
+    <span class="pl-v">elevator</span>.<span class="pl-e">reset_speed</span>(<a href="#" data-elevator="3">integer</a>);
+
+    <span class="pl-v">elevator</span>.<span class="pl-e">reset_glass</span>(<a href="#" data-elevator="4">boolean</a>);
+
+    <span class="pl-v">elevator</span>.<span class="pl-e">auto_hide</span>(<a href="#" data-elevator="5">boolean</a>);
+
+    <span class="pl-v">elevator</span>.<span class="pl-e">move_to</span>( string | integer );
+
+    <span class="pl-c">// move_to :: string: top | bottom</span>
+
+    <span class="pl-c">// move_to :: integer: section number ( should be higher than 0 )</span>
+
+});</pre></div>
+
+            <div class="page-break"></div>
+
+            <div class="highlight core">
+                <span class="title">Eleveator's core</span>
+                <pre>$(<span class="pl-c1">document</span>).ready(<span class="pl-k">function</span>(){
+
+    <span class="pl-k">var</span> <span class="pl-v">elevator</span> = $.elevator();
+
+    <span class="pl-k">var</span> <span class="pl-v">elevator_settings</span> = <span class="pl-v">elevator</span>.<span class="pl-e">get_settings</span>();
+
+    <span class="pl-c">// get_settings :: return an asociative array </span>
+
+    <span class="pl-v">elevator</span>.<span class="pl-e">destroy</span>();
+
+});</pre></div>
+
+            <div class="filler">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum turpis elit, at consectetur tellus dapibus ac. Integer a massa a orci luctus cursus vitae vitae nibh. Praesent lacinia eleifend dui, eget placerat ipsum dictum eget. Aliquam nisi dolor, convallis tempus quam at, pellentesque mollis sem. Nullam consectetur libero sed pharetra commodo. Vestibulum lectus magna, feugiat in vehicula nec, facilisis consequat felis. Proin id erat nec purus porta malesuada.</p>
+                <p>Suspendisse vel suscipit neque. Ut sodales accumsan ipsum consectetur commodo. Nullam sed metus placerat, mattis velit et, ultrices felis. Nunc nisi metus, ullamcorper tristique nunc sed, suscipit ornare nunc. Maecenas vitae ullamcorper metus, id tempus dolor. Nulla facilisi. Duis consequat, nisi vitae interdum feugiat, urna lorem venenatis ex, eu scelerisque turpis ipsum eu purus. Nulla cursus erat id neque fringilla, non blandit metus pulvinar. Phasellus metus odio, imperdiet at blandit quis, egestas a sapien.</p>
+                <p>Aenean eget malesuada leo. Nullam auctor orci a varius faucibus. Vivamus pellentesque arcu tortor, id cursus ex pharetra id. Nullam rutrum faucibus diam nec ultrices. Aliquam elementum pretium nibh, id venenatis ex. In iaculis risus a leo condimentum, lacinia finibus massa laoreet. Aliquam erat volutpat. Integer quis tortor et odio dictum tincidunt. Quisque mi leo, hendrerit eu egestas ac, tempus vitae quam. Donec tincidunt, mauris vel dictum posuere, lectus tellus consequat felis, vel eleifend nisl odio vel ipsum. Sed facilisis eget turpis sed accumsan. Proin ut arcu in mi tempus eleifend.</p>
+                <p>Donec rhoncus erat sed dolor dictum, at malesuada velit lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque vel pellentesque risus. Sed eu faucibus justo. Nullam aliquet non ipsum et faucibus. Morbi diam ligula, dignissim at turpis at, dignissim ultricies ipsum. Fusce commodo venenatis ante at accumsan. Nullam varius fermentum porttitor. Integer posuere nunc a tellus mattis bibendum. Aliquam erat volutpat. Quisque porta condimentum arcu. Donec metus lorem, faucibus ut pretium in, pharetra vitae odio. Donec ex velit, semper eu urna sit amet, dignissim auctor lectus. Phasellus consectetur quam ac molestie tincidunt. Duis elementum dapibus lacus faucibus volutpat.</p>
+                <p>Nullam porta gravida nisl quis sodales. Cras suscipit mauris enim, vel bibendum felis facilisis eget. Phasellus eleifend est a rutrum fermentum. Etiam bibendum lectus in dolor vulputate lobortis. Vestibulum aliquam, purus vel molestie venenatis, turpis neque lacinia nisl, ac gravida diam tellus id lorem. Aliquam ac tortor eget nulla vestibulum blandit. In bibendum mi finibus tempor consectetur. Sed convallis dui ut felis ullamcorper venenatis. Quisque congue scelerisque ipsum, sit amet fringilla nibh sollicitudin non. Sed quis erat nec nisl finibus iaculis sed nec justo. Aliquam sit amet tincidunt dui, quis tristique ante. Ut vitae massa neque. Sed tempus ante id lorem gravida fringilla. Quisque eros arcu, pulvinar eu sapien et, elementum dapibus quam. Ut elementum tempus lectus, sed lacinia tellus lacinia vitae. Vivamus lobortis, tellus id semper congue, dui nisi mattis nibh, id vulputate mi quam in risus.</p>
+                <p>Praesent lacinia, lorem non posuere congue, justo odio condimentum lectus, et interdum neque diam id urna. Pellentesque varius sapien risus, sed lacinia orci semper et. Aliquam euismod imperdiet euismod. Nunc nec velit rutrum, consequat purus eu, tincidunt leo. Sed malesuada, erat non bibendum consectetur, ipsum ipsum rutrum diam, in condimentum massa arcu eget libero. Nulla viverra ligula nec metus tristique euismod. Donec et turpis leo. Vestibulum eget ullamcorper dolor. Fusce eget quam vitae ipsum laoreet aliquam malesuada at eros. Donec diam mi, iaculis et blandit vitae, egestas in massa. Nulla suscipit massa placerat dui eleifend eleifend.</p>
+                <p>Aenean eget condimentum lacus. Quisque sem leo, interdum vel varius id, tempor id urna. In euismod, est et fringilla ornare, eros nibh rutrum odio, eu pellentesque odio arcu hendrerit diam. Suspendisse potenti. Nunc nibh dolor, ultrices ac ligula sed, fermentum dictum ipsum. Integer ipsum sapien, malesuada at arcu eu, tempor condimentum quam. Cras imperdiet tempus tempor. Pellentesque nisl velit, pretium id nisi sit amet, malesuada aliquet lorem.</p>
+                <p>Aliquam id tincidunt augue. Quisque interdum, massa vitae ultrices commodo, ex risus laoreet eros, eu porta ex dui nec ante. In ut aliquam nisi. Quisque iaculis lacus id ipsum molestie gravida. Sed volutpat turpis odio. Maecenas malesuada justo blandit sapien efficitur vehicula. Sed augue lacus, ullamcorper a condimentum sit amet, tristique ac turpis. Integer vitae justo eu purus iaculis consequat. Sed non lacus sit amet nibh convallis placerat. Aenean molestie vulputate pellentesque. Sed placerat arcu quis cursus rutrum. Sed malesuada pellentesque nibh, ac sodales ante tempus eu.</p>
+                <p>Nam finibus aliquet dolor facilisis bibendum. Donec sit amet efficitur enim. Mauris blandit tempor justo, id porta lacus tincidunt nec. Donec gravida turpis ipsum, quis laoreet metus maximus vitae. Donec aliquet vel lorem ac congue. Donec eleifend, lacus non maximus facilisis, tellus est commodo elit, sed consectetur mi lectus fermentum elit. Donec vel congue eros, in vestibulum diam. Aenean non elit dignissim, accumsan mauris nec, lacinia eros. Ut dignissim finibus purus, ac tincidunt velit malesuada sit amet. Quisque id diam porttitor, tempor nibh ut, ornare metus. Maecenas velit nisi, porttitor ut risus fermentum, ultrices blandit nisi. Sed tempus at enim aliquam auctor. Sed pharetra dictum felis eget placerat. Etiam lacinia neque at faucibus gravida. Vivamus eu elit semper, tempor ligula vitae, sodales nulla. Integer venenatis vitae elit pellentesque condimentum.</p>
+                <p>Suspendisse id enim vehicula, lobortis sapien non, ultricies erat. Nunc imperdiet aliquam venenatis. Aliquam euismod eu erat sit amet tempor. Vivamus ut faucibus enim. Etiam pretium, risus sit amet lacinia porttitor, mauris nunc faucibus sapien, vitae suscipit massa leo vel justo. Donec justo urna, condimentum et finibus eget, facilisis et massa. Cras ipsum neque, vestibulum non ligula vitae, malesuada ultrices augue. Nullam sodales quam lacinia tortor tempor, sit amet interdum urna congue. Phasellus tristique maximus mi vel tincidunt. Fusce vel tincidunt velit. Curabitur mollis metus ipsum, eu laoreet eros dignissim eget. Donec aliquet maximus orci, eget tristique nibh pretium vulputate.</p>
+            </div>
+
+            <!-- Auto-Move -------------------------------------------------------------------------------------------->
+
+            <section class="section" data-title="Elevator's auto-move">
+                <span>Elevator's auto-move</span>
+            </section>
+
+            <div class="content">
+                <p>You can use the html <code>data-elevator</code> tag to create an standalone element which interacts with the <strong>elevator</strong> item:</p>
+            </div>
+
+            <div class="highlight highlight-html">
+                <span class="title">Defining section's titles</span>
+                <pre>&lt;<span class="pl-ent">html</span>&gt;
 
     &lt;<span class="pl-ent">body</span>&gt;
 
-        &lt;<span class="pl-ent">h2</span> <span class="pl-e">data-title</span>=<span class="pl-s"><span class="pl-pds">"</span>Title for Section<span class="pl-pds">"</span></span>&gt;Lorem ipsum dolor sit amet&lt;<span class="pl-ent">h2</span>&gt;
+        <span class="pl-c">&lt;!-- Elevator :: Auto-Move to Top --&gt;</span>
+        &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">data-elevator</span>=<span class="pl-s"><span class="pl-pds">"</span>top<span class="pl-pds">"</span></span>&gt;Lorem ipsum dolor sit amet&lt;<span class="pl-ent">/a</span>&gt;
+
+        <span class="pl-c">&lt;!-- Elevator :: Auto-Move to section number --&gt;</span>
+        &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">data-elevator</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>&gt;Lorem ipsum dolor sit amet&lt;<span class="pl-ent">/a</span>&gt;
+        &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">data-elevator</span>=<span class="pl-s"><span class="pl-pds">"</span>2<span class="pl-pds">"</span></span>&gt;Lorem ipsum dolor sit amet&lt;<span class="pl-ent">/a</span>&gt;
+        &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">data-elevator</span>=<span class="pl-s"><span class="pl-pds">"</span>3<span class="pl-pds">"</span></span>&gt;Lorem ipsum dolor sit amet&lt;<span class="pl-ent">/a</span>&gt;
+
+        <span class="pl-c">&lt;!-- Elevator :: Auto-Move to Bottom --&gt;</span>
+        &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">data-elevator</span>=<span class="pl-s"><span class="pl-pds">"</span>bottom<span class="pl-pds">"</span></span>&gt;Lorem ipsum dolor sit amet&lt;<span class="pl-ent">/a</span>&gt;
 
     &lt;/<span class="pl-ent">body</span>&gt;
 
 &lt;/<span class="pl-ent">html</span>&gt;</pre></div>
 
-<h2>
-<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributors</h2>
+            <div class="filler">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum turpis elit, at consectetur tellus dapibus ac. Integer a massa a orci luctus cursus vitae vitae nibh. Praesent lacinia eleifend dui, eget placerat ipsum dictum eget. Aliquam nisi dolor, convallis tempus quam at, pellentesque mollis sem. Nullam consectetur libero sed pharetra commodo. Vestibulum lectus magna, feugiat in vehicula nec, facilisis consequat felis. Proin id erat nec purus porta malesuada.</p>
+                <p>Suspendisse vel suscipit neque. Ut sodales accumsan ipsum consectetur commodo. Nullam sed metus placerat, mattis velit et, ultrices felis. Nunc nisi metus, ullamcorper tristique nunc sed, suscipit ornare nunc. Maecenas vitae ullamcorper metus, id tempus dolor. Nulla facilisi. Duis consequat, nisi vitae interdum feugiat, urna lorem venenatis ex, eu scelerisque turpis ipsum eu purus. Nulla cursus erat id neque fringilla, non blandit metus pulvinar. Phasellus metus odio, imperdiet at blandit quis, egestas a sapien.</p>
+                <p>Aenean eget malesuada leo. Nullam auctor orci a varius faucibus. Vivamus pellentesque arcu tortor, id cursus ex pharetra id. Nullam rutrum faucibus diam nec ultrices. Aliquam elementum pretium nibh, id venenatis ex. In iaculis risus a leo condimentum, lacinia finibus massa laoreet. Aliquam erat volutpat. Integer quis tortor et odio dictum tincidunt. Quisque mi leo, hendrerit eu egestas ac, tempus vitae quam. Donec tincidunt, mauris vel dictum posuere, lectus tellus consequat felis, vel eleifend nisl odio vel ipsum. Sed facilisis eget turpis sed accumsan. Proin ut arcu in mi tempus eleifend.</p>
+                <p>Donec rhoncus erat sed dolor dictum, at malesuada velit lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque vel pellentesque risus. Sed eu faucibus justo. Nullam aliquet non ipsum et faucibus. Morbi diam ligula, dignissim at turpis at, dignissim ultricies ipsum. Fusce commodo venenatis ante at accumsan. Nullam varius fermentum porttitor. Integer posuere nunc a tellus mattis bibendum. Aliquam erat volutpat. Quisque porta condimentum arcu. Donec metus lorem, faucibus ut pretium in, pharetra vitae odio. Donec ex velit, semper eu urna sit amet, dignissim auctor lectus. Phasellus consectetur quam ac molestie tincidunt. Duis elementum dapibus lacus faucibus volutpat.</p>
+                <p>Nullam porta gravida nisl quis sodales. Cras suscipit mauris enim, vel bibendum felis facilisis eget. Phasellus eleifend est a rutrum fermentum. Etiam bibendum lectus in dolor vulputate lobortis. Vestibulum aliquam, purus vel molestie venenatis, turpis neque lacinia nisl, ac gravida diam tellus id lorem. Aliquam ac tortor eget nulla vestibulum blandit. In bibendum mi finibus tempor consectetur. Sed convallis dui ut felis ullamcorper venenatis. Quisque congue scelerisque ipsum, sit amet fringilla nibh sollicitudin non. Sed quis erat nec nisl finibus iaculis sed nec justo. Aliquam sit amet tincidunt dui, quis tristique ante. Ut vitae massa neque. Sed tempus ante id lorem gravida fringilla. Quisque eros arcu, pulvinar eu sapien et, elementum dapibus quam. Ut elementum tempus lectus, sed lacinia tellus lacinia vitae. Vivamus lobortis, tellus id semper congue, dui nisi mattis nibh, id vulputate mi quam in risus.</p>
+                <p>Praesent lacinia, lorem non posuere congue, justo odio condimentum lectus, et interdum neque diam id urna. Pellentesque varius sapien risus, sed lacinia orci semper et. Aliquam euismod imperdiet euismod. Nunc nec velit rutrum, consequat purus eu, tincidunt leo. Sed malesuada, erat non bibendum consectetur, ipsum ipsum rutrum diam, in condimentum massa arcu eget libero. Nulla viverra ligula nec metus tristique euismod. Donec et turpis leo. Vestibulum eget ullamcorper dolor. Fusce eget quam vitae ipsum laoreet aliquam malesuada at eros. Donec diam mi, iaculis et blandit vitae, egestas in massa. Nulla suscipit massa placerat dui eleifend eleifend.</p>
+                <p>Aenean eget condimentum lacus. Quisque sem leo, interdum vel varius id, tempor id urna. In euismod, est et fringilla ornare, eros nibh rutrum odio, eu pellentesque odio arcu hendrerit diam. Suspendisse potenti. Nunc nibh dolor, ultrices ac ligula sed, fermentum dictum ipsum. Integer ipsum sapien, malesuada at arcu eu, tempor condimentum quam. Cras imperdiet tempus tempor. Pellentesque nisl velit, pretium id nisi sit amet, malesuada aliquet lorem.</p>
+                <p>Aliquam id tincidunt augue. Quisque interdum, massa vitae ultrices commodo, ex risus laoreet eros, eu porta ex dui nec ante. In ut aliquam nisi. Quisque iaculis lacus id ipsum molestie gravida. Sed volutpat turpis odio. Maecenas malesuada justo blandit sapien efficitur vehicula. Sed augue lacus, ullamcorper a condimentum sit amet, tristique ac turpis. Integer vitae justo eu purus iaculis consequat. Sed non lacus sit amet nibh convallis placerat. Aenean molestie vulputate pellentesque. Sed placerat arcu quis cursus rutrum. Sed malesuada pellentesque nibh, ac sodales ante tempus eu.</p>
+                <p>Nam finibus aliquet dolor facilisis bibendum. Donec sit amet efficitur enim. Mauris blandit tempor justo, id porta lacus tincidunt nec. Donec gravida turpis ipsum, quis laoreet metus maximus vitae. Donec aliquet vel lorem ac congue. Donec eleifend, lacus non maximus facilisis, tellus est commodo elit, sed consectetur mi lectus fermentum elit. Donec vel congue eros, in vestibulum diam. Aenean non elit dignissim, accumsan mauris nec, lacinia eros. Ut dignissim finibus purus, ac tincidunt velit malesuada sit amet. Quisque id diam porttitor, tempor nibh ut, ornare metus. Maecenas velit nisi, porttitor ut risus fermentum, ultrices blandit nisi. Sed tempus at enim aliquam auctor. Sed pharetra dictum felis eget placerat. Etiam lacinia neque at faucibus gravida. Vivamus eu elit semper, tempor ligula vitae, sodales nulla. Integer venenatis vitae elit pellentesque condimentum.</p>
+                <p>Suspendisse id enim vehicula, lobortis sapien non, ultricies erat. Nunc imperdiet aliquam venenatis. Aliquam euismod eu erat sit amet tempor. Vivamus ut faucibus enim. Etiam pretium, risus sit amet lacinia porttitor, mauris nunc faucibus sapien, vitae suscipit massa leo vel justo. Donec justo urna, condimentum et finibus eget, facilisis et massa. Cras ipsum neque, vestibulum non ligula vitae, malesuada ultrices augue. Nullam sodales quam lacinia tortor tempor, sit amet interdum urna congue. Phasellus tristique maximus mi vel tincidunt. Fusce vel tincidunt velit. Curabitur mollis metus ipsum, eu laoreet eros dignissim eget. Donec aliquet maximus orci, eget tristique nibh pretium vulputate.</p>
+            </div>
 
-<ul>
-<li>Salvador Saldaña</li>
-<li>Pablo Rosales</li>
-</ul>
-        </section>
+            <div class="page-break"></div>
 
-        <footer>
-          jQuery-Elevator is maintained by <a href="https://github.com/inzycle">inzycle</a><br>
-          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+            <!-- Bottom Element --------------------------------------------------------------------------------------->
 
-        
-      </div>
-    </div>
-  </body>
-  
-  <!-- Google Analytics -->
-  <script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-65296164-1', 'auto');
-  ga('send', 'pageview');
-  </script>
-  
+            <div id="bottom-element" class="element" data-title="Bottom element for Elevator">
+                <p class="title"><strong>Bottom Element</strong></p>
+                <p class="comment">This is a example element which acts as bottom for elevator instead of page bottom in itself. You can use this feature to manage a proper top below the header containing important information. You can also set a title using the <strong>data-title</strong> property on this element, as now it is: <strong>data-title="title"</strong></p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+
+            <div class="contributors">
+                <span>Contributors:</span>
+                <ul>
+                    <li>Salvador Saldaña</li>
+                    <li>Pablo Rosales</li>
+                </ul>
+            </div>
+
+            <div class="info">
+                <span>jQuery-Elevator is maintained by <a href="https://github.com/inzycle">inzycle</a></span>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script src="js/jquery-1.11.3.min.js">\x3C/script>')</script>
+
+    <!-- jQuery Elevator -->
+    <script type="text/javascript" src="lib/jquery.elevator.min.js"></script>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/script.js"></script>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        /*
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-65296164-1', 'auto');
+         ga('send', 'pageview');
+         */
+    </script>
+
+</body>
 </html>
