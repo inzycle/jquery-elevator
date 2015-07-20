@@ -317,7 +317,8 @@
 
     .jq-elevator.touch .jq-title { display: none; }
 
-    .jq-elevator.touch .jq-top, .jq-elevator.touch .jq-bottom, .jq-elevator.touch .jq-items-toggle {
+    .jq-elevator.touch .jq-top, .jq-elevator.touch .jq-bottom, .jq-elevator.touch .jq-items-toggle,
+    .jq-elevator.touch:hover .jq-top, .jq-elevator.touch:hover .jq-bottom, .jq-elevator.touch:hover .jq-items-toggle {
 
         font-size: 16px;
         line-height: 16px;
@@ -357,7 +358,7 @@
 
             .jq-elevator.touch.align-bottom .jq-items { bottom: 50px; }
 
-            .jq-elevator.touch .jq-item {
+            .jq-elevator.touch .jq-item, .jq-elevator.touch:hover .jq-item {
 
                 padding: 4px 0;
                 margin: 3px 0;
