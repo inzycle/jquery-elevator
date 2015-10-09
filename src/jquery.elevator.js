@@ -1,4 +1,4 @@
-/*! jQuery Elevator - v1.0.5 - 2015
+/*! jQuery Elevator - v1.0.6 - 2015
  * https://inzycle.github.com/jquery-elevator
  * Copyright (c) 2015 inZycle; Licensed MIT */
 
@@ -227,6 +227,14 @@
             item_bottom: null,
 
             /**
+             a setting to establish an item which acts as container for scrolling.
+             @property item_container
+             @type Object
+             @default null
+             */
+            item_container: null,
+
+            /**
              a setting to establish the position of the elevator object.
              @property align
              @type String
@@ -360,13 +368,15 @@
 
         function scrollTo(target, callback_before, callback_after) {
 
+            var item_container = settings.item_container || $('html,body');
+
             settings.onBeforeMove.call();
 
             if (typeof callback_before === 'function') {
                 callback_before.call();
             }
 
-            $.when($('html,body').animate({
+            $.when(item_container.animate({
                 scrollTop: target
             }, {
                 duration: settings.speed
@@ -409,12 +419,16 @@
 
                 e.preventDefault();
 
-                var pos;
+                var pos,
+                    item_container = settings.item_container;
 
                 if(item_top && typeof(item_top) == 'object') {
                     pos = item_top.offset().top;
+                    if(item_container) {
+                        pos = pos - item_container.offset().top;
+                    }
                 } else {
-                    pos = 0;
+                    pos = item_container ? item_container.offset().top : 0;
                 }
 
                 scrollTo(pos,settings.onBeforeGoTop,settings.onAfterGoTop);
@@ -500,8 +514,19 @@
 
             $(document).on('click', '.' + CLASS_ITEM, function(e) {
                 e.preventDefault();
-                var _item = $($(this).attr('href'));
-                scrollTo(_item.offset().top,settings.onBeforeGoSection,settings.onAfterGoSection);
+
+                var _item = $($(this).attr('href')),
+                    item_container = settings.item_container,
+                    pos;
+
+                if(item_container) {
+                    pos = _item.offset().top - item_container.offset().top + item_container.scrollTop();
+                }
+                else {
+                    pos = _item.offset().top;
+                }
+
+                scrollTo(pos, settings.onBeforeGoSection,settings.onAfterGoSection);
             });
 
         }
@@ -536,12 +561,18 @@
 
                 e.preventDefault();
 
-                var pos = 0;
+                var pos = 0,
+                    item_container = settings.item_container;
 
                 if(item_bottom && typeof(item_bottom) == 'object') {
-                    pos = item_bottom.offset().top + (item_bottom.outerHeight(true) - $win.height());
+                    if(item_container) {
+                        pos = item_bottom.offset().top - item_container.offset().top + item_container.scrollTop() + (item_bottom.outerHeight(true) - item_container.height());
+                    }
+                    else {
+                        pos = item_bottom.offset().top + (item_bottom.outerHeight(true) - $win.height());
+                    }
                 } else {
-                    pos = $doc.height();
+                    pos = item_container ? item_container.height() : $doc.height();
                 }
 
                 scrollTo(pos,settings.onBeforeGoBottom,settings.onAfterGoBottom);
@@ -555,12 +586,21 @@
         function atTop() {
 
             var item_top = settings.item_top,
+                item_container = settings.item_container,
+                container_top = 0,
                 ret = null;
 
+            if(item_container) {
+                container_top = item_container.offset().top;
+            }
+            else {
+                item_container = $win;
+            }
+
             if(item_top && typeof(item_top) == 'object') {
-                ret = $win.scrollTop() <= item_top.offset().top + settings.margin;
+                ret = item_container.scrollTop() <= (item_top.offset().top - item_container.offset().top) + settings.margin;
             } else {
-                ret = $win.scrollTop() <= settings.margin;
+                ret = item_container.scrollTop() <= settings.margin;
             }
 
             return ret;
@@ -569,12 +609,23 @@
         function atBottom() {
 
             var item_bottom = settings.item_bottom,
+                item_container = settings.item_container,
+                container_top = 0,
+                content_height = $doc.height(),
                 ret = null;
 
+            if(item_container) {
+                container_top = item_container.offset().top;
+                content_height = item_container.prop('scrollHeight');
+            }
+            else {
+                item_container = $win;
+            }
+
             if(item_bottom && typeof(item_bottom) == 'object') {
-                ret = $win.scrollTop() >= item_bottom.offset().top - $win.height() - settings.margin;
+                ret = item_container.scrollTop() >= (item_bottom.offset().top - container_top) - item_container.height() - settings.margin;
             } else {
-                ret = $win.scrollTop() + $win.height() >= $doc.height() - settings.margin;
+                ret = item_container.scrollTop() + item_container.height() >= content_height - settings.margin;
             }
 
             return ret;
@@ -672,6 +723,8 @@
 
         function init() {
 
+            var item_container = settings.item_container || $doc;
+
             $div.addClass(CLASS_DIV);
 
             if ( 'ontouchstart' in window || navigator.msMaxTouchPoints ){ $div.addClass(CLASS_TOUCH); }
@@ -702,18 +755,19 @@
                 if (settings.show_bottom) { bottom_link.removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
             }
 
-            $doc.scroll(function() {
+            item_container.scroll(function() {
 
                 if (atTop()) {
-                    if (settings.show_top) { top_link.removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
-                    if (settings.show_bottom) { bottom_link.removeClass(CLASS_MIDDLE).addClass(CLASS_BIG); }
+                    if (settings.show_top) { top_link.removeClass(CLASS_BIG).removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
+                    if (settings.show_bottom) { bottom_link.removeClass(CLASS_SMALL).removeClass(CLASS_MIDDLE).addClass(CLASS_BIG); }
                 } else if (atBottom()) {
-                    if (settings.show_top) { top_link.removeClass(CLASS_MIDDLE).addClass(CLASS_BIG); }
-                    if (settings.show_bottom) { bottom_link.removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
+                    if (settings.show_top) { top_link.removeClass(CLASS_SMALL).removeClass(CLASS_MIDDLE).addClass(CLASS_BIG); }
+                    if (settings.show_bottom) { bottom_link.removeClass(CLASS_BIG).removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
                 } else {
                     if (settings.show_top) { top_link.removeClass(CLASS_BIG).removeClass(CLASS_SMALL).addClass(CLASS_MIDDLE); }
                     if (settings.show_bottom) { bottom_link.removeClass(CLASS_BIG).removeClass(CLASS_SMALL).addClass(CLASS_MIDDLE); }
                 }
+
             });
 
             $('body').append($div);
@@ -851,11 +905,11 @@
             };
 
             /**
-             Reset the auto hidden status of the navigation items
-             @method auto_hide
-             @param hide {Boolean} A setting to reestablish the auto hidden status of the navigation items.
+             Move to section
+             @method move_to
+             @param section {String or Number} 'top', 'bottom' or number of section.
              @example
-             elevator.auto_hide(true);
+             elevator.move_to('bottom');
              */
             this.move_to = function(section){
 
