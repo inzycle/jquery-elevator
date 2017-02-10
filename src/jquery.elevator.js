@@ -694,27 +694,27 @@
                 createBottomLink();
             }
 
-            if (atTop()) {
-                if (settings.show_top) { top_link.removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
-                if (settings.show_bottom) { bottom_link.removeClass(CLASS_MIDDLE).addClass(CLASS_BIG); }
-            } else if (atBottom()) {
-                if (settings.show_top) { top_link.removeClass(CLASS_MIDDLE).addClass(CLASS_BIG); }
-                if (settings.show_bottom) { bottom_link.removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
-            }
-
-            $doc.scroll(function() {
-
-                if (atTop()) {
-                    if (settings.show_top) { top_link.removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
-                    if (settings.show_bottom) { bottom_link.removeClass(CLASS_MIDDLE).addClass(CLASS_BIG); }
-                } else if (atBottom()) {
-                    if (settings.show_top) { top_link.removeClass(CLASS_MIDDLE).addClass(CLASS_BIG); }
-                    if (settings.show_bottom) { bottom_link.removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
-                } else {
+            function checkClasses(){
+                if (atTop() && !atBottom()) {
+                    if (settings.show_top) { top_link.removeClass(CLASS_BIG).removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
+                    if (settings.show_bottom) { bottom_link.removeClass(CLASS_SMALL).removeClass(CLASS_MIDDLE).addClass(CLASS_BIG); }
+                } else if (atBottom() && !atTop()) {
+                    if (settings.show_top) { top_link.removeClass(CLASS_SMALL).removeClass(CLASS_MIDDLE).addClass(CLASS_BIG); }
+                    if (settings.show_bottom) { bottom_link.removeClass(CLASS_BIG).removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
+                } else if (atBottom() && atTop()) {
+                    if (settings.show_top) { top_link.removeClass(CLASS_BIG).removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
+                    if (settings.show_bottom) { bottom_link.removeClass(CLASS_BIG).removeClass(CLASS_MIDDLE).addClass(CLASS_SMALL); }
+                }
+                else {
                     if (settings.show_top) { top_link.removeClass(CLASS_BIG).removeClass(CLASS_SMALL).addClass(CLASS_MIDDLE); }
                     if (settings.show_bottom) { bottom_link.removeClass(CLASS_BIG).removeClass(CLASS_SMALL).addClass(CLASS_MIDDLE); }
                 }
-            });
+            }
+
+            checkClasses();
+
+            $(window).on('scroll', checkClasses);
+            $(window).on('resize', checkClasses);
 
             $('body').append($div);
 
